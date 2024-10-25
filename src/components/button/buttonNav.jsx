@@ -12,12 +12,14 @@ const NavButton = styled(Link)({
   borderRadius: "4px",
 });
 
-const IconBox = styled(Box)(({ theme, active }) => ({
-  background: "#30287e",
+const IconBox = styled(Box)(({ active }) => ({
+  background: active ? "#49c792" : "#30287e",
   padding: "5px",
   borderRadius: "4px",
   height: "25px",
-  backgroundColor: active ? "#49c792" : "#30287e",
+  "& svg": {
+    fontSize: "25px",
+  },
 }));
 
 const Label = styled(Box)({

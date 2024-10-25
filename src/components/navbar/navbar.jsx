@@ -16,9 +16,11 @@ import {
   Version,
   SidebarMenu,
 } from "./navbar.style";
+import packageJson from "../../../package.json";
 
 const VNavbar = () => {
   const location = useLocation();
+  const WEBVersion = packageJson.version;
 
   return (
     <Sidebar>
@@ -26,26 +28,26 @@ const VNavbar = () => {
         <SidebarIcon>
           <LogoImage src="/AtomicSignal.png" alt="User Avatar" />
         </SidebarIcon>
-        <Version>V 1.0.02</Version>
+        <Version>V {WEBVersion}</Version>
       </SidebarHeader>
 
       <SidebarMenu my={1}>
         <Box>
           <ButtonNav
             to="/profile"
-            icon={<PersonOutlineOutlinedIcon style={{ fontSize: "25px" }} />}
+            icon={<PersonOutlineOutlinedIcon />}
             label="Profile"
             active={location.pathname === "/profile"}
           />
           <ButtonNav
             to="/team"
-            icon={<GroupsOutlinedIcon style={{ fontSize: "25px" }} />}
+            icon={<GroupsOutlinedIcon />}
             label="Team"
             active={location.pathname === "/team"}
           />
           <ButtonNav
             to="/feedback"
-            icon={<ChatOutlinedIcon style={{ fontSize: "25px" }} />}
+            icon={<ChatOutlinedIcon />}
             label="Feedback"
             active={location.pathname === "/feedback"}
           />
@@ -53,17 +55,14 @@ const VNavbar = () => {
         <Box>
           <ButtonNav
             to="/setting"
-            icon={<SettingsOutlinedIcon style={{ fontSize: "25px" }} />}
+            icon={<SettingsOutlinedIcon />}
             active={location.pathname === "/setting"}
           />
-          <ButtonNav
-            icon={<NotificationsOutlinedIcon style={{ fontSize: "25px" }} />}
-          />
+          <ButtonNav icon={<NotificationsOutlinedIcon />} />
           <ButtonNav
             icon={
               <PowerSettingsNewOutlinedIcon
                 style={{
-                  fontSize: "25px",
                   transform: "rotate(90deg)",
                   color: "#F44F5A",
                 }}
