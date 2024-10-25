@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import Layout from "../pages/layout/Layout";
-import AllRoutes from "./AllRoutes";
+import AllRoutes from "./allRouter";
 
 const Routes = () => {
   const routes = useRoutes([
