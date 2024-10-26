@@ -1,18 +1,10 @@
 import { Box, styled } from "@mui/material";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
-export const Outline = styled(Box)(() => ({
-  backgroundColor: "blue",
-  height: "100vh",
-  width: "100vw",
-  display: "flex",
-  justifyContent: "end",
-}));
-
 export const Base = styled(Box)(() => ({
-  height: "90%",
+  // height: "80%",
   backgroundColor: "#F0F0F0",
-  width: "96%",
+  width: "96.6%",
   padding: "24px",
 }));
 
