@@ -1,4 +1,5 @@
-import { TableBody, TableRow } from "@mui/material";
+import { FormControl, TableBody, TableRow } from "@mui/material";
+import StyledInputLabel from "../inputlabel/InputLabel";
 import {
   ReportingList,
   TableDiv,
@@ -26,6 +27,7 @@ import {
   ActionHeaderContainerSeparator,
   ActionContent,
   StyledTable,
+  StyledFormControl,
 } from "./Table.styles";
 
 import ReactSpeedometer from "react-d3-speedometer";
@@ -35,6 +37,8 @@ import StyledButton from "../button/Button";
 import { useEffect, useState } from "react";
 import Drawer from "../drawer/Drawer";
 import StyledDrawer from "../drawer/Drawer";
+import StyledInput from "../input/Input";
+import StyledTextField from "../textfield/TextField";
 const MembersTable = ({
   headings,
   stickyheadings,
@@ -45,7 +49,7 @@ const MembersTable = ({
 }) => {
   const [filteredRows, setFilteredRows] = useState([]);
   const [currPage, setCurrPage] = useState(0);
-  const [isEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(true);
+  const [isEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [modifiedRows, setModifiedRows] = useState([]);
   useEffect(() => {
@@ -261,14 +265,70 @@ const MembersTable = ({
         </Table>
       </StyledBottomTableContainer>
       <StyledDrawer
-        content={"Hi"}
+        title={"Edit member"}
+        content={<DrawerForm />}
         anchor={"right"}
+        bottomLeftButton={{ label: "Save", onClick: () => {} }}
         onClose={() => {
           setIsEditMemberDrawerOpen(false);
         }}
+        bottomRightButton={{ label: "Cancel", onClick: () => {} }}
         open={isEditMemberDrawerOpen}
       />
     </TableDiv>
+  );
+};
+
+const DrawerForm = () => {
+  return (
+    <StyledFormControl>
+      <StyledInputLabel required>Name</StyledInputLabel>
+      <StyledTextField
+        placeholder="Type name"
+        size="small"
+        fullWidth
+      ></StyledTextField>
+      <StyledInputLabel required>Email</StyledInputLabel>
+      <StyledTextField
+        placeholder="Email"
+        size="small"
+        fullWidth
+      ></StyledTextField>
+      <StyledInputLabel required>Date of Joining</StyledInputLabel>
+      <StyledTextField
+        InputLabelProps={{
+          shrink: true,
+        }}
+        type="date"
+        placeholder="Select a date"
+        size="small"
+        fullWidth
+      ></StyledTextField>
+      <StyledInputLabel>Department</StyledInputLabel>
+      <StyledTextField
+        placeholder="Select department"
+        size="small"
+        fullWidth
+      ></StyledTextField>
+      <StyledInputLabel required>Designation</StyledInputLabel>
+      <StyledTextField
+        placeholder="Select"
+        size="small"
+        fullWidth
+      ></StyledTextField>
+      <StyledInputLabel required>Role</StyledInputLabel>
+      <StyledTextField
+        placeholder="Select"
+        size="small"
+        fullWidth
+      ></StyledTextField>
+      <StyledInputLabel>Reporting To</StyledInputLabel>
+      <StyledTextField
+        placeholder="Manager name"
+        size="small"
+        fullWidth
+      ></StyledTextField>
+    </StyledFormControl>
   );
 };
 
