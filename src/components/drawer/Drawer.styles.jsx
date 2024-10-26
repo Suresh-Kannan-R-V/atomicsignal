@@ -23,6 +23,7 @@ const DrawerCloseButton = styled(CloseIcon)({
 
 const DrawerTitle = styled(Box)({
   padding: "24px 0px 0px 24px",
+  padding: "24px 0px 0px 24px",
   fontWeight: 520,
 });
 
@@ -35,7 +36,7 @@ const DrawerContentLayout = styled(Box)({
 
 const DrawerButtonsContainer = styled(Box)({
   display: "flex",
-  gap: "10px",
+  gap: "24px",
   padding: "0px 24px",
   marginTop: "auto",
   marginBottom: "20px",
