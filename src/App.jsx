@@ -1,16 +1,7 @@
-import { useState } from 'react'
-import { BrowserRouter as BRouter } from 'react-router-dom'
-import Router from './router';
-import './App.css'
-
+import "./App.css";
+import { Settings } from "./settings/settings";
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <BRouter>
-      <Router/>
-    </BRouter>
-  )
+  return <Settings />;
 }
 
-export default App
+export default App;
