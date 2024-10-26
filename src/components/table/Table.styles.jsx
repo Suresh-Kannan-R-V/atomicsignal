@@ -13,6 +13,7 @@ import {
   tooltipClasses,
   Switch,
   Box,
+  FormControl,
 } from "@mui/material";
 
 import PencilIconSvg from "../../assets/icons/pencil.svg";
@@ -214,7 +215,7 @@ const ActionHeaderContainerSeparator = styled("div")({
   width: "calc(100% + 15px)",
   borderBottom: "solid rgba(0, 0, 0, 0.12) 1px",
   position: "absolute",
-  transform: "translate(-15px,60px)",
+  transform: "translate(-15px,55px)",
   zIndex: 10,
 });
 
@@ -228,6 +229,13 @@ const ActionContent = styled("div")({
 
 const StyledTable = styled(Table)({
   position: "relative",
+});
+
+const StyledFormControl = styled(Box)({
+  padding: "15px",
+  display: "flex",
+  gap: "10px",
+  flexDirection: "column",
 });
 
 export {
@@ -257,4 +265,5 @@ export {
   ActionHeaderContainerSeparator,
   ActionContent,
   StyledTable,
+  StyledFormControl,
 };
