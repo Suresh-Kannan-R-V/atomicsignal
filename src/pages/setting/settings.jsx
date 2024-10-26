@@ -1,5 +1,6 @@
 import { Grid2 } from "@mui/material";
-import BasicTabs from "../tabbar/tabbar";
+import BasicTabs from "../../components/tabbar/tabbar";
+import { styledItem } from "./style";
 
 export const HeadDatas = [
   { HeadLabel: "S.No", LabelAlign: "left" },
@@ -17,7 +18,7 @@ export const BodyDatas = [
     CreatedDate: "08 Feb 2023, 04:40 PM",
     ModifiedDate: "08 Feb 2023, 04:40 PM",
     StatusData: "Active",
-    Actionimage: "images/edit.png",
+    Actionimage: "/edit.png",
   },
   {
     SnoData: "2",
@@ -25,7 +26,7 @@ export const BodyDatas = [
     CreatedDate: "08 Feb 2023, 04:40 PM",
     ModifiedDate: "08 Feb 2023, 04:40 PM",
     StatusData: "Active",
-    Actionimage: "images/edit.png",
+    Actionimage: "/edit.png",
   },
   {
     SnoData: "3",
@@ -33,7 +34,7 @@ export const BodyDatas = [
     CreatedDate: "08 Feb 2023, 04:40 PM",
     ModifiedDate: "08 Feb 2023, 04:40 PM",
     StatusData: "Active",
-    Actionimage: "images/edit.png",
+    Actionimage: "/edit.png",
   },
   {
     SnoData: "4",
@@ -41,7 +42,7 @@ export const BodyDatas = [
     CreatedDate: "08 Feb 2023, 04:40 PM",
     ModifiedDate: "08 Feb 2023, 04:40 PM",
     StatusData: "Active",
-    Actionimage: "images/edit.png",
+    Actionimage: "/edit.png",
   },
   {
     SnoData: "5",
@@ -49,12 +50,12 @@ export const BodyDatas = [
     CreatedDate: "08 Feb 2023, 04:40 PM",
     ModifiedDate: "08 Feb 2023, 04:40 PM",
     StatusData: "Active",
-    Actionimage: "images/edit.png",
+    Actionimage: "/edit.png",
   },
 ];
-export function Settings() {
+export default function Settings() {
   return (
-    <Grid2>
+    <Grid2 sx={styledItem.tabsStyle}>
       <BasicTabs HeadDatas={HeadDatas} BodyDatas={BodyDatas} />
     </Grid2>
   );

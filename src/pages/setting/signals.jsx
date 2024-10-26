@@ -18,7 +18,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { styledItem } from "./style";
 import { useState } from "react";
-import { IosSwitch } from "../components/switch";
+import { IosSwitch } from "../../components/switch/iosswitch";
 
 export function Signals(props) {
   const Headdatas = props.HeadDatas;

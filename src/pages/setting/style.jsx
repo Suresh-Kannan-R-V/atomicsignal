@@ -57,7 +57,7 @@ export const styledItem = {
     borderTop: "1px solid #E6E6E6",
   },
   tableContainerStyle: {
-    height: "66.5vh",
+    height: "67.7vh",
     scrollbarWidth: "none",
     scrollBehavior: "smooth",
   },
@@ -79,7 +79,8 @@ export const styledItem = {
     bgcolor: "#FFFFFF",
     border: "1px solid #E3E3E3",
     borderRadius: "4px",
-    padding: "16px",
+    padding: "16px ",
+    marginTop: "24px",
   },
   parentBoxSignalStyle: {
     display: "flex",
@@ -124,4 +125,5 @@ export const styledItem = {
     ".MuiAvatar-img": { height: "12px", width: "12px" },
     bgcolor: "#EEFBF6",
   },
+  tabsStyle: { background: "#F0F0F0", padding: "24px" },
 };

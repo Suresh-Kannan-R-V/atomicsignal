@@ -54,9 +54,9 @@ const VNavbar = () => {
         </Box>
         <Box>
           <ButtonNav
-            to="/setting"
+            to="/settings"
             icon={<SettingsOutlinedIcon />}
-            active={location.pathname === "/setting"}
+            active={location.pathname === "/settings"}
           />
           <ButtonNav icon={<NotificationsOutlinedIcon />} />
           <ButtonNav

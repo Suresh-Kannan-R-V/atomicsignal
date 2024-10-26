@@ -1,5 +1,4 @@
-import { Profile, TeamPage, FeedbackPage } from "../pages";
-import { Settings } from "../settings/settings";
+import { Profile, TeamPage, FeedbackPage, Settings } from "../pages";
 import { PATH } from "./path";
 
 export const pathSlicer = (path, sliceStart = 1) => path?.slice(sliceStart);

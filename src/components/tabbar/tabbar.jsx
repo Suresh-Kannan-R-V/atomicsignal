@@ -1,7 +1,9 @@
 import { Box, createTheme, Tab, Tabs, ThemeProvider } from "@mui/material";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { Signals } from "../settings";
+import { Signals } from "../../pages/setting/signals";
+import { Grading } from "../../pages/setting/grading";
+import Feedback from "../../pages/setting/feedback";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -14,7 +16,7 @@ function CustomTabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 5 }}>{children}</Box>}
+      {value === index && <Box sx={{ p: 0 }}>{children}</Box>}
     </div>
   );
 }
@@ -77,8 +79,12 @@ export default function BasicTabs(props) {
       <CustomTabPanel value={value} index={0}>
         <Signals HeadDatas={HeadDatas} BodyDatas={BodyDatas} />
       </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}></CustomTabPanel>
-      <CustomTabPanel value={value} index={2}></CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
+        <Grading />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={2}>
+        <Feedback />
+      </CustomTabPanel>
       <CustomTabPanel value={value} index={3}></CustomTabPanel>
       <CustomTabPanel value={value} index={4}></CustomTabPanel>
     </Box>
