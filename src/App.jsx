@@ -1,7 +1,13 @@
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./router/routes";
 import "./App.css";
-import { Settings } from "./settings/settings";
+
 function App() {
-  return <Settings />;
+  return (
+    <Router>
+      <Routes />
+    </Router>
+  );
 }
 
 export default App;
