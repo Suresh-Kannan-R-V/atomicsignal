@@ -1,15 +1,36 @@
-import { Badge, colors, Divider, styled, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Table from "../../components/table";
 import StyledButton from "../../components/button/Button";
-import PublishIcon from "@mui/icons-material/Publish";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import SearchBox from "../../components/searchbox/SearchBox";
 import CheckBox from "../../components/checkbox/CheckBox";
-import ImportIconSvg from "../../assets/icons/import.svg";
+import {
+  TeamMembersContainer,
+  TeamMembersHeader,
+  TeamMembersPageTools,
+  ImportIcon,
+  VerticalDivider,
+  CheckBoxWithLabel,
+  StyledBadge,
+} from "./team.styles";
+
 import { useEffect, useState } from "react";
 const TeamPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const headings = [
+    "Name",
+    "Designation",
+    "Department",
+    "Signals",
+    "Overall Performance",
+    "Reporting to",
+    "Role",
+    "Email",
+    "Experience",
+    "Status",
+  ];
 
+  const stickyHeadings = ["Actions"];
   const [rowData, setRowData] = useState([
     {
       id: 40,
@@ -158,6 +179,8 @@ const TeamPage = () => {
         </TeamMembersPageTools>
       </TeamMembersHeader>
       <Table
+        headings={headings}
+        stickyHeadings={stickyHeadings}
         searchQuery={searchQuery}
         rowData={rowData}
         setRowData={setRowData}
@@ -166,48 +189,5 @@ const TeamPage = () => {
     </TeamMembersContainer>
   );
 };
-
-const TeamMembersContainer = styled("div")({
-  padding: "30px",
-  color: "#353448",
-});
-
-const TeamMembersHeader = styled("div")({
-  padding: "20px 0px",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-});
-
-const TeamMembersPageTools = styled("div")({
-  display: "flex",
-  alignItems: "center",
-  gap: "10px",
-});
-
-const ImportIcon = styled((props) => <img src={ImportIconSvg} {...props} />)(
-  {}
-);
-
-const VerticalDivider = styled(Divider)({
-  "&.MuiDivider-vertical": {
-    color: "red",
-    height: "20px",
-    width: "1px",
-    backgroundColor: "#CACACA",
-  },
-});
-
-const CheckBoxWithLabel = styled("div")({
-  display: "flex",
-  alignItems: "center",
-});
-
-const StyledBadge = styled(Badge)({
-  "& .MuiBadge-dot": {
-    border: "solid white 1px",
-    backgroundColor: "red",
-  },
-});
 
 export default TeamPage;
