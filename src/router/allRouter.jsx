@@ -5,15 +5,15 @@ export const pathSlicer = (path, sliceStart = 1) => path?.slice(sliceStart);
 
 const AllRoutes = [
   {
-    path: pathSlicer(PATH.Profile),
+    path: PATH.Profile,
     element: <Profile />,
   },
   {
-    path: pathSlicer(PATH.TeamPage),
+    path: PATH.TeamPage,
     element: <TeamPage />,
   },
   {
-    path: pathSlicer(PATH.Feedback),
+    path: PATH.Feedback,
     element: <FeedbackPage />,
   },
 ];

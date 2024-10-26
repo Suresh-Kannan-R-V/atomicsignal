@@ -1,26 +1,41 @@
-import { Box } from "@mui/material";
+import { Box, Grid2, styled } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import VNavBar from "../../components/navbar/navbar";
 
+const LayoutContainer = styled(Box)({
+  height: "97vh",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+});
+
+const ContentWrapper = styled(Box)({
+  display: "flex",
+  height: "100%",
+});
+
+const SidebarLayout = styled(Box)({
+  // Style adjustments for the sidebar container
+});
+
+const MainContent = styled(Grid2)({
+  width: "100%",
+  height: "100%",
+  overflow: "scroll",
+});
+
 const Layout = () => {
   return (
-    <Box
-      sx={{
-        height: "97vh",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <div style={{ display: "flex", height: "100%" }}>
-        <div className="sidebarLayout">
+    <LayoutContainer>
+      <ContentWrapper>
+        <SidebarLayout>
           <VNavBar />
-        </div>
-        <div style={{ width: "100%", height: "100%" }}>
+        </SidebarLayout>
+        <MainContent>
           <Outlet />
-        </div>
-      </div>
-    </Box>
+        </MainContent>
+      </ContentWrapper>
+    </LayoutContainer>
   );
 };
 
