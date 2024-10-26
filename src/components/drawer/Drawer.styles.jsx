@@ -21,4 +21,31 @@ const DrawerCloseButton = styled(CloseIcon)({
   cursor: "pointer",
 });
 
-export { DrawerContentBox, DrawerCloseButton, DrawerBox };
+const DrawerTitle = styled(Box)({
+  padding: "24px 0px 0px 24px",
+  fontWeight: 520,
+});
+
+const DrawerContentLayout = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  gap: "24px",
+  height: "100%",
+});
+
+const DrawerButtonsContainer = styled(Box)({
+  display: "flex",
+  gap: "10px",
+  padding: "0px 24px",
+  marginTop: "auto",
+  marginBottom: "20px",
+});
+
+export {
+  DrawerContentBox,
+  DrawerCloseButton,
+  DrawerBox,
+  DrawerContentLayout,
+  DrawerTitle,
+  DrawerButtonsContainer,
+};
