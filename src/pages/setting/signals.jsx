@@ -19,6 +19,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { styledItem } from "./style";
 import { useState } from "react";
 import { IosSwitch } from "../../components/switch/iosswitch";
+import StyledDrawer from "../../components/drawer/Drawer";
 
 export function Signals(props) {
   const Headdatas = props.HeadDatas;
@@ -34,6 +35,7 @@ export function Signals(props) {
     setPage(0);
   };
   const [searchTerm, setSearchTerm] = useState("");
+  const [IsEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
 
   const filteredData = Bodydatas.filter((data) =>
     data.SignalData.toLowerCase().includes(searchTerm.toLowerCase())
@@ -111,6 +113,9 @@ export function Signals(props) {
                       <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Avatar
                           src={element.Actionimage}
+                          onClick={() => {
+                            setIsEditMemberDrawerOpen(true);
+                          }}
                           sx={styledItem.bodyActionIconStyle}
                         />
                       </Box>
@@ -131,6 +136,17 @@ export function Signals(props) {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Grid2>
+      <StyledDrawer
+        title={"Edit signal"}
+        content={"hi"}
+        anchor={"right"}
+        bottomLeftButton={{ label: "Save", onClick: () => {} }}
+        onClose={() => {
+          setIsEditMemberDrawerOpen(false);
+        }}
+        bottomRightButton={{ label: "Cancel", onClick: () => {} }}
+        open={IsEditMemberDrawerOpen}
+      />
     </Grid2>
   );
 }

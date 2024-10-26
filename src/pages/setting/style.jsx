@@ -124,6 +124,7 @@ export const styledItem = {
     width: "28px",
     ".MuiAvatar-img": { height: "12px", width: "12px" },
     bgcolor: "#EEFBF6",
+    cursor: "pointer",
   },
   tabsStyle: { background: "#F0F0F0", padding: "24px" },
 };

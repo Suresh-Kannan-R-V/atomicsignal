@@ -1,20 +1,13 @@
 import MembersTable from "./MembersTable";
 
-const Table = ({ rowData, stickyColumnData, searchQuery = "", setRowData }) => {
-  const headings = [
-    "Name",
-    "Designation",
-    "Department",
-    "Signals",
-    "Overall Performance",
-    "Reporting to",
-    "Role",
-    "Email",
-    "Experience",
-    "Status",
-  ];
-
-  const stickyHeadings = ["Actions"];
+const Table = ({
+  rowData,
+  headings,
+  stickyColumnData,
+  searchQuery = "",
+  setRowData,
+  stickyHeadings,
+}) => {
   return (
     <MembersTable
       headings={headings}
