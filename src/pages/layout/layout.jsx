@@ -20,7 +20,7 @@ const SidebarLayout = styled(Box)({
 
 const MainContent = styled(Grid2)({
   width: "100%",
-  height: "100%",
+  height: "100vh",
   overflow: "scroll",
 });
 
