@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Base, Flex, Head, Heading, stylesnew, Table1 } from "./Style";
-import { Box, Tabs, Tab } from "@mui/material";
+import { Box, Tabs, Tab, Divider } from "@mui/material";
 import Tome from "./Tome";
-import Fromme from "./Fromme";
 import Others from "./Others";
 import Title from "../../components/Title/Heading";
 import Searchstar from "../../components/Search/Search";
 import Filterstar from "../../components/Iconbutton/Filter";
+import Fromme from "./fromme";
+import StyledButton from "../../components/button/Button";
+import { ImportIcon } from "../team/team.styles";
 
 function Home() {
   const [active, setActive] = useState("1");
@@ -62,6 +64,12 @@ function Home() {
             setSearchQuery={setSearchQuery}
           />
           <Filterstar />
+          <Flex sx={active === "3" ? stylesnew.hide : { display: "none" }}>
+            <Divider orientation="horizontal" sx={stylesnew.divider} />
+            <StyledButton startIcon={<ImportIcon />} variant="outlined">
+              Download
+            </StyledButton>
+          </Flex>
         </Flex>
       </Heading>
 

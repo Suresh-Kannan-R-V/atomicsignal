@@ -2,9 +2,9 @@ import { Box, styled } from "@mui/material";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 export const Base = styled(Box)(() => ({
-  // height: "80%",
+  height: "93.75vh",
   backgroundColor: "#F0F0F0",
-  width: "96.6%",
+  width: "96.7%",
   padding: "24px",
 }));
 
@@ -47,6 +47,7 @@ export const Table1 = styled(Box)(() => ({
 export const Flex = styled(Box)(() => ({
   display: "flex",
   gap: "10px",
+  alignItems: "center",
 }));
 
 export const Signalcolour = styled(Box)(({ performance }) => ({
@@ -78,6 +79,13 @@ export const stylesnew = {
     backgroundColor: "red",
   },
 
+  divider: {
+    color: "red",
+    height: "30px",
+    width: "1px",
+    backgroundColor: "#CACACA",
+  },
+
   tabs: {
     "& .MuiTabs-indicator": {
       backgroundColor: "#665CD7",
@@ -90,8 +98,8 @@ export const stylesnew = {
   },
 
   tab: {
-    color: "#71707E",
-    "&.Mui-selected": { color: "#3D3D3D", fontWeight: "bold" },
+    color: "#71707B",
+    "&.Mui-selected": { color: "#3D3D3D" },
     textTransform: "none",
     alignItems: "start",
     justifyContent: "start",
@@ -100,6 +108,7 @@ export const stylesnew = {
     minWidth: "0",
     padding: "0",
     fontSize: "16px",
+    fontWeight: "bold",
   },
   word: {
     marginRight: "35px",
