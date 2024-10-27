@@ -2,10 +2,8 @@ import { Box, Button, Grid2, Typography } from "@mui/material";
 import { styledItem } from "./style";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useState } from "react";
-import GaugeMeter from "./meter";
 
 export function Grading() {
-  const [value, setValue] = useState(50);
   return (
     <Grid2 sx={{ ...styledItem.parentGridSignalStyle, padding: 0 }}>
       <Grid2 sx={{ ...styledItem.parentGridSignalStyle, border: 0, margin: 0 }}>
@@ -47,10 +45,6 @@ export function Grading() {
             }}
           >
             <Box>
-              <GaugeMeter value={value} />
-              <button onClick={() => setValue((prev) => (prev + 10) % 110)}>
-                Increase
-              </button>
               <Typography
                 sx={{
                   ...styledItem.dataStyle,
