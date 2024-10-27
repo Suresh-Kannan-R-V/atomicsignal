@@ -17,9 +17,10 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { styledItem } from "./style";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IosSwitch } from "../../components/switch/iosswitch";
 import StyledDrawer from "../../components/drawer/Drawer";
+import { EditContent } from "./editcontent";
 
 export function Signals(props) {
   const Headdatas = props.HeadDatas;
@@ -36,6 +37,8 @@ export function Signals(props) {
   };
   const [searchTerm, setSearchTerm] = useState("");
   const [IsEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
+  const [title, setTitle] = useState("");
+  useEffect(() => {}, [title]);
 
   const filteredData = Bodydatas.filter((data) =>
     data.SignalData.toLowerCase().includes(searchTerm.toLowerCase())
@@ -55,7 +58,14 @@ export function Signals(props) {
               sx={styledItem.searchInputBarStyle}
             />
           </Paper>
-          <Button variant="contained" sx={styledItem.signalButtonStyle}>
+          <Button
+            variant="contained"
+            sx={styledItem.signalButtonStyle}
+            onClick={() => {
+              setIsEditMemberDrawerOpen(true);
+              setTitle("Add Signal");
+            }}
+          >
             Add signal
           </Button>
         </Stack>
@@ -115,6 +125,7 @@ export function Signals(props) {
                           src={element.Actionimage}
                           onClick={() => {
                             setIsEditMemberDrawerOpen(true);
+                            setTitle("Edit Signal");
                           }}
                           sx={styledItem.bodyActionIconStyle}
                         />
@@ -137,8 +148,8 @@ export function Signals(props) {
         />
       </Grid2>
       <StyledDrawer
-        title={"Edit signal"}
-        content={"hi"}
+        title={title}
+        content={<EditContent />}
         anchor={"right"}
         bottomLeftButton={{ label: "Save", onClick: () => {} }}
         onClose={() => {
