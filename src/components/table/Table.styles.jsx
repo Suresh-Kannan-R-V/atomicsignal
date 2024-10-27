@@ -232,9 +232,9 @@ const StyledTable = styled(Table)({
 });
 
 const StyledFormControl = styled(Box)({
-  padding: "15px",
+  padding: "0px 24px",
   display: "flex",
-  gap: "10px",
+  gap: "12px",
   flexDirection: "column",
 });
 

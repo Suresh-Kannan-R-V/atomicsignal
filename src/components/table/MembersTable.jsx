@@ -1,4 +1,10 @@
-import { FormControl, TableBody, TableRow } from "@mui/material";
+import {
+  Avatar,
+  FormControl,
+  TableBody,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import StyledInputLabel from "../inputlabel/InputLabel";
 import {
   ReportingList,
@@ -39,6 +45,9 @@ import Drawer from "../drawer/Drawer";
 import StyledDrawer from "../drawer/Drawer";
 import StyledInput from "../input/Input";
 import StyledTextField from "../textfield/TextField";
+import StyledDatePicker from "../datepicker/DatePicker";
+import StyledSelect from "../select/Select";
+import StyledChip from "../chip/Chip";
 const MembersTable = ({
   headings,
   stickyheadings,
@@ -272,7 +281,6 @@ const MembersTable = ({
         onClose={() => {
           setIsEditMemberDrawerOpen(false);
         }}
-        bottomRightButton={{ label: "Cancel", onClick: () => {} }}
         open={isEditMemberDrawerOpen}
       />
     </TableDiv>
@@ -295,39 +303,24 @@ const DrawerForm = () => {
         fullWidth
       ></StyledTextField>
       <StyledInputLabel required>Date of Joining</StyledInputLabel>
-      <StyledTextField
-        InputLabelProps={{
-          shrink: true,
-        }}
-        type="date"
-        placeholder="Select a date"
-        size="small"
-        fullWidth
-      ></StyledTextField>
+      <StyledDatePicker></StyledDatePicker>
       <StyledInputLabel>Department</StyledInputLabel>
-      <StyledTextField
-        placeholder="Select department"
-        size="small"
-        fullWidth
-      ></StyledTextField>
+      <StyledSelect placeholder="Select department" size="small"></StyledSelect>
       <StyledInputLabel required>Designation</StyledInputLabel>
-      <StyledTextField
-        placeholder="Select"
-        size="small"
-        fullWidth
-      ></StyledTextField>
+      <StyledSelect placeholder="Select" size="small"></StyledSelect>
       <StyledInputLabel required>Role</StyledInputLabel>
-      <StyledTextField
-        placeholder="Select"
-        size="small"
-        fullWidth
-      ></StyledTextField>
+      <StyledSelect placeholder="Select" size="small"></StyledSelect>
       <StyledInputLabel>Reporting To</StyledInputLabel>
-      <StyledTextField
-        placeholder="Manager name"
-        size="small"
-        fullWidth
-      ></StyledTextField>
+      <StyledSelect placeholder="Manager name" size="small"></StyledSelect>
+      <StyledChip
+        hasAvatar={true}
+        avatarImg={
+          "https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg"
+        }
+        variant="outlined"
+        label="Steven"
+        onDelete={() => {}}
+      />
     </StyledFormControl>
   );
 };

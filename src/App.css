@@ -5,3 +5,7 @@
   scrollbar-width: none;
   color: "#353448";
 }
+
+#root {
+  background-color: #f0f0f0;
+}
