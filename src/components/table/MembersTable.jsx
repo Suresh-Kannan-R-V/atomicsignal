@@ -34,7 +34,7 @@ import {
   ActionContent,
   StyledTable,
   StyledFormControl,
-} from "./Table.styles";
+} from "./MembersTable.styles";
 
 import ReactSpeedometer from "react-d3-speedometer";
 import Table from "@mui/material/Table";
