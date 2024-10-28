@@ -1,16 +1,29 @@
-import MembersTable from "./MembersTable";
+import DepartmentTableComponent from "./DepartmentTableComponent";
+import MembersTableComponent from "./MembersTable";
 
-const Table = ({
+const MembersTableHeadings = [
+  "Name",
+  "Designation",
+  "Department",
+  "Signals",
+  "Overall Performance",
+  "Reporting to",
+  "Role",
+  "Email",
+  "Experience",
+  "Status",
+];
+
+const MembersTable = ({
   rowData,
-  headings,
   stickyColumnData,
   searchQuery = "",
   setRowData,
   stickyHeadings,
 }) => {
   return (
-    <MembersTable
-      headings={headings}
+    <MembersTableComponent
+      headings={MembersTableHeadings}
       stickyheadings={stickyHeadings}
       rows={rowData}
       setRows={setRowData}
@@ -20,4 +33,6 @@ const Table = ({
   );
 };
 
-export default Table;
+const DepartmentTable = ({}) => <DepartmentTableComponent />;
+
+export { MembersTable, DepartmentTable };

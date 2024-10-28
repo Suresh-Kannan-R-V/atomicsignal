@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import Table from "../../components/table";
+import { MembersTable } from "../../components/table";
 import StyledButton from "../../components/button/Button";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import SearchBox from "../../components/searchbox/SearchBox";
@@ -17,18 +17,6 @@ import {
 import { useEffect, useState } from "react";
 const TeamPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const headings = [
-    "Name",
-    "Designation",
-    "Department",
-    "Signals",
-    "Overall Performance",
-    "Reporting to",
-    "Role",
-    "Email",
-    "Experience",
-    "Status",
-  ];
 
   const stickyHeadings = ["Actions"];
   const [rowData, setRowData] = useState([
@@ -178,8 +166,7 @@ const TeamPage = () => {
           <StyledButton variant="contained">Add member</StyledButton>
         </TeamMembersPageTools>
       </TeamMembersHeader>
-      <Table
-        headings={headings}
+      <MembersTable
         stickyHeadings={stickyHeadings}
         searchQuery={searchQuery}
         rowData={rowData}

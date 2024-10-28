@@ -2,17 +2,23 @@ import * as React from "react";
 import DialogContent from "@mui/material/DialogContent";
 import Slide from "@mui/material/Slide";
 import { Avatar, Box } from "@mui/material";
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Dialogue, stylesnew } from "./Style";
-import { forwardRef } from "react";
-import photo from "../../assets/image1.jpg";
+import { Flex, Signalcolour } from "../../pages/feedback/Style";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function View({ setPrincing }) {
+export default function View({
+  setPrincing,
+  name,
+  signal,
+  performance,
+  photo,
+}) {
   const [open, setOpen] = useState(true);
 
   const handleClose = () => {
@@ -34,30 +40,30 @@ export default function View({ setPrincing }) {
           </Box>
         </Box>
         <Box sx={stylesnew.body}>
-          <Box>
-            <Box sx={stylesnew.profile}>
-              <Box sx={stylesnew.flex}>
-                <Avatar src={photo} sx={stylesnew.photo} />
-                hi
-              </Box>
-              <Box sx={stylesnew.desi}>Visual Designer</Box>
+          <Box sx={stylesnew.profile}>
+            <Box sx={stylesnew.flex}>
+              <Avatar src={photo} sx={stylesnew.photo} />
+              {name}
             </Box>
-            <Box sx={stylesnew.feed}>
-              <Box sx={stylesnew.flex}>
-                <Avatar src={photo} sx={stylesnew.photo} />
-                hi
-              </Box>
-              <Box sx={stylesnew.desi1}>Visual</Box>
+            <Box sx={stylesnew.desi}>Visual Designer</Box>
+          </Box>
+          <Box sx={stylesnew.feed}>
+            <Box sx={{ ...stylesnew.flex }}>
+              <Signalcolour performance={performance}>{signal[0]}</Signalcolour>
+              {signal}
             </Box>
+            <Box sx={stylesnew.desi1}>{performance}</Box>
           </Box>
           <Box sx={stylesnew.res}>Feedback reason will be displayed here</Box>
           <Box sx={stylesnew.respon}>
             Your way of presenting the topic was very good in the client meeting
           </Box>
           <Box sx={stylesnew.dash}></Box>
-          <Box></Box>
-          <Box></Box>
-          <Box></Box>
+
+          <Flex sx={{ ...stylesnew.res, color: "#353448" }}>
+            <IoCheckmarkDoneSharp />
+            Response submitted
+          </Flex>
         </Box>
       </DialogContent>
     </Dialogue>

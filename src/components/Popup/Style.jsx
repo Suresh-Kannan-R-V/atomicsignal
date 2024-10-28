@@ -39,7 +39,7 @@ export const stylesnew = {
   },
 
   cross: {
-    fontSize: "20px",
+    fontSize: "30px",
     cursor: "pointer",
   },
 
@@ -48,6 +48,7 @@ export const stylesnew = {
     height: "53px",
     borderRadius: "4px 4px 0px 0px",
     display: "flex",
+    fontWeight: "600",
     width: "436px",
     padding: "0 8px",
     alignItems: "center",
@@ -59,6 +60,8 @@ export const stylesnew = {
     border: "1px solid #EBEBEB",
     height: "40px",
     borderRadius: "0 0 4px 4px",
+    fontSize: "14ps",
+    color: "#484759",
     display: "flex",
     padding: "0 8px",
     width: "435px",
@@ -74,11 +77,11 @@ export const stylesnew = {
   desi: {
     color: "#71707E",
     fontSize: "13px",
+    fontWeight: "500",
   },
 
   desi1: {
     color: "#3D3D3D",
-    fontSize: "14px",
     fontWeight: "600",
   },
 

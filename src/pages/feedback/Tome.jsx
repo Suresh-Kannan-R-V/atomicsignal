@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import photo from "../../assets/image1.jpg";
 import { DoneIcon, Signalcolour, stylesnew } from "./Style";
 import { Box } from "@mui/material";
@@ -6,8 +6,11 @@ import Avatar from "@mui/material/Avatar";
 import Buttonsty from "../../components/button/Buttonfeed";
 
 import Tablesty from "../../components/Table/Table";
+import View from "../../components/Popup/View";
 
 function Tome(searchQuery) {
+  const [view, setView] = useState(false);
+  const [selectedPerson, setSelectedPerson] = useState(null);
   const Rowdata = [
     {
       id: "2",
@@ -193,7 +196,17 @@ function Tome(searchQuery) {
       id: "6",
       Header: "Feedback",
       accession: "view",
-      container: (row) => <Box sx={stylesnew.view}>{row.view}</Box>,
+      container: (row) => (
+        <Box
+          onClick={() => {
+            setView(true);
+            setSelectedPerson(row);
+          }}
+          sx={stylesnew.view}
+        >
+          {row.view}
+        </Box>
+      ),
     },
     {
       id: "7",
@@ -210,7 +223,18 @@ function Tome(searchQuery) {
     },
   ];
   return (
-    <Tablesty Rowdata={Rowdata} Column={Column} searchQuery={searchQuery} />
+    <>
+      <Tablesty Rowdata={Rowdata} Column={Column} searchQuery={searchQuery} />
+      {view && (
+        <View
+          setPrincing={() => setView(false)}
+          name={selectedPerson.name}
+          signal={selectedPerson.signal}
+          performance={selectedPerson.performance}
+          photo={selectedPerson.nameprofile}
+        />
+      )}
+    </>
   );
 }
 

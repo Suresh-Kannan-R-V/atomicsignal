@@ -9,6 +9,7 @@ import View from "../../components/Popup/View";
 
 function Fromme(searchQuery) {
   const [view, setView] = useState(false);
+  const [selectedPerson, setSelectedPerson] = useState(null);
 
   const Rowdata = [
     {
@@ -195,7 +196,13 @@ function Fromme(searchQuery) {
       Header: "Feedback",
       accession: "view",
       container: (row) => (
-        <Box onClick={() => setView(true)} sx={stylesnew.view}>
+        <Box
+          onClick={() => {
+            setView(true);
+            setSelectedPerson(row);
+          }}
+          sx={stylesnew.view}
+        >
           {row.view}
         </Box>
       ),
@@ -218,7 +225,15 @@ function Fromme(searchQuery) {
   return (
     <>
       <Tablesty Rowdata={Rowdata} Column={Column} searchQuery={searchQuery} />
-      {view && <View setPrincing={() => setView(false)} />}
+      {view && (
+        <View
+          setPrincing={() => setView(false)}
+          name={selectedPerson.name}
+          signal={selectedPerson.signal}
+          performance={selectedPerson.performance}
+          photo={selectedPerson.nameprofile}
+        />
+      )}
     </>
   );
 }

@@ -63,7 +63,12 @@ export const Signalcolour = styled(Box)(({ performance }) => ({
             : "red",
   height: "20px",
   width: "20px",
-  borderRadius: "50px",
+  display: "flex",
+  alignItems: "end",
+  justifyContent: "center",
+  color: "#ffffff",
+  borderRadius: "10px",
+  fontSize: "14px",
 }));
 
 export const DoneIcon = styled(IoCheckmarkDoneSharp)(({ response }) => ({
