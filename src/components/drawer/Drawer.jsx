@@ -35,7 +35,9 @@ const StyledDrawer = styled(
       {...props}
     >
       <DrawerBox minWidth={minWidth}>
-        <DrawerCloseButton onClick={props.onClose} />
+        {props.anchor === "right" && (
+          <DrawerCloseButton onClick={props.onClose} />
+        )}
         <DrawerContentBox>
           <DrawerContentLayout>
             <DrawerTitle>{title}</DrawerTitle>
@@ -60,6 +62,9 @@ const StyledDrawer = styled(
             </DrawerButtonsContainer>
           </DrawerContentLayout>
         </DrawerContentBox>
+        {props.anchor === "left" && (
+          <DrawerCloseButton onClick={props.onClose} />
+        )}
       </DrawerBox>
     </Drawer>
   )

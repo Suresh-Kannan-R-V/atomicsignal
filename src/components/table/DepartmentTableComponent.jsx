@@ -48,7 +48,7 @@ import StyledTextField from "../textfield/TextField";
 import StyledDatePicker from "../datepicker/DatePicker";
 import StyledSelect from "../select/Select";
 import StyledChip from "../chip/Chip";
-const MembersTableComponent = ({
+const DepartmentTableComponent = ({
   headings,
   stickyheadings,
   rows,
@@ -325,4 +325,4 @@ const DrawerForm = () => {
   );
 };
 
-export default MembersTableComponent;
+export default DepartmentTableComponent;

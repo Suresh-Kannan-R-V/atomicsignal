@@ -1,3 +1,4 @@
+
 import { Profile, TeamPage, FeedbackPage, Settings } from "../pages";
 import { PATH } from "./path";
 
@@ -19,6 +20,7 @@ const AllRoutes = [
   {
     path: PATH.Settings,
     element: <Settings />,
+
   },
 ];
 
