@@ -87,8 +87,8 @@ const MembersTableComponent = ({
       <ActionStickyContainerSeparator />
       <ActionHeaderContainerSeparator />
       <ActionPaginationContainerSeparator />
-      <StyledTableContainer>
-        <StyledTable>
+      <StyledTableContainer draggable={false}>
+        <StyledTable draggable={false}>
           <StyledTableHead>
             <StyledTableRow>
               {headings?.map((data) => (

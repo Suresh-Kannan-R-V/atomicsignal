@@ -38,7 +38,7 @@ const StyledTableContainer = styled(TableContainer)({
   borderRadius: "10px  10px 0px 0px ",
   position: "relative",
   fontFamily: "Poppins",
-  minHeight: "40rem",
+  minHeight: "35rem",
   maxHeight: "40rem",
   scrollSnapType: "both mandatory",
   scrollSnapAlign: "start",

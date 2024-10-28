@@ -3,7 +3,7 @@ const ProfileCardContainer = styled(Box)({
   backgroundColor: "white",
   borderRadius: "8px",
   width: "600px",
-  margin: "100px",
+  margin: "24.5px 0px 0px 0px",
 });
 
 const ProfileInfoBox = styled(Box)({

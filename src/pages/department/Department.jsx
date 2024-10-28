@@ -23,7 +23,7 @@ const Department = () => {
       status: 1,
     },
     {
-      id: 1,
+      id: 3,
       department: "Management",
       created_on: "08 Feb 2023, 04:40 PM",
       modified_on: "08 Feb 2023, 04:40 PM",
@@ -49,7 +49,7 @@ const Department = () => {
             sx={{ minWidth: "166px", minHeight: "40px" }}
             variant="contained"
           >
-            Add signal
+            Add department
           </StyledButton>
         </DepartmentHeaderTools>
       </DepartmentHeader>

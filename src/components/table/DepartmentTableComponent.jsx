@@ -91,7 +91,7 @@ const DepartmentTableComponent = ({
       <ActionHeaderContainerSeparator />
       <ActionPaginationContainerSeparator />
       <StyledTableContainer>
-        <StyledTable>
+        <StyledTable draggable={false}>
           <StyledTableHead>
             <StyledTableRow>
               {headings?.map((data) => (
@@ -107,7 +107,7 @@ const DepartmentTableComponent = ({
                   <StyledTableCell>{row?.department}</StyledTableCell>
                   <StyledTableCell>{row?.created_on}</StyledTableCell>
                   <StyledTableCell>{row?.modified_on}</StyledTableCell>
-                  <StyledTableCell>
+                  <StyledTableCell minWidth={125}>
                     <IOSSwitch
                       onChange={(e) => {
                         setRows((prev) => {
