@@ -4,10 +4,8 @@ import { DoneIcon, Signalcolour, stylesnew } from "./Style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Buttonsty from "../../components/button/Buttonfeed";
-
-import Tablesty from "../../components/Table/Table";
 import View from "../../components/Popup/View";
-
+import Tablesty from "../../components/Table/Table";
 function Tome(searchQuery) {
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -232,6 +230,8 @@ function Tome(searchQuery) {
           signal={selectedPerson.signal}
           performance={selectedPerson.performance}
           photo={selectedPerson.nameprofile}
+          response={selectedPerson.response}
+          c={0}
         />
       )}
     </>

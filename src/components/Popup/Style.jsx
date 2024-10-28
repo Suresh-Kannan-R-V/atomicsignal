@@ -11,7 +11,7 @@ export const Dialogue = styled(Dialog)(() => ({
     padding: 0,
   },
   "& .MuiPaper-root": {
-    height: "375px",
+    height: "400px",
     width: "500px",
   },
 }));
@@ -74,6 +74,11 @@ export const stylesnew = {
     height: 27,
   },
 
+  photo1: {
+    width: 35,
+    height: 35,
+  },
+
   desi: {
     color: "#71707E",
     fontSize: "13px",
@@ -89,16 +94,32 @@ export const stylesnew = {
     fontSize: "14px",
     fontWeight: "600",
     marginTop: "12px",
+    width: "100%",
+    justifyContent: "space-between",
+    display: "flex",
   },
 
   respon: {
     color: "#71707E",
     marginTop: "7px",
     height: "41px",
+    fontSize: "14px",
+  },
+  respon1: {
+    color: "#71707E",
+    marginTop: "5px",
+    fontSize: "14px",
   },
 
   dash: {
     borderTop: "2px dashed #B9B9B9",
     marginTop: "15px",
+  },
+
+  tick: {
+    color: "#25C460",
+    fontSize: "18px",
+    display: "flex",
+    alignItems: "center",
   },
 };

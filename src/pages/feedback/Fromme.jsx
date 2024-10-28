@@ -232,6 +232,8 @@ function Fromme(searchQuery) {
           signal={selectedPerson.signal}
           performance={selectedPerson.performance}
           photo={selectedPerson.nameprofile}
+          response={selectedPerson.response}
+          c={0}
         />
       )}
     </>
