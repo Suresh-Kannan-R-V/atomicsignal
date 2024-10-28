@@ -1,7 +1,12 @@
 import React from "react";
+import Home from "./Home";
 
-const FeedbackPage = () => {
-  return <div>FeedbackPage</div>;
-};
+function feedback() {
+  return (
+    <div>
+      <Home />
+    </div>
+  );
+}
 
-export default FeedbackPage;
+export default feedback;
