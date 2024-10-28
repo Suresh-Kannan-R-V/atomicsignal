@@ -87,8 +87,12 @@ const MembersTableComponent = ({
       <ActionStickyContainerSeparator />
       <ActionHeaderContainerSeparator />
       <ActionPaginationContainerSeparator />
-      <StyledTableContainer draggable={false}>
-        <StyledTable draggable={false}>
+      <StyledTableContainer>
+        <StyledTable
+          onScroll={(e) => {
+            e.stopPropagation();
+          }}
+        >
           <StyledTableHead>
             <StyledTableRow>
               {headings?.map((data) => (

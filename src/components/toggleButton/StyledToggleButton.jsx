@@ -20,6 +20,9 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   "& .MuiToggleButtonGroup-grouped:hover": {
     backgroundColor: "transparent",
   },
+  "& .Mui-selected:hover": {
+    backgroundColor: "#EEFBF6",
+  },
 });
 
 export { StyledToggleButton, StyledToggleButtonGroup };

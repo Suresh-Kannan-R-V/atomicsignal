@@ -1,3 +1,4 @@
+import { useState } from "react";
 import StyledInputLabel from "../../components/inputlabel/InputLabel";
 import StyledSelect from "../../components/select/Select";
 import {
@@ -19,6 +20,12 @@ const performanceFilters = [
 ];
 
 const FilterForm = () => {
+  const [performanceFiltersSelected, setPerformanceFiltersSelected] = useState(
+    Array(performanceFilters.length).fill(false)
+  );
+  const [roleFiltersSelected, setRoleFiltersSelected] = useState(
+    Array(roleFilters).fill(false)
+  );
   return (
     <FilterFormContainer>
       <FilterFormField>
@@ -26,8 +33,19 @@ const FilterForm = () => {
           Overall Performance
         </StyledInputLabel>
         <StyledToggleButtonGroup>
-          {performanceFilters.map((data) => (
-            <StyledToggleButton size="small" selected>
+          {performanceFilters.map((data, i) => (
+            <StyledToggleButton
+              disableRipple
+              onClick={() => {
+                setPerformanceFiltersSelected((prev) => {
+                  const newPrev = [...prev];
+                  newPrev[i] = !newPrev[i];
+                  return newPrev;
+                });
+              }}
+              size="small"
+              selected={performanceFiltersSelected[i]}
+            >
               {data}
             </StyledToggleButton>
           ))}
@@ -56,8 +74,19 @@ const FilterForm = () => {
           Overall Performance
         </StyledInputLabel>
         <StyledToggleButtonGroup>
-          {roleFilters.map((data) => (
-            <StyledToggleButton size="small" selected>
+          {roleFilters.map((data, i) => (
+            <StyledToggleButton
+              disableRipple
+              onClick={() => {
+                setRoleFiltersSelected((prev) => {
+                  const newPrev = [...prev];
+                  newPrev[i] = !newPrev[i];
+                  return newPrev;
+                });
+              }}
+              size="small"
+              selected={roleFiltersSelected[i]}
+            >
               {data}
             </StyledToggleButton>
           ))}

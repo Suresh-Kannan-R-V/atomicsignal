@@ -170,7 +170,12 @@ const TeamPage = () => {
             placeholder={"Search by name, email"}
             size="small"
           ></SearchBox>
-          <StyledButton variant="contained">
+          <StyledButton
+            onClick={() => {
+              setFilterDrawerOpen(true);
+            }}
+            variant="contained"
+          >
             <StyledBadge overlap="circular" badgeContent={1} variant="dot">
               <FilterAltOutlinedIcon />
             </StyledBadge>
@@ -214,7 +219,7 @@ const TeamPage = () => {
         anchor={"right"}
         content={<FilterForm />}
         bottomLeftButton={{ label: "Apply Filter" }}
-        open={true}
+        open={isFilterDrawerOpen}
         onClose={() => {
           setFilterDrawerOpen(false);
         }}

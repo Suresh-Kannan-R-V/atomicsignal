@@ -49,7 +49,7 @@ const FilterFormContainer = styled(Box)({
   display: "flex",
   flexDirection: "column",
   gap: "16px",
-  padding: "24px",
+  padding: "0px 24px",
 });
 
 const FilterFormField = styled(Box)({

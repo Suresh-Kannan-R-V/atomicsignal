@@ -2,6 +2,6 @@ export const PATH = {
   Profile: "/profile",
   TeamPage: "/team",
   Feedback: "/feedback",
-  Setting: "/settings",
+  Setting: "/setting",
   Department: "/department",
 };
