@@ -38,7 +38,7 @@ const StyledTableContainer = styled(TableContainer)({
   borderRadius: "10px  10px 0px 0px ",
   position: "relative",
   fontFamily: "Poppins",
-  minHeight: "40rem",
+  minHeight: "35rem",
   maxHeight: "40rem",
   scrollSnapType: "both mandatory",
   scrollSnapAlign: "start",
@@ -108,15 +108,22 @@ const StyledTableHeading = styled(TableCell)(({ minWidth }) => ({
   backgroundColor: "white",
   zIndex: 1,
   borderBottom: "none",
+  "&:last-child": {
+    textAlign: "center",
+  },
 }));
 
 const StyledTableCell = styled(TableCell)(({ minWidth }) => ({
   fontSize: "1.07em",
   borderBottom: "none",
   padding: "0px 15px",
+  paddingTop: "25px",
   cursor: "pointer",
   fontFamily: "Poppins",
-  minWidth: minWidth || "9rem",
+  minWidth: minWidth,
+  "&:last-child": {
+    textAlign: "center",
+  },
 }));
 
 const ToolTipContent = styled("div")({
@@ -164,6 +171,12 @@ const ProfileAvatar = styled(Avatar)(({ height, width, fontSize }) => ({
   width,
   fontSize,
 }));
+
+const PencilIconContainer = styled(Box)({
+  height: "100%",
+  display: "flex",
+  justifyContent: "center",
+});
 
 const StickyCell = styled(TableCell)({
   position: "sticky",
@@ -266,4 +279,5 @@ export {
   ActionContent,
   StyledTable,
   StyledFormControl,
+  PencilIconContainer,
 };

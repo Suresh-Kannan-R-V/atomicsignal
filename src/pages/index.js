@@ -1,5 +1,5 @@
 import Profile from "./profile/profile";
-import TeamPage from "./team/team";
+import TeamPage from "./team/Team";
 import FeedbackPage from "./feedback/feedback";
 import Settings from "./setting/settings";
 

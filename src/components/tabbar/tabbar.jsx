@@ -4,6 +4,9 @@ import { useState } from "react";
 import { Signals } from "../../pages/setting/signals";
 import { Grading } from "../../pages/setting/grading";
 import Feedback from "../../pages/setting/feedback";
+import ProfileCard from "../profilecard/ProfileCard";
+import { DepartmentTable } from "../table";
+import Department from "../../pages/setting/Department";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -85,8 +88,12 @@ export default function BasicTabs(props) {
       <CustomTabPanel value={value} index={2}>
         <Feedback />
       </CustomTabPanel>
-      <CustomTabPanel value={value} index={3}></CustomTabPanel>
-      <CustomTabPanel value={value} index={4}></CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <Department />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={4}>
+        <ProfileCard isSetting />
+      </CustomTabPanel>
     </Box>
   );
 }
