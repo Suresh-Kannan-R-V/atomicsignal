@@ -1,77 +1,100 @@
-import { Box, Grid2, styled, Typography } from "@mui/material";
-import React from "react";
-import { ProfileBody, ProfileGrid } from "./profile.style";
-import ReactSpeedometer from "react-d3-speedometer";
+import { Box, Grid, Grid2, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import Chart from "./chart";
+import PipBar from "./pipbar";
+import {
+  FeedbackContainer,
+  LabelContainer,
+  LabelText,
+  LabelValue,
+  PerformanceContainer,
+  ProfileBody,
+  ProfileGrid,
+  SpeedometerContainer,
+} from "./profile.style";
 
-const SpeedometerContainer = styled(Box)({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  marginTop: "20px",
-});
-
-const LabelContainer = styled(Box)({
-  marginTop: "10px",
-  backgroundColor: "#F0F0F0",
-  padding: "10px 20px",
-  borderRadius: "10px",
-  display: "flex",
-  alignItems: "center",
-});
-
-const LabelText = styled(Typography)({
-  fontWeight: 400,
-  fontSize: "18px",
-  color: "#6F6F6F",
-  marginRight: "5px",
-});
-
-const LabelValue = styled(Typography)({
-  fontWeight: 600,
-  fontSize: "18px",
-  color: "#2C2C2C",
-});
+const performanceDescriptions = {
+  1: "Completely away",
+  2: "Need to improve a lot",
+  3: "Need to improve",
+  4: "Good",
+  5: "Very good",
+  6: "Spectacular",
+  7: "Impactful",
+};
 
 const Profile = () => {
+  const [values, setValues] = useState(7);
+  const performanceLevel = Math.min(Math.max(values, 1), 7);
+
+  const data = [
+    {
+      name: "Communication",
+      values: 5,
+      lastUpdated: "2024-09-11T03:53:09.000Z",
+    },
+    { name: "Efficiency", values: 7, lastUpdated: "2024-09-11T03:53:09.000Z" },
+    {
+      name: "Time Management",
+      values: 1,
+      lastUpdated: "2024-09-11T03:53:09.000Z",
+    },
+    { name: "Delivery", values: 3, lastUpdated: "2024-09-11T03:53:09.000Z" },
+    {
+      name: "Unavailability",
+      values: 1,
+      lastUpdated: "2024-09-11T03:53:09.000Z",
+    },
+  ];
+  const averageValue = Math.round(
+    data?.reduce((sum, item) => sum + item?.values, 0) / data?.length
+  );
+  useEffect(() => {
+    setValues(averageValue);
+  }, [averageValue]);
+
+  console.log(values);
+
   return (
-    <>
-      <ProfileBody>
-        <Grid2 container>
-          <ProfileGrid>
-            <SpeedometerContainer>
-              <ReactSpeedometer
-                width={300}
-                height={175}
-                value={4}
-                minValue={1}
-                maxValue={7}
-                maxSegmentLabels={0}
-                segments={7}
-                segmentColors={[
-                  "#DE1010",
-                  "#F27024",
-                  "#F2B824",
-                  "#F2EB24",
-                  "#AEC934",
-                  "#4C9E29",
-                  "#007C32",
-                ]}
-                needleColor="#000"
-                needleHeightRatio={0.45}
-                textColor="transparent"
-                currentValueText=""
-                ringWidth={40}
-              />
-              <LabelContainer>
-                <LabelText>Overall</LabelText>
-                <LabelValue>Need to improve</LabelValue>
-              </LabelContainer>
-            </SpeedometerContainer>
-          </ProfileGrid>
-          <ProfileGrid>sfds</ProfileGrid>
-        </Grid2>
-      </ProfileBody>
-    </>
+    <ProfileBody>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6}>
+          <Grid2 container spacing={3}>
+            <Grid item xs={12}>
+              <ProfileGrid></ProfileGrid>
+            </Grid>
+
+            <Grid item xs={12}>
+              <PerformanceContainer>
+                <Typography textAlign={"left"} fontSize={20} fontWeight={500}>
+                  Performance
+                </Typography>
+                <SpeedometerContainer>
+                  <Chart Size="large" value={values} />
+
+                  <LabelContainer>
+                    <LabelText>Overall</LabelText>
+                    <LabelValue>
+                      {performanceDescriptions[performanceLevel] || "-"}
+                    </LabelValue>
+                  </LabelContainer>
+                  <Box>
+                    <PipBar
+                      data={data}
+                      performanceDescriptions={performanceDescriptions}
+                    />
+                  </Box>
+                </SpeedometerContainer>
+              </PerformanceContainer>
+            </Grid>
+          </Grid2>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <FeedbackContainer></FeedbackContainer>
+        </Grid>
+      </Grid>
+    </ProfileBody>
   );
 };
 
