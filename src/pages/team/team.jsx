@@ -12,12 +12,28 @@ import {
   VerticalDivider,
   CheckBoxWithLabel,
   StyledBadge,
+  FilterFormContainer,
+  FilterFormField,
 } from "./team.styles";
 
 import { useEffect, useState } from "react";
+import StyledDrawer from "../../components/drawer/Drawer";
+import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
+import StyledInputLabel from "../../components/inputlabel/InputLabel";
+import StyledTextField from "../../components/textfield/TextField";
+import StyledDatePicker from "../../components/datepicker/DatePicker";
+import StyledSelect from "../../components/select/Select";
+import StyledChip from "../../components/chip/Chip";
+import {
+  StyledToggleButton,
+  StyledToggleButtonGroup,
+} from "../../components/toggleButton/StyledToggleButton";
+import FilterForm from "./FilterForm";
+import AddMembersDrawerForm from "./AddMemberForm";
 const TeamPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
-
+  const [isFilterDrawerOpen, setFilterDrawerOpen] = useState(false);
+  const [isAddMemberOpen, setIsAddMemberOpen] = useState(false);
   const stickyHeadings = ["Actions"];
   const [rowData, setRowData] = useState([
     {
@@ -164,7 +180,14 @@ const TeamPage = () => {
             Import
           </StyledButton>
 
-          <StyledButton variant="contained">Add member</StyledButton>
+          <StyledButton
+            onClick={() => {
+              setIsAddMemberOpen(true);
+            }}
+            variant="contained"
+          >
+            Add member
+          </StyledButton>
         </TeamMembersPageTools>
       </TeamMembersHeader>
       <MembersTable
@@ -173,6 +196,28 @@ const TeamPage = () => {
         rowData={rowData}
         setRowData={setRowData}
         stickyColumnData={stickyColumnData}
+      />
+      <StyledDrawer
+        title={"Add member"}
+        anchor={"right"}
+        content={<AddMembersDrawerForm />}
+        bottomLeftButton={{ label: "Add Member" }}
+        open={isAddMemberOpen}
+        onClose={() => {
+          setIsAddMemberOpen(false);
+        }}
+      />
+
+      <StyledDrawer
+        maxWidth={"450px"}
+        title={"Filters"}
+        anchor={"right"}
+        content={<FilterForm />}
+        bottomLeftButton={{ label: "Apply Filter" }}
+        open={true}
+        onClose={() => {
+          setFilterDrawerOpen(false);
+        }}
       />
     </TeamMembersContainer>
   );

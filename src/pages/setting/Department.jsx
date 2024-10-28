@@ -3,10 +3,15 @@ import { DepartmentTable } from "../../components/table";
 import { useState } from "react";
 import SearchBox from "../../components/searchbox/SearchBox";
 import StyledButton from "../../components/button/Button";
+import StyledDrawer from "../../components/drawer/Drawer";
+import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
+import StyledInputLabel from "../../components/inputlabel/InputLabel";
+import StyledTextField from "../../components/textfield/TextField";
+import StyledTextArea from "../../components/textarea/StyledTextArea";
 
 const Department = () => {
   const [searchQuery, setSearchQuery] = useState("");
-
+  const [isAddDepartmentOpen, setIsAddDepartmentOpen] = useState(false);
   const [rows, setRows] = useState([
     {
       id: 1,
@@ -46,7 +51,10 @@ const Department = () => {
             size="small"
           />
           <StyledButton
-            sx={{ minWidth: "166px", minHeight: "40px" }}
+            onClick={() => {
+              setIsAddDepartmentOpen(true);
+            }}
+            sx={{ minWidth: "166px" }}
             variant="contained"
           >
             Add department
@@ -59,6 +67,16 @@ const Department = () => {
         rowData={rows}
         setRowData={setRows}
       ></DepartmentTable>
+      <StyledDrawer
+        anchor={"right"}
+        bottomLeftButton={{ label: "Add" }}
+        title={"Add department"}
+        content={<AddDepartmentDrawerForm />}
+        onClose={() => {
+          setIsAddDepartmentOpen(false);
+        }}
+        open={isAddDepartmentOpen}
+      />
     </DepartmentSectionContainer>
   );
 };
@@ -90,5 +108,20 @@ const DepartmentHeaderTools = styled(Box)({
   gap: "16px",
   alignItems: "center",
 });
+
+const AddDepartmentDrawerForm = () => {
+  return (
+    <StyledFormControl>
+      <StyledInputLabel required>Name</StyledInputLabel>
+      <StyledTextField
+        placeholder="Type name"
+        size="small"
+        fullWidth
+      ></StyledTextField>
+      <StyledInputLabel>Description</StyledInputLabel>
+      <StyledTextArea minRows={7} />
+    </StyledFormControl>
+  );
+};
 
 export default Department;

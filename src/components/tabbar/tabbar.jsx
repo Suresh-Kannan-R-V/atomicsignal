@@ -6,7 +6,7 @@ import { Grading } from "../../pages/setting/grading";
 import Feedback from "../../pages/setting/feedback";
 import ProfileCard from "../profilecard/ProfileCard";
 import { DepartmentTable } from "../table";
-import Department from "../../pages/department/Department";
+import Department from "../../pages/setting/Department";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
