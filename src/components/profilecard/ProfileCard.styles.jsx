@@ -1,10 +1,9 @@
 import { Avatar, Box, styled, Typography, Button } from "@mui/material";
 
-const ProfileCardContainer = styled(Box)(({ profilepage }) => ({
+const ProfileCardContainer = styled(Box)(({ width }) => ({
   backgroundColor: "white",
   borderRadius: "8px",
-  width: "100%",
-  margin: profilepage ? "" : "100px",
+  width,
 }));
 
 const ProfileInfoBox = styled(Box)({

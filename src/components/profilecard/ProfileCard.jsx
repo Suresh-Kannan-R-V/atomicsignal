@@ -23,7 +23,9 @@ import {
 } from "./ProfileCard.styles";
 
 const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
-  const [profileImage, setProfileImage] = useState("");
+  const [profileImage, setProfileImage] = useState(
+    "https://img.freepik.com/free-photo/portrait-young-businesswoman-holding-eyeglasses-hand-against-gray-backdrop_23-2148029483.jpg"
+  );
 
   useEffect(() => {
     const storedImage = localStorage.getItem("profileImage");
@@ -56,13 +58,13 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
     <ProfileCardContainer profilepage={profilepage}>
       <ProfileInfoBox>
         <ProfileAvatar
-          alt={ProfileData.userData.name}
+          alt={ProfileData?.userData?.r || "--"}
           src={profileImage || ""}
           variant="rounded"
         >
           <Typography sx={{ fontSize: "50px" }}>
             {" "}
-            {!profileImage && ProfileData.userData.name[0]}
+            {!profileImage && ProfileData?.userData?.name[0]}
           </Typography>
         </ProfileAvatar>
 
@@ -96,15 +98,15 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
 
         <ProfileInfoAndOthersContainer>
           <UserNameAndPeriodOfServiceContainer>
-            <ProfileName>{ProfileData.userData.name}</ProfileName>
+            <ProfileName>{ProfileData?.userData?.name}</ProfileName>
             <StyledChip
               variant="filled"
-              label={ProfileData.userData.period_of_service}
+              label={ProfileData?.userData?.period_of_service}
             />
           </UserNameAndPeriodOfServiceContainer>
 
           <OthersContainer>
-            {ProfileData.others.map((data, index) => (
+            {ProfileData?.others.map((data, index) => (
               <ProfileIconsAndLabelsContainer key={index}>
                 <StyledSvgIcon height={"16px"} width={"16px"} src={data.icon} />
                 {data.image && <ManagerAvatar src={data.image} />}
