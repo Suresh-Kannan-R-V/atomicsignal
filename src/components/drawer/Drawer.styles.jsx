@@ -3,7 +3,6 @@ import { Box, styled } from "@mui/material";
 
 const DrawerBox = styled(Box)(() => ({
   position: "relative",
-
   height: "100vh",
   display: "flex",
 }));

@@ -5,15 +5,23 @@ import Tome from "./Tome";
 import Others from "./Others";
 import Title from "../../components/Title/Heading";
 import Searchstar from "../../components/Search/Search";
-import Filterstar from "../../components/Iconbutton/Filter";
 import Fromme from "./fromme";
 import StyledButton from "../../components/button/Button";
 import { ImportIcon } from "../team/team.styles";
+import StyledDrawer from "../../components/drawer/Drawer";
+import Filterdrawer from "../../components/drawer/Filter";
+import { CiFilter } from "react-icons/ci";
+import { Filter } from "../../components/Iconbutton/Style";
 
 function Home() {
   const [active, setActive] = useState("1");
   const [searchQuery, setSearchQuery] = useState("");
+  const [isEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
 
+  const Hndleclick = (event) => {
+    console.log("hi");
+    setIsEditMemberDrawerOpen(true);
+  };
   const tabs = [
     {
       label: "From me (2)",
@@ -63,7 +71,9 @@ function Home() {
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
           />
-          <Filterstar />
+          <Filter onClick={Hndleclick}>
+            <CiFilter />
+          </Filter>
           <Flex sx={active === "3" ? stylesnew.hide : { display: "none" }}>
             <Divider orientation="horizontal" sx={stylesnew.divider} />
             <StyledButton startIcon={<ImportIcon />} variant="outlined">
@@ -74,6 +84,17 @@ function Home() {
       </Heading>
 
       <Table1>{renderContent()}</Table1>
+      <StyledDrawer
+        title={"Filters"}
+        content={<Filterdrawer activeTab={active} />}
+        anchor={"right"}
+        bottomLeftButton={{ label: "Apply filter", onClick: () => {} }}
+        bottomRightButton={{ label: "Reset" }}
+        onClose={() => {
+          setIsEditMemberDrawerOpen(false);
+        }}
+        open={isEditMemberDrawerOpen}
+      />
     </Base>
   );
 }
