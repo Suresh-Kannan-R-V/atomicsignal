@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import React, { useState } from "react";
-import StyledInputLabel from "../inputlabel/InputLabel";
-import StyledTextField from "../textfield/TextField";
+import StyledInputLabel from "../inputLabel/InputLabel";
+import StyledTextField from "../textField/TextField";
 import { CatButton, stylesnew } from "./Styles";
-import StyledDatePicker from "../datepicker/DatePicker";
+import StyledDatePicker from "../datePicker/DatePicker";
 
 function Filter({ activeTab }) {
   const [Signals, setSignal] = useState("Communication");

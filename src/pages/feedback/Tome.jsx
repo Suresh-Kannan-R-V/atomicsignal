@@ -3,9 +3,9 @@ import photo from "../../assets/image1.jpg";
 import { DoneIcon, Signalcolour, stylesnew } from "./Style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import Buttonsty from "../../components/button/Buttonfeed";
-import View from "../../components/Popup/View";
-import Tablesty from "../../components/Table/Table";
+import Buttonsty from "../../components/button/buttonFeed";
+import View from "../../components/popUp/View";
+import Tablesty from "../../components/table/Table";
 function Tome(searchQuery) {
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);

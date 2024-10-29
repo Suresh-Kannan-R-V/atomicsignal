@@ -3,15 +3,15 @@ import { Base, Flex, Head, Heading, stylesnew, Table1 } from "./Style";
 import { Box, Tabs, Tab, Divider } from "@mui/material";
 import Tome from "./Tome";
 import Others from "./Others";
-import Title from "../../components/Title/Heading";
-import Searchstar from "../../components/Search/Search";
+import Title from "../../components/title/Heading";
+import Searchstar from "../../components/search/Search";
 import Fromme from "./fromme";
-import StyledButton from "../../components/button/Button";
+import StyledButton from "../../components/button/button";
 import { ImportIcon } from "../team/team.styles";
 import StyledDrawer from "../../components/drawer/Drawer";
 import Filterdrawer from "../../components/drawer/Filter";
 import { CiFilter } from "react-icons/ci";
-import { Filter } from "../../components/Iconbutton/Style";
+import { Filter } from "../../components/iconButton/Style";
 
 function Home() {
   const [active, setActive] = useState("1");

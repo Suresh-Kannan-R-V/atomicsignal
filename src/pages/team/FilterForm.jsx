@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StyledInputLabel from "../../components/inputlabel/InputLabel";
+import StyledInputLabel from "../../components/inputLabel/InputLabel";
 import StyledSelect from "../../components/select/Select";
 import {
   StyledToggleButton,

@@ -3,8 +3,8 @@ import photo from "../../assets/image1.jpg";
 import { DoneIcon, Signalcolour, stylesnew } from "./Style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import Tablesty from "../../components/Table/Table";
-import View from "../../components/Popup/View";
+import Tablesty from "../../components/table/Table";
+import View from "../../components/popUp/View";
 
 function Others(searchQuery) {
   const [view, setView] = useState(false);

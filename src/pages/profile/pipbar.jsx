@@ -10,7 +10,7 @@ import {
   TooltipBox,
 } from "./profile.style";
 import { Typography } from "@mui/material";
-import { formatDate } from "../../utils/formateDate";
+import { formatDate } from "../../utils/formatedDate.js";
 
 const PipBar = ({ data, performanceDescriptions }) => {
   const getColor = (value) => {

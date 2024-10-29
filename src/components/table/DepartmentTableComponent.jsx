@@ -7,7 +7,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import StyledInputLabel from "../inputlabel/InputLabel";
+import StyledInputLabel from "../inputLabel/InputLabel";
 import {
   ReportingList,
   TableDiv,
@@ -42,16 +42,16 @@ import {
 import ReactSpeedometer from "react-d3-speedometer";
 import Table from "@mui/material/Table";
 import IOSSwitch from "../switch/Switch";
-import StyledButton from "../button/Button";
+import StyledButton from "../button/button";
 import { useEffect, useState } from "react";
 import Drawer from "../drawer/Drawer";
 import StyledDrawer from "../drawer/Drawer";
 import StyledInput from "../input/Input";
-import StyledTextField from "../textfield/TextField";
-import StyledDatePicker from "../datepicker/DatePicker";
+import StyledTextField from "../textField/TextField";
+import StyledDatePicker from "../datePicker/DatePicker";
 import StyledSelect from "../select/Select";
 import StyledChip from "../chip/Chip";
-import StyledTextArea from "../textarea/StyledTextArea";
+import StyledTextArea from "../textArea/StyledTextArea";
 const DepartmentTableComponent = ({
   headings,
   stickyheadings,

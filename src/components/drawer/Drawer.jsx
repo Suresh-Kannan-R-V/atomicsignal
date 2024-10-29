@@ -8,7 +8,7 @@ import {
   DrawerContentLayout,
   DrawerTitle,
 } from "./Drawer.styles";
-import StyledButton from "../button/Button";
+import StyledButton from "../button/button";
 const StyledDrawer = styled(
   ({
     minWidth = "450px",

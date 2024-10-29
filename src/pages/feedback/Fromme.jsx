@@ -3,9 +3,9 @@ import photo from "../../assets/image1.jpg";
 import { DoneIcon, Signalcolour, stylesnew } from "./Style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import Buttonsty from "../../components/button/Buttonfeed";
-import Tablesty from "../../components/Table/Table";
-import View from "../../components/Popup/View";
+import Buttonsty from "../../components/button/buttonFeed";
+import Tablesty from "../../components/table/Table";
+import View from "../../components/popUp/View";
 
 function Fromme(searchQuery) {
   const [view, setView] = useState(false);

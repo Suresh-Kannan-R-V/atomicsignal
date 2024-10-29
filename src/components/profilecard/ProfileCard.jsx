@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Divider, Typography } from "@mui/material";
 import StyledChip from "../chip/Chip";
-import StyledSvgIcon from "../svgicon/SvgIcon";
+import StyledSvgIcon from "../svgIcon/SvgIcon";
 import LinkedCameraOutlinedIcon from "@mui/icons-material/LinkedCameraOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 

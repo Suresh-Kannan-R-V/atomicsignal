@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
 import { MembersTable } from "../../components/table";
-import StyledButton from "../../components/button/Button";
+import StyledButton from "../../components/button/button";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
-import SearchBox from "../../components/searchbox/SearchBox";
-import CheckBox from "../../components/checkbox/CheckBox";
+import SearchBox from "../../components/searchBox/SearchBox";
+import CheckBox from "../../components/checkBox/CheckBox";
 import {
   TeamMembersContainer,
   TeamMembersHeader,
@@ -19,9 +19,9 @@ import {
 import { useEffect, useState } from "react";
 import StyledDrawer from "../../components/drawer/Drawer";
 import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
-import StyledInputLabel from "../../components/inputlabel/InputLabel";
-import StyledTextField from "../../components/textfield/TextField";
-import StyledDatePicker from "../../components/datepicker/DatePicker";
+import StyledInputLabel from "../../components/inputLabel/InputLabel";
+import StyledTextField from "../../components/textField/TextField";
+import StyledDatePicker from "../../components/datePicker/DatePicker";
 import StyledSelect from "../../components/select/Select";
 import StyledChip from "../../components/chip/Chip";
 import {

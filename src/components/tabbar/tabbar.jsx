@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Signals } from "../../pages/setting/signals";
 import { Grading } from "../../pages/setting/grading";
 import Feedback from "../../pages/setting/feedback";
-import ProfileCard from "../profilecard/ProfileCard";
+import ProfileCard from "../profileCard/ProfileCard";
 import { DepartmentTable } from "../table";
 import Department from "../../pages/setting/Department";
 import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
