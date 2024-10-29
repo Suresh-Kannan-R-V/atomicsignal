@@ -103,7 +103,7 @@ export const stylesnew = {
   },
 
   tab: {
-    color: "#71707B",
+    color: "#71707E",
     "&.Mui-selected": { color: "#3D3D3D" },
     textTransform: "none",
     alignItems: "start",
@@ -113,7 +113,6 @@ export const stylesnew = {
     minWidth: "0",
     padding: "0",
     fontSize: "16px",
-    fontWeight: "bold",
   },
   word: {
     marginRight: "35px",
