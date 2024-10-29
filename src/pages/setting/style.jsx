@@ -7,7 +7,7 @@ export const styledItem = {
     fontWeight: "500",
   },
   dataStyle: {
-    color: "#353448",
+    color: "#353448 !important",
     fontSize: "16px",
     fontFamily: "Poppins",
     textAlign: "left",
@@ -118,6 +118,7 @@ export const styledItem = {
     fontWeight: "300",
     bgcolor: "#49C792",
     padding: "3px 40px",
+    color: "#ffffff !important",
   },
   bodyActionIconStyle: {
     height: "28px",

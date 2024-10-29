@@ -14,6 +14,15 @@ const MembersTableHeadings = [
   "Status",
 ];
 
+const DepartmentTableHeadings = [
+  "S.No",
+  "Department name",
+  "Created on",
+  "Modified on",
+  "Status",
+  "Action",
+];
+
 const MembersTable = ({
   rowData,
   stickyColumnData,
@@ -33,6 +42,13 @@ const MembersTable = ({
   );
 };
 
-const DepartmentTable = ({}) => <DepartmentTableComponent />;
+const DepartmentTable = ({ rowData, setRowData, searchQuery }) => (
+  <DepartmentTableComponent
+    rows={rowData}
+    searchQuery={searchQuery}
+    setRows={setRowData}
+    headings={DepartmentTableHeadings}
+  />
+);
 
 export { MembersTable, DepartmentTable };

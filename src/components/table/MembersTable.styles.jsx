@@ -40,6 +40,8 @@ const StyledTableContainer = styled(TableContainer)({
   fontFamily: "Poppins",
   minHeight: "40rem",
   maxHeight: "40rem",
+  overflow: "auto",
+  pointerEvents: "none",
   scrollSnapType: "both mandatory",
   scrollSnapAlign: "start",
 });
@@ -154,7 +156,6 @@ const StickyHeading = styled(TableCell)({
   borderBottom: "none",
   minWidth: 190,
   backgroundColor: "white",
-  position: "sticky",
   bottom: 0,
   top: 0,
 });
@@ -229,6 +230,7 @@ const ActionContent = styled("div")({
 
 const StyledTable = styled(Table)({
   position: "relative",
+  pointerEvents: "auto",
 });
 
 const StyledFormControl = styled(Box)({
