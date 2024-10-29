@@ -11,7 +11,7 @@ import {
   ProfileBody,
   SpeedometerContainer,
 } from "./profile.style";
-import ProfileCard from "../../components/profileCard/ProfileCard";
+import ProfileCard from "../../components/profileCard/profileCard";
 import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
 import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
 import ManagerIcon from "../../assets/icons/manager.svg";
