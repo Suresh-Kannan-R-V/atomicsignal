@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Divider, Typography } from "@mui/material";
-import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
-import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
-import ManagerIcon from "../../assets/icons/manager.svg";
 import StyledChip from "../chip/Chip";
 import StyledSvgIcon from "../svgicon/SvgIcon";
 import LinkedCameraOutlinedIcon from "@mui/icons-material/LinkedCameraOutlined";
@@ -25,32 +22,9 @@ import {
   DeleteButton,
 } from "./ProfileCard.styles";
 
-const ProfileData = {
-  userData: {
-    name: "Jennifer",
-    period_of_service: "3 yrs 6 Mon",
-  },
-  others: [
-    {
-      name: "Human Resources",
-      icon: CollabrationIcon,
-    },
-    {
-      name: "Talent Manager",
-      icon: CollabrationIconMale,
-    },
-    {
-      image: "path/to/manager_image.jpg",
-      name: "Samuel Guererro",
-      icon: ManagerIcon,
-    },
-  ],
-};
-
-const ProfileCard = ({ isSetting = false, profilepage }) => {
+const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
   const [profileImage, setProfileImage] = useState("");
 
-  // Load profile image from local storage on component mount
   useEffect(() => {
     const storedImage = localStorage.getItem("profileImage");
     if (storedImage) {
@@ -58,10 +32,8 @@ const ProfileCard = ({ isSetting = false, profilepage }) => {
     }
   }, []);
 
-  // Reference to the file input for programmatic click
   const fileInputRef = React.useRef(null);
 
-  // Handle image upload
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {

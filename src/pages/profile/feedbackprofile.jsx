@@ -36,22 +36,7 @@ import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { format } from "date-fns";
 import StyledButton from "../../components/button/Button";
 
-const FeedbackCard = ({ teamMembers = false }) => {
-  const feedbackData = [
-    {
-      name: "steven",
-      date: "2024-09-11T03:53:09.000Z",
-      feedback:
-        "Your way of presenting the topic was very good in the client meeting",
-      rating: "Very good",
-      performance: "Excellent",
-      response_status: true,
-      response_submitted_datetime: "2024-09-11T03:55:00.000Z",
-      response_text: "Thanks! I'll try to improve further 👍",
-      feedback_response: "Happy to hear it from you.",
-    },
-  ];
-
+const FeedbackCard = ({ teamMembers, feedbackData }) => {
   const [expanded, setExpanded] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [response, setResponse] = useState("");

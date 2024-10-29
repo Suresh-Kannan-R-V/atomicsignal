@@ -12,6 +12,9 @@ import {
   SpeedometerContainer,
 } from "./profile.style";
 import ProfileCard from "../../components/profilecard/ProfileCard";
+import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
+import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
+import ManagerIcon from "../../assets/icons/manager.svg";
 import FeedbackCard from "./feedbackprofile";
 
 const performanceDescriptions = {
@@ -22,6 +25,42 @@ const performanceDescriptions = {
   5: "Very good",
   6: "Spectacular",
   7: "Impactful",
+};
+const feedbackData = [
+  {
+    name: "steven",
+    date: "2024-09-11T03:53:09.000Z",
+    feedback:
+      "Your way of presenting the topic was very good in the client meeting",
+    rating: "Very good",
+    performance: "Excellent",
+    response_status: true,
+    response_submitted_datetime: "2024-09-11T03:55:00.000Z",
+    response_text: "Thanks! I'll try to improve further 👍",
+    feedback_response: "Happy to hear it from you.",
+  },
+];
+
+const ProfileData = {
+  userData: {
+    name: "Jennifer",
+    period_of_service: "3 yrs 6 Mon",
+  },
+  others: [
+    {
+      name: "Human Resources",
+      icon: CollabrationIcon,
+    },
+    {
+      name: "Talent Manager",
+      icon: CollabrationIconMale,
+    },
+    {
+      image: "path/to/manager_image.jpg",
+      name: "Samuel Guererro",
+      icon: ManagerIcon,
+    },
+  ],
 };
 
 const Profile = () => {
@@ -62,7 +101,11 @@ const Profile = () => {
         <Grid item xs={12} md={6}>
           <Grid2 container spacing={3}>
             <Grid item xs={12}>
-              <ProfileCard profilepage={true} />
+              <ProfileCard
+                profilepage={true}
+                isSetting={false}
+                ProfileData={ProfileData}
+              />
             </Grid>
 
             <Grid item xs={12}>
@@ -96,7 +139,7 @@ const Profile = () => {
             <Typography fontSize={23} marginBottom={2}>
               Feedbacks
             </Typography>
-            <FeedbackCard />
+            <FeedbackCard feedbackData={feedbackData} teamMembers={false} />
           </FeedbackContainer>
         </Grid>
       </Grid>
