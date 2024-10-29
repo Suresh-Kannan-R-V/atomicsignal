@@ -1,5 +1,4 @@
-import ProfileCard from "../components/profilecard/ProfileCard";
-import { Profile, TeamPage, FeedbackPage } from "../pages";
+import { Profile, TeamPage, FeedbackPage, Settings } from "../pages";
 import { PATH } from "./path";
 
 export const pathSlicer = (path, sliceStart = 1) => path?.slice(sliceStart);
@@ -18,8 +17,8 @@ const AllRoutes = [
     element: <FeedbackPage />,
   },
   {
-    path: PATH.Setting,
-    element: <ProfileCard isSetting={true} />,
+    path: PATH.Settings,
+    element: <Settings />,
   },
 ];
 
