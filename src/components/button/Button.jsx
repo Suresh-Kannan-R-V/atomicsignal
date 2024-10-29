@@ -1,10 +1,12 @@
 import { Button, styled } from "@mui/material";
+import { color } from "chart.js/helpers";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   textTransform: "none",
   fontFamily: "Poppins",
   "&.MuiButton-contained": {
     backgroundColor: "#49C792",
+    color: "#ffffff",
     boxShadow: "none",
     border: "none",
     "& .hover": {

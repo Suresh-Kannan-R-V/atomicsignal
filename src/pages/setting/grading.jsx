@@ -3,8 +3,12 @@ import { styledItem } from "./style";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useState } from "react";
 import Chart from "../profile/chart";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFeedBackType } from "./slices/feedbackslice";
 
 export function Grading() {
+  const feedBack = useSelector((state) => state.feedBacktype);
+  const dispatch = useDispatch();
   const datas = [
     {
       value: 1,
@@ -35,6 +39,9 @@ export function Grading() {
       chartDesc: "Impactful",
     },
   ];
+  function DeleteGrading(index) {
+    dispatch(removeFeedBackType(index));
+  }
   return (
     <Grid2 sx={{ ...styledItem.parentGridSignalStyle, padding: 0 }}>
       <Grid2 sx={{ ...styledItem.parentGridSignalStyle, border: 0, margin: 0 }}>
@@ -73,7 +80,7 @@ export function Grading() {
             marginTop: "32px",
           }}
         >
-          {datas.map((element, index) => {
+          {feedBack.map((element, index) => {
             return (
               <Box
                 sx={{
@@ -104,7 +111,9 @@ export function Grading() {
                     {element.chartDesc}
                   </Typography>
                 </Box>
-                <CloseRoundedIcon />
+                <Box onClick={() => DeleteGrading(index)}>
+                  <CloseRoundedIcon />
+                </Box>
               </Box>
             );
           })}

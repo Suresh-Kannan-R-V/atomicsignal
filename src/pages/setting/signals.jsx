@@ -21,10 +21,9 @@ import { useEffect, useState } from "react";
 import { IosSwitch } from "../../components/switch/iosswitch";
 import StyledDrawer from "../../components/drawer/Drawer";
 import { EditContent } from "./editcontent";
+import { useSelector } from "react-redux";
 
-export function Signals(props) {
-  const Headdatas = props.HeadDatas;
-  const Bodydatas = props.BodyDatas;
+export function Signals() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const handleChangePage = (event, newPage) => {
@@ -40,13 +39,18 @@ export function Signals(props) {
   const [title, setTitle] = useState("");
   useEffect(() => {}, [title]);
 
-  const filteredData = Bodydatas.filter((data) =>
-    data.SignalData.toLowerCase().includes(searchTerm.toLowerCase())
+  const body = useSelector((state) => state.signalsBody);
+  const head = useSelector((state) => state.signalsHead);
+
+  const filteredData = body.filter((data) =>
+    data.signalName.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
     <Grid2 sx={styledItem.parentGridSignalStyle}>
       <Box sx={styledItem.parentBoxSignalStyle}>
-        <Typography sx={styledItem.headSignalStyle}>Signals (5)</Typography>
+        <Typography sx={styledItem.headSignalStyle}>
+          Signals ({filteredData.length})
+        </Typography>
         <Stack direction="row" spacing={2}>
           <Paper component="form" sx={styledItem.paperSearchStyle}>
             <SearchIcon sx={styledItem.searchIconStyle} />
@@ -75,7 +79,7 @@ export function Signals(props) {
           <Table stickyHeader>
             <TableHead>
               <TableRow>
-                {Headdatas.map((element, index) => (
+                {head.map((element, index) => (
                   <TableCell key={index} align={element.LabelAlign}>
                     <Typography sx={styledItem.headStyle}>
                       {element.HeadLabel}
@@ -91,22 +95,22 @@ export function Signals(props) {
                   <TableRow key={index}>
                     <TableCell sx={styledItem.tableCellStyle}>
                       <Typography sx={styledItem.dataStyle}>
-                        {element.SnoData}
+                        {index + 1}
                       </Typography>
                     </TableCell>
                     <TableCell sx={styledItem.tableCellStyle}>
                       <Typography sx={styledItem.dataStyle}>
-                        {element.SignalData}
+                        {element.signalName}
                       </Typography>
                     </TableCell>
                     <TableCell sx={styledItem.tableCellStyle}>
                       <Typography sx={styledItem.dataStyle}>
-                        {element.CreatedDate}
+                        {element.date}, {element.time}
                       </Typography>
                     </TableCell>
                     <TableCell sx={styledItem.tableCellStyle}>
                       <Typography sx={styledItem.dataStyle}>
-                        {element.ModifiedDate}
+                        {element.date}, {element.time}
                       </Typography>
                     </TableCell>
                     <TableCell sx={styledItem.tableCellStyle}>
@@ -116,13 +120,13 @@ export function Signals(props) {
                         spacing={1}
                       >
                         <IosSwitch />
-                        <Typography>{element.StatusData}</Typography>
+                        <Typography>Active</Typography>
                       </Stack>
                     </TableCell>
                     <TableCell sx={styledItem.tableCellStyle} align="center">
                       <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Avatar
-                          src={element.Actionimage}
+                          src="edit.png"
                           onClick={() => {
                             setIsEditMemberDrawerOpen(true);
                             setTitle("Edit Signal");

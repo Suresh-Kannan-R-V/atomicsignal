@@ -50,9 +50,7 @@ const theme = createTheme({
   },
 });
 
-export default function BasicTabs(props) {
-  const HeadDatas = props.HeadDatas;
-  const BodyDatas = props.BodyDatas;
+export default function BasicTabs() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -77,7 +75,7 @@ export default function BasicTabs(props) {
         </ThemeProvider>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Signals HeadDatas={HeadDatas} BodyDatas={BodyDatas} />
+        <Signals />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Grading />
