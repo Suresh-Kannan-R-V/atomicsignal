@@ -15,7 +15,7 @@ import {
   LogoImage,
   Version,
   SidebarMenu,
-} from "./navbar.style";
+} from "./navBar.style";
 import packageJson from "../../../package.json";
 
 const VNavbar = () => {

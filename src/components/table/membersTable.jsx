@@ -45,7 +45,7 @@ import Drawer from "../drawer/Drawer";
 import StyledDrawer from "../drawer/Drawer";
 import StyledInput from "../input/Input";
 import StyledTextField from "../textField/TextField";
-import StyledDatePicker from "../datePicker/DatePicker";
+import StyledDatePicker from "../datePicker/datePicker";
 import StyledSelect from "../select/Select";
 import StyledChip from "../chip/Chip";
 const MembersTableComponent = ({
