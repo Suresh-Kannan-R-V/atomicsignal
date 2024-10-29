@@ -29,7 +29,7 @@ const DrawerTitle = styled(Box)({
 const DrawerContentLayout = styled(Box)({
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  gap: "12px",
   height: "100%",
 });
 
