@@ -1,10 +1,11 @@
-import { Avatar, Box, styled, Typography } from "@mui/material";
-const ProfileCardContainer = styled(Box)({
+import { Avatar, Box, styled, Typography, Button } from "@mui/material";
+
+const ProfileCardContainer = styled(Box)(({ profilepage }) => ({
   backgroundColor: "white",
   borderRadius: "8px",
-  width: "600px",
-  margin: "24.5px 0px 0px 0px",
-});
+  width: "100%",
+  margin: profilepage ? "" : "100px",
+}));
 
 const ProfileInfoBox = styled(Box)({
   height: "129px",
@@ -12,6 +13,7 @@ const ProfileInfoBox = styled(Box)({
   padding: "24px",
   gap: "24px",
   alignItems: "center",
+  position: "relative",
 });
 
 const ProfileAvatar = styled(Avatar)({
@@ -19,8 +21,27 @@ const ProfileAvatar = styled(Avatar)({
   width: "120px",
 });
 
+const AddDeleteButtonContainer = styled(Box)({
+  position: "absolute",
+  bottom: 8,
+  left: 68,
+});
+
+const AddButton = styled(Box)({
+  backgroundColor: "#fff",
+  padding: "5px 4px 0px 4px",
+  borderRadius: "50%",
+  border: "2px solid #49C792",
+});
+
+const DeleteButton = styled(Box)({
+  backgroundColor: "#fff",
+  padding: "5px 4px 0px 4px",
+  borderRadius: "50%",
+  border: "1px solid #ccc",
+});
+
 const ProfileName = styled(Typography)({
-  // backgroundColor:'red',
   fontSize: "24px",
   fontWeight: "bold",
 });
@@ -82,4 +103,7 @@ export {
   OthersContainer,
   ResetPasswordContainer,
   ManagerAvatar,
+  AddDeleteButtonContainer,
+  AddButton,
+  DeleteButton,
 };
