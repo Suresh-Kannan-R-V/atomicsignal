@@ -1,4 +1,4 @@
-import { Badge, colors, Divider, styled } from "@mui/material";
+import { Badge, Box, colors, Divider, styled } from "@mui/material";
 
 import ImportIconSvg from "../../assets/icons/import.svg";
 
@@ -12,12 +12,15 @@ const TeamMembersHeader = styled("div")({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  flexWrap: "wrap",
+  rowGap: "10px",
 });
 
 const TeamMembersPageTools = styled("div")({
   display: "flex",
   alignItems: "center",
   gap: "10px",
+  flexWrap: "wrap",
 });
 
 const ImportIcon = styled((props) => <img src={ImportIconSvg} {...props} />)(
@@ -45,6 +48,19 @@ const StyledBadge = styled(Badge)({
   },
 });
 
+const FilterFormContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  gap: "16px",
+  padding: "0px 24px",
+});
+
+const FilterFormField = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  gap: "8px",
+});
+
 export {
   TeamMembersContainer,
   TeamMembersHeader,
@@ -53,4 +69,6 @@ export {
   VerticalDivider,
   CheckBoxWithLabel,
   StyledBadge,
+  FilterFormContainer,
+  FilterFormField,
 };

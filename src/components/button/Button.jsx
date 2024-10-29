@@ -4,6 +4,7 @@ import { color } from "chart.js/helpers";
 const StyledButton = styled(Button)(({ theme }) => ({
   textTransform: "none",
   fontFamily: "Poppins",
+  color: "#ffffff", // all colour inside the coloured box is white
   "&.MuiButton-contained": {
     backgroundColor: "#49C792",
     color: "#ffffff",

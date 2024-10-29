@@ -4,7 +4,13 @@ import { useState } from "react";
 import { Signals } from "../../pages/setting/signals";
 import { Grading } from "../../pages/setting/grading";
 import Feedback from "../../pages/setting/feedback";
-
+import ProfileCard from "../profilecard/ProfileCard";
+import { DepartmentTable } from "../table";
+import Department from "../../pages/setting/Department";
+import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
+import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
+import ManagerIcon from "../../assets/icons/manager.svg";
+import { PasswordContainer } from "./style";
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -56,7 +62,28 @@ export default function BasicTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const ProfileData = {
+    userData: {
+      name: "Jennifer",
+      image: "",
+      period_of_service: "3 yrs 6 Mon",
+    },
+    others: [
+      {
+        name: "Human Resources",
+        icon: CollabrationIcon,
+      },
+      {
+        name: "Talent Manager",
+        icon: CollabrationIconMale,
+      },
+      {
+        image: "eded",
+        name: "Samuel Guererro",
+        icon: ManagerIcon,
+      },
+    ],
+  };
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -84,8 +111,14 @@ export default function BasicTabs() {
       <CustomTabPanel value={value} index={2}>
         <Feedback />
       </CustomTabPanel>
-      <CustomTabPanel value={value} index={3}></CustomTabPanel>
-      <CustomTabPanel value={value} index={4}></CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <Department />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={4}>
+        <PasswordContainer>
+          <ProfileCard ProfileData={ProfileData} isSetting />
+        </PasswordContainer>
+      </CustomTabPanel>
     </Box>
   );
 }
