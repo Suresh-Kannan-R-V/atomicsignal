@@ -56,20 +56,16 @@ export default function Feedback() {
       <Typography component="hr" sx={{ border: "1px solid #EBEBEB" }} />
       <Grid2 sx={{ ...styledItem.parentGridSignalStyle, border: 0, margin: 0 }}>
         <Grid2 sx={{ paddingTop: "0px" }}>
-          <Typography
-            sx={{
-              fontSize: "14px",
-              textAlign: "left",
-              color: "#484759",
-              letterSpacing: "0px",
-              fontFamily: "Poppins",
-            }}
-          >
+          <Typography sx={styledItem.feedbackTypeInfoText}>
             What type of feedback structure have you implemented or would like
             to implement?
           </Typography>
           <Box sx={{ marginTop: "12px", width: "399px" }}>
-            <Stack direction="row" spacing={2}>
+            <Stack
+              direction={{ sm: "row", xs: "column" }}
+              alignItems="center"
+              spacing={2}
+            >
               {FeedbackButton.map((item, index) => {
                 return (
                   <>
@@ -77,19 +73,12 @@ export default function Feedback() {
                       key={index}
                       onClick={() => toggleHighlight(index)}
                       sx={{
+                        ...styledItem.feedbackTypeBox,
                         border:
                           index === selectedItem
                             ? "1px solid #49C792"
                             : "1px solid #EBEBEB",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        borderRadius: "4px",
-                        height: "109px",
-                        width: "119px",
                         background: index === selectedItem ? "#EEFBF6" : "",
-                        cursor: "pointer",
                       }}
                     >
                       <Avatar
@@ -98,11 +87,7 @@ export default function Feedback() {
                             ? item.imageSrc1
                             : item.imageSrc
                         }
-                        sx={{
-                          height: "28px",
-                          width: "28px",
-                          overflow: "visible",
-                        }}
+                        sx={styledItem.feedbackAvatarBox}
                       />
                       <Typography
                         sx={{
@@ -119,7 +104,7 @@ export default function Feedback() {
                 );
               })}
             </Stack>
-            <Box sx={{ display: "flex", columnGap: "8px", marginTop: "12px" }}>
+            <Box sx={styledItem.feedbackInfoBox}>
               <InfoOutlinedIcon
                 fontSize="verysmall"
                 sx={{ color: "#49C792" }}

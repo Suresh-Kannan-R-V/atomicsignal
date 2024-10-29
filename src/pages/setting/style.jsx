@@ -5,6 +5,7 @@ export const styledItem = {
     letterSpacing: "0px",
     fontSize: "18px",
     fontWeight: "500",
+    whiteSpace: "nowrap",
   },
   dataStyle: {
     color: "#353448 !important",
@@ -12,6 +13,7 @@ export const styledItem = {
     fontFamily: "Poppins",
     textAlign: "left",
     letterSpacing: "0px",
+    whiteSpace: "nowrap",
   },
   linkStyle: {
     color: "#49C792",
@@ -21,7 +23,7 @@ export const styledItem = {
     textAlign: "left",
     fontFamily: "Poppins",
   },
-  tableCellStyle: { borderColor: "#FFFFFF" },
+  tableCellStyle: { borderColor: "#FFFFFF", bgcolor: "#ffffff" },
   parentGridStyle: {
     width: "100%",
     overflow: "hidden",
@@ -82,10 +84,43 @@ export const styledItem = {
     padding: "16px ",
     marginTop: "24px",
   },
+  parentGridSignalStyleWeb: {
+    bgcolor: "#FFFFFF",
+    border: "1px solid #E3E3E3",
+    borderRadius: "4px",
+    padding: "16px ",
+    marginTop: "24px",
+    display: {
+      xs: "none",
+      sm: "block",
+    },
+  },
+  parentGridSignalStyleMob: {
+    bgcolor: "#FFFFFF",
+    border: "1px solid #E3E3E3",
+    borderRadius: "4px",
+    padding: "16px ",
+    marginTop: "24px",
+    display: {
+      xs: "block",
+      sm: "none",
+    },
+  },
   parentBoxSignalStyle: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  parentBoxSignalStyleMob: {
+    display: "grid",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gridTemplateColumns: "1fr",
+    gridTemplateAreas: `
+      "signalhead addbutton " 
+      "inputbox inputbox"
+      `,
+    gap: "16px 0px",
   },
   headSignalStyle: {
     color: "#353448",
@@ -95,12 +130,28 @@ export const styledItem = {
     fontFamily: "Poppins",
     fontWeight: "500",
   },
+  headSignalStyleMob: {
+    color: "#353448",
+    fontSize: "16px",
+    textAlign: "left",
+    letterSpacing: "0px",
+    fontFamily: "Poppins",
+    fontWeight: "500",
+    gridArea: "signalhead",
+    whiteSpace: "nowrap",
+  },
   paperSearchStyle: {
     border: "1px solid #CACACA",
     display: "flex",
     alignItems: "center",
     padding: "5px 10px",
-    width: "310px",
+  },
+  paperSearchStyleMob: {
+    border: "1px solid #CACACA",
+    display: "flex",
+    alignItems: "center",
+    padding: "5px 10px",
+    gridArea: "inputbox",
   },
   searchIconStyle: { color: "#888888", width: "20px", height: "20px" },
   searchInputBarStyle: {
@@ -119,6 +170,17 @@ export const styledItem = {
     bgcolor: "#49C792",
     padding: "3px 40px",
     color: "#ffffff !important",
+  },
+  signalButtonStyleMob: {
+    textAlign: "left",
+    fontSize: "16px",
+    fontFamily: "Poppins",
+    textTransform: "none",
+    fontWeight: "300",
+    bgcolor: "#49C792",
+    padding: "3px 40px",
+    color: "#ffffff !important",
+    gridArea: "addbutton",
   },
   bodyActionIconStyle: {
     height: "28px",
@@ -151,4 +213,23 @@ export const styledItem = {
   editContentHeadingMust: { color: "#F44F5A" },
   editContentBox: { paddingBottom: "16px" },
   editContentGrid: { padding: "24px" },
+  feedbackTypeBox: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "4px",
+    height: "109px",
+    width: "119px",
+    cursor: "pointer",
+  },
+  feedbackAvatarBox: { height: "28px", width: "28px", overflow: "visible" },
+  feedbackInfoBox: { display: "flex", columnGap: "8px", marginTop: "12px" },
+  feedbackTypeInfoText: {
+    fontSize: "14px",
+    textAlign: "left",
+    color: "#484759",
+    letterSpacing: "0px",
+    fontFamily: "Poppins",
+  },
 };
