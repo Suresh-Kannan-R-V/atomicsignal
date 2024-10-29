@@ -13,6 +13,7 @@ const StyledDrawer = styled(
   ({
     minWidth = "450px",
     content,
+    maxWidth,
     title = "Drawer",
     drawerContent,
     bottomLeftButton = { label: "Save", onClick: () => {} },
@@ -28,6 +29,7 @@ const StyledDrawer = styled(
       PaperProps={{
         sx: {
           minWidth: minWidth,
+          maxWidth,
           backgroundColor: "transparent",
           boxShadow: "none",
         },

@@ -2,8 +2,39 @@ import { Box, Button, Grid2, Typography } from "@mui/material";
 import { styledItem } from "./style";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useState } from "react";
+import Chart from "../profile/chart";
 
 export function Grading() {
+  const datas = [
+    {
+      value: 1,
+      chartDesc: "Completely away",
+    },
+    {
+      value: 2,
+      chartDesc: "Need to improve a lot",
+    },
+    {
+      value: 3,
+      chartDesc: "Need to improve",
+    },
+    {
+      value: 4,
+      chartDesc: "Good",
+    },
+    {
+      value: 5,
+      chartDesc: "Very good",
+    },
+    {
+      value: 6,
+      chartDesc: "Spectacular",
+    },
+    {
+      value: 7,
+      chartDesc: "Impactful",
+    },
+  ];
   return (
     <Grid2 sx={{ ...styledItem.parentGridSignalStyle, padding: 0 }}>
       <Grid2 sx={{ ...styledItem.parentGridSignalStyle, border: 0, margin: 0 }}>
@@ -33,30 +64,50 @@ export function Grading() {
             Inefficient, Neutral...)
           </Typography>
         </Grid2>
-        <Box>
-          <Box
-            sx={{
-              border: "1px solid #EBEBEB",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "450px",
-              padding: "12px",
-            }}
-          >
-            <Box>
-              <Typography
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "32px",
+          }}
+        >
+          {datas.map((element, index) => {
+            return (
+              <Box
                 sx={{
-                  ...styledItem.dataStyle,
-                  fontSize: "14px",
-                  fontWeight: "500",
+                  border: "1px solid #EBEBEB",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "450px",
+                  padding: "12px",
+                  marginBottom: "8px",
                 }}
               >
-                Completely away
-              </Typography>
-            </Box>
-            <CloseRoundedIcon />
-          </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    columnGap: "10px",
+                  }}
+                >
+                  <Chart Size="small" value={element.value} />
+                  <Typography
+                    sx={{
+                      ...styledItem.dataStyle,
+                      fontSize: "14px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {element.chartDesc}
+                  </Typography>
+                </Box>
+                <CloseRoundedIcon />
+              </Box>
+            );
+          })}
         </Box>
       </Grid2>
     </Grid2>

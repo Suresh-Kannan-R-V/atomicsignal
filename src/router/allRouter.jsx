@@ -1,9 +1,13 @@
 import { Profile, TeamPage, FeedbackPage, Settings } from "../pages";
 import { PATH } from "./path";
-
+import { Navigate } from "react-router-dom";
 export const pathSlicer = (path, sliceStart = 1) => path?.slice(sliceStart);
 
 const AllRoutes = [
+  {
+    path: "/",
+    element: <Navigate to={PATH.Profile} />,
+  },
   {
     path: PATH.Profile,
     element: <Profile />,
@@ -17,7 +21,7 @@ const AllRoutes = [
     element: <FeedbackPage />,
   },
   {
-    path: PATH.Settings,
+    path: PATH.Setting,
     element: <Settings />,
   },
 ];

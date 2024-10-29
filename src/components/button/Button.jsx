@@ -6,6 +6,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   "&.MuiButton-contained": {
     backgroundColor: "#49C792",
     boxShadow: "none",
+    color: "white",
     border: "none",
     "& .hover": {
       boxShadow: "none",
