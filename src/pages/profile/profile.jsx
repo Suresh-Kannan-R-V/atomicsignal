@@ -9,9 +9,10 @@ import {
   LabelValue,
   PerformanceContainer,
   ProfileBody,
-  ProfileGrid,
   SpeedometerContainer,
 } from "./profile.style";
+import ProfileCard from "../../components/profilecard/ProfileCard";
+import FeedbackCard from "./feedbackprofile";
 
 const performanceDescriptions = {
   1: "Completely away",
@@ -61,7 +62,7 @@ const Profile = () => {
         <Grid item xs={12} md={6}>
           <Grid2 container spacing={3}>
             <Grid item xs={12}>
-              <ProfileGrid></ProfileGrid>
+              <ProfileCard profilepage={true} />
             </Grid>
 
             <Grid item xs={12}>
@@ -91,7 +92,12 @@ const Profile = () => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <FeedbackContainer></FeedbackContainer>
+          <FeedbackContainer>
+            <Typography fontSize={23} marginBottom={2}>
+              Feedbacks
+            </Typography>
+            <FeedbackCard />
+          </FeedbackContainer>
         </Grid>
       </Grid>
     </ProfileBody>
