@@ -8,12 +8,12 @@ import {
   TeamMembersContainer,
   TeamMembersHeader,
   TeamMembersPageTools,
-  ImportIcon,
   VerticalDivider,
   CheckBoxWithLabel,
   StyledBadge,
   FilterFormContainer,
   FilterFormField,
+  ImportIcon,
 } from "./team.styles";
 
 import { useEffect, useState } from "react";
@@ -21,7 +21,6 @@ import StyledDrawer from "../../components/drawer/Drawer";
 import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
 import StyledInputLabel from "../../components/inputLabel/InputLabel";
 import StyledTextField from "../../components/textField/TextField";
-import StyledDatePicker from "../../components/datePicker/DatePicker";
 import StyledSelect from "../../components/select/Select";
 import StyledChip from "../../components/chip/Chip";
 import {
@@ -30,6 +29,7 @@ import {
 } from "../../components/toggleButton/StyledToggleButton";
 import FilterForm from "./FilterForm";
 import AddMembersDrawerForm from "./AddMemberForm";
+import ImportIconStyled from "../../assets/icons/import";
 const TeamPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isFilterDrawerOpen, setFilterDrawerOpen] = useState(false);

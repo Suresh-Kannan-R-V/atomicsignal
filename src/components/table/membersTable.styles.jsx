@@ -17,7 +17,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import PencilIconSvg from "../../assets/icons/pencil.svg";
+import PencilIconSvg from "../../assets/icons/pencil.jsx";
 
 const ReportingList = styled("div")({
   display: "flex",
@@ -56,20 +56,10 @@ const StyledBottomTableContainer = styled(TableContainer)({
   position: "relative",
 });
 
-const StyledTablePagination = styled(TablePagination)({
-  "& .MuiTablePagination-root": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-selectLabel": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-select": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-displayedRows": {
-    fontFamily: "Poppins",
-  },
-});
+const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightRegular,
+  fontSize: theme.typography.fontSize.small,
+}));
 
 const StyledTableFooter = styled(TableFooter)({});
 
@@ -85,6 +75,8 @@ const MemberProfile = styled("div")(({ fontSize }) => ({
 
 const MoreTag = styled(Typography)(({ theme }) => ({
   color: theme.palette.secondary.main,
+  fontSize: theme.typography.fontSize.medium,
+  fontWeight: theme.typography.fontWeightRegular,
 }));
 
 const SignalsAvatar = styled(Avatar)(({ bgColor, color }) => ({
@@ -180,12 +172,7 @@ const StickyCell = styled(TableCell)({
   fontFamily: "Poppins",
 });
 
-const PencilIcon = styled((props) => <img src={PencilIconSvg} {...props} />)({
-  color: "#49C792",
-  backgroundColor: "#EEFBF6",
-  padding: "2px",
-  borderRadius: "100px",
-});
+const PencilIcon = styled((props) => <PencilIconSvg {...props} />)({});
 
 const ActionContainer = styled("div")({
   display: "flex",

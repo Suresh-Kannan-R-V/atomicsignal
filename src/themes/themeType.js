@@ -39,6 +39,8 @@ export const lightTheme = {
       secondary: "#71707E",
       subText: "#999943",
       danger: "#F44F5A",
+      label: "#484759",
+      placeholder: "#C2C1C7",
     },
     error: {
       main: "#F44F5A",

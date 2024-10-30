@@ -9,6 +9,7 @@ import {
   DrawerTitle,
 } from "./Drawer.styles";
 import StyledButton from "../button/button";
+import { MSizeMWeight } from "../typography/typography";
 const StyledDrawer = styled(
   ({
     minWidth = "450px",
@@ -42,7 +43,9 @@ const StyledDrawer = styled(
         )}
         <DrawerContentBox>
           <DrawerContentLayout>
-            <DrawerTitle>{title}</DrawerTitle>
+            <DrawerTitle>
+              <MSizeMWeight content={title} />
+            </DrawerTitle>
             <Divider></Divider>
 
             {content}
