@@ -6,6 +6,8 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   "& .MuiInputBase-input::placeholder": {
     color: theme.palette.text.placeholder,
     opacity: 1,
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.fontSize.small,
   },
   "& .MuiOutlinedInput-root": {
     "&.Mui-focused fieldset": {

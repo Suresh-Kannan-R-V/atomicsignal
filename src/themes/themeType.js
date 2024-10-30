@@ -31,6 +31,7 @@ export const lightTheme = {
       contrastText: "rgba(0,0,0,0.87)",
       containedHover: "#6CDBAD",
       outlinedHover: "#EEFBF6",
+      disabledOutline: "#EBEBEB",
       disable: "#B9B9B9",
       textColor: "#FFFFFF",
     },

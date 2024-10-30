@@ -21,6 +21,7 @@ import {
   AddButton,
   DeleteButton,
   SettingContainer,
+  LabelWithAvatarContainer,
 } from "./ProfileCard.styles";
 
 const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
@@ -112,8 +113,10 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
             {ProfileData?.others.map((data, index) => (
               <ProfileIconsAndLabelsContainer key={index}>
                 <StyledSvgIcon height={"16px"} width={"16px"} src={data.icon} />
-                {data.image && <ManagerAvatar src={data.image} />}
-                <ProfileIconsLabel>{data.name}</ProfileIconsLabel>
+                <LabelWithAvatarContainer>
+                  {data.image && <ManagerAvatar src={data.image} />}
+                  <ProfileIconsLabel>{data.name}</ProfileIconsLabel>
+                </LabelWithAvatarContainer>
               </ProfileIconsAndLabelsContainer>
             ))}
           </OthersContainer>

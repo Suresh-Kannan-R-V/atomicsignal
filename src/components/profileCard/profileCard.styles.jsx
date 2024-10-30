@@ -49,15 +49,16 @@ const DeleteButton = styled(Box)({
   border: "1px solid #ccc",
 });
 
-const ProfileName = styled(Typography)({
-  fontSize: "24px",
-  fontWeight: "bold",
-});
+const ProfileName = styled(Typography)(({ theme }) => ({
+  fontSize: theme.typography.fontSize.extraLarge,
+  fontWeight: theme.typography.fontWeight.semiBold,
+}));
 
-const ProfileIconsLabel = styled(Typography)({
+const ProfileIconsLabel = styled(Typography)(({ theme }) => ({
   backgroundColor: "white",
-  fontSize: "14px",
-});
+  fontWeight: theme.typography.fontWeightRegular,
+  fontSize: theme.typography.fontSize.small,
+}));
 
 const ProfileInfoAndOthersContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -91,14 +92,14 @@ const OthersContainer = styled(Box)({
   gap: "12px",
 });
 
-const ResetPasswordContainer = styled(Box)({
+const ResetPasswordContainer = styled(Box)(({ theme }) => ({
   height: "20px",
   padding: "16px",
   textAlign: "center",
   fontSize: "14px",
-  color: "#F44F5A",
+  color: theme.palette.text.danger,
   fontWeight: "500",
-});
+}));
 
 const ManagerAvatar = styled(Avatar)({
   height: "24px",
@@ -107,6 +108,12 @@ const ManagerAvatar = styled(Avatar)({
 
 const SettingContainer = styled(Box)({
   width: "100%",
+});
+
+const LabelWithAvatarContainer = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  gap: "4px",
 });
 
 export {
@@ -125,4 +132,5 @@ export {
   AddButton,
   DeleteButton,
   SettingContainer,
+  LabelWithAvatarContainer,
 };

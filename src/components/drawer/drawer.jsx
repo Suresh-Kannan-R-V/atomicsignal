@@ -53,6 +53,7 @@ const StyledDrawer = styled(
               <StyledButton
                 onClick={bottomLeftButton?.onClick}
                 fullWidth
+                size="large"
                 variant="contained"
               >
                 {bottomLeftButton?.label}
@@ -60,6 +61,7 @@ const StyledDrawer = styled(
               <StyledButton
                 onClick={bottomRightButton?.onClick}
                 fullWidth
+                size="large"
                 variant="outlined"
               >
                 {bottomRightButton?.label}

@@ -6,11 +6,11 @@ const PencilIconSvg = (props) => {
   const lightColor = theme.palette.secondary.light;
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
-      width="28"
-      height="28"
+      width="30px"
+      height="30px"
       viewBox="0 0 28 28"
+      {...props}
     >
       <g
         id="Group_106412"
