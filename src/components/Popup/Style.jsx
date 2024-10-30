@@ -1,6 +1,6 @@
-import { Dialog, styled } from "@mui/material";
+import { Box, Dialog, styled } from "@mui/material";
 
-export const Dialogue = styled(Dialog)(() => ({
+export const Dialogue = styled(Dialog)((width, height) => ({
   "& .MuiDialogContent-root": {
     padding: 0,
     height: "100%",
@@ -11,31 +11,33 @@ export const Dialogue = styled(Dialog)(() => ({
     padding: 0,
   },
   "& .MuiPaper-root": {
-    height: "400px",
-    width: "500px",
+    height: height,
+    width: width,
+    minHeight: "400px",
+    minWidth: "500px",
   },
 }));
 
-export const stylesnew = {
-  head: {
-    height: "63px",
-    padding: "0 24px",
-    display: "flex",
-    alignItems: "center",
-    color: "View feedback",
-    fontWeight: "600",
-    justifyContent: "space-between",
-    borderBottom: "1px solid #CACACA ",
-  },
+export const Popuphead = styled(Box)(() => ({
+  height: "63px",
+  padding: "0 24px",
+  display: "flex",
+  alignItems: "center",
+  color: "View feedback",
+  fontWeight: "600",
+  justifyContent: "space-between",
+  borderBottom: "1px solid #CACACA ",
+}));
 
+export const Body = styled(Box)(() => ({
+  padding: "24px",
+}));
+
+export const stylesnew = {
   flex: {
     display: "flex",
     alignItems: "center",
     gap: "8px",
-  },
-
-  body: {
-    padding: "24px",
   },
 
   cross: {

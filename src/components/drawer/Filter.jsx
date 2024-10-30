@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import React, { useState } from "react";
 import StyledInputLabel from "../inputlabel/InputLabel";
 import StyledTextField from "../textfield/TextField";
-import { CatButton, stylesnew } from "./Styles";
+import { CatButton, stylesnew } from "./styles";
 import StyledDatePicker from "../datepicker/DatePicker";
 
 function Filter({ activeTab }) {

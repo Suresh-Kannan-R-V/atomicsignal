@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import photo from "../../assets/image1.jpg";
-import { DoneIcon, Signalcolour, stylesnew } from "./Style";
+import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Tablesty from "../../components/Table/Table";
-import View from "../../components/Popup/View";
+import View from "../../components/popup/View";
 
 function Others(searchQuery) {
   const [view, setView] = useState(false);

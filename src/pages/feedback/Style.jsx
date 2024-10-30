@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/material";
+import { Box, Button, styled } from "@mui/material";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 export const Base = styled(Box)(() => ({
@@ -148,3 +148,16 @@ export const stylesnew = {
     height: 27,
   },
 };
+
+export const Filter = styled(Button)(() => ({
+  height: "40px",
+  display: "flex",
+  justifyContent: "center",
+  backgroundColor: "#49C792",
+  borderRadius: "5px",
+  color: "#FFFFFF",
+  fontSize: "20px",
+  alignItems: "center",
+  cursor: "pointer",
+  minWidth: "45px",
+}));

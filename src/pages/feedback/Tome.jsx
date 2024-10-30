@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import photo from "../../assets/image1.jpg";
-import { DoneIcon, Signalcolour, stylesnew } from "./Style";
+import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import Buttonsty from "../../components/button/Buttonfeed";
-import View from "../../components/Popup/View";
+import Buttonsty from "../../components/button/buttonfeed";
+import View from "../../components/popup/View";
 import Tablesty from "../../components/Table/Table";
 function Tome(searchQuery) {
   const [view, setView] = useState(false);

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import photo from "../../assets/image1.jpg";
-import { DoneIcon, Signalcolour, stylesnew } from "./Style";
+import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import Buttonsty from "../../components/button/Buttonfeed";
+import Buttonsty from "../../components/button/buttonfeed";
 import Tablesty from "../../components/Table/Table";
-import View from "../../components/Popup/View";
+import View from "../../components/popup/View";
 
 function Fromme(searchQuery) {
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
+
+  const title = "View Feedback";
 
   const Rowdata = [
     {
@@ -227,12 +229,13 @@ function Fromme(searchQuery) {
       <Tablesty Rowdata={Rowdata} Column={Column} searchQuery={searchQuery} />
       {view && (
         <View
+          title={title}
           setPrincing={() => setView(false)}
-          name={selectedPerson.name}
-          signal={selectedPerson.signal}
-          performance={selectedPerson.performance}
-          photo={selectedPerson.nameprofile}
-          response={selectedPerson.response}
+          // name={selectedPerson.name}
+          // signal={selectedPerson.signal}
+          // performance={selectedPerson.performance}
+          // photo={selectedPerson.nameprofile}
+          // response={selectedPerson.response}
           c={0}
         />
       )}

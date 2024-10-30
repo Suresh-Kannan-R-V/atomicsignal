@@ -4,8 +4,8 @@ import { Box, TablePagination } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { stylesnew } from "./Style";
-import { StyledTableCell, StyledTableRow } from "./Style";
+import { stylesnew } from "./style";
+import { StyledTableCell, StyledTableRow } from "./style";
 
 function Tablesty({ Rowdata, Column, searchQuery }) {
   const [page, setPage] = useState(0);
