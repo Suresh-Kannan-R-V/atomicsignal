@@ -145,6 +145,8 @@ export const styledItem = {
     display: "flex",
     alignItems: "center",
     padding: "5px 10px",
+    borderShadow: "none",
+    width: "310px",
   },
   paperSearchStyleMob: {
     border: "1px solid #CACACA",

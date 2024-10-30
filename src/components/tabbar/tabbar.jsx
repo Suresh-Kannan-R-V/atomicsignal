@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { Signals } from "../../pages/setting/signals";
 import { Grading } from "../../pages/setting/grading";
-import Feedback from "../../pages/setting/feedback";
+import Feedback from "../../pages/setting/feedBackType";
 import ProfileCard from "../profilecard/ProfileCard";
 import { DepartmentTable } from "../table";
 import Department from "../../pages/setting/Department";

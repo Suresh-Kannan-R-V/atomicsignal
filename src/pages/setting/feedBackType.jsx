@@ -3,12 +3,10 @@ import { styledItem } from "./style";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { useState } from "react";
 
-export default function Feedback() {
+export default function FeedBack() {
   const [selectedItem, setSelectedItem] = useState(0);
-  const [colour, setColour] = useState("");
   const toggleHighlight = (id) => {
     setSelectedItem(id);
-    setColour("#49C792");
   };
   const FeedbackButton = [
     {

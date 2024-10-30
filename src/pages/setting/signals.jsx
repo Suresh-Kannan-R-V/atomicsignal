@@ -20,7 +20,7 @@ import { styledItem } from "./style";
 import { useEffect, useState } from "react";
 import { IosSwitch } from "../../components/switch/iosswitch";
 import StyledDrawer from "../../components/drawer/Drawer";
-import { EditContent } from "./editcontent";
+import { EditContent } from "./editContent";
 import { useSelector } from "react-redux";
 
 export function Signals() {
@@ -53,7 +53,10 @@ export function Signals() {
             Signals ({filteredData.length})
           </Typography>
           <Stack direction="row" spacing={2}>
-            <Paper component="form" sx={styledItem.paperSearchStyle}>
+            <Paper
+              component="form"
+              sx={{ ...styledItem.paperSearchStyle, boxShadow: "none" }}
+            >
               <SearchIcon sx={styledItem.searchIconStyle} />
               <InputBase
                 fullWidth
