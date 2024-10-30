@@ -4,6 +4,7 @@ import {
   TableBody,
   TableRow,
   Typography,
+  useTheme,
 } from "@mui/material";
 import StyledInputLabel from "../inputLabel/InputLabel";
 import {
@@ -34,6 +35,7 @@ import {
   ActionContent,
   StyledTable,
   StyledFormControl,
+  StatusContainer,
 } from "./MembersTable.styles";
 
 import ReactSpeedometer from "react-d3-speedometer";
@@ -56,6 +58,7 @@ const MembersTableComponent = ({
   setRows,
   searchQuery = "",
 }) => {
+  const theme = useTheme();
   const [filteredRows, setFilteredRows] = useState([]);
   const [currPage, setCurrPage] = useState(0);
   const [isEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
@@ -96,10 +99,25 @@ const MembersTableComponent = ({
           <StyledTableHead>
             <StyledTableRow>
               {headings?.map((data) => (
-                <StyledTableHeading>{data}</StyledTableHeading>
+                <StyledTableHeading>
+                  <Typography
+                    fontSize={theme.typography.fontSize.extraMedium}
+                    fontWeight={theme.typography.fontWeightMedium}
+                  >
+                    {data}
+                  </Typography>
+                </StyledTableHeading>
               ))}
               {stickyheadings?.map((data) => (
-                <StickyHeading align="center">{data}</StickyHeading>
+                <StickyHeading align="center">
+                  {" "}
+                  <Typography
+                    fontSize={theme.typography.fontSize.extraMedium}
+                    fontWeight={theme.typography.fontWeightMedium}
+                  >
+                    {data}
+                  </Typography>
+                </StickyHeading>
               ))}
             </StyledTableRow>
           </StyledTableHead>
@@ -114,11 +132,30 @@ const MembersTableComponent = ({
                         width={"35px"}
                         src={row?.profile?.image}
                       ></ProfileAvatar>{" "}
-                      {row?.profile?.name}
+                      <Typography
+                        fontSize={theme.typography.fontSize.medium}
+                        fontWeight={theme.typography.fontWeightRegular}
+                      >
+                        {row?.profile?.name}
+                      </Typography>
                     </MemberProfile>
                   </StyledTableCell>
-                  <StyledTableCell>{row?.designation}</StyledTableCell>
-                  <StyledTableCell>{row?.department}</StyledTableCell>
+                  <StyledTableCell>
+                    <Typography
+                      fontSize={theme.typography.fontSize.medium}
+                      fontWeight={theme.typography.fontWeightRegular}
+                    >
+                      {row?.designation}
+                    </Typography>
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <Typography
+                      fontSize={theme.typography.fontSize.medium}
+                      fontWeight={theme.typography.fontWeightRegular}
+                    >
+                      {row?.department}
+                    </Typography>
+                  </StyledTableCell>
                   <StyledTableCell>
                     <SignalList>
                       {row?.signals.map((signal) => {
@@ -189,7 +226,12 @@ const MembersTableComponent = ({
                         width={"35px"}
                         src={row?.reporting_to?.[0]?.image}
                       ></ProfileAvatar>{" "}
-                      {row?.reporting_to?.[0]?.name}
+                      <Typography
+                        fontSize={theme.typography.fontSize.medium}
+                        fontWeight={theme.typography.fontWeightRegular}
+                      >
+                        {row?.reporting_to?.[0]?.name}
+                      </Typography>
                       {row?.reporting_to?.length > 1 && (
                         <LightTooltip
                           title={
@@ -201,37 +243,75 @@ const MembersTableComponent = ({
                                     width={"25px"}
                                     src={data?.image}
                                   ></ProfileAvatar>{" "}
-                                  {data.name}
+                                  <Typography
+                                    fontSize={theme.typography.fontSize.medium}
+                                    fontWeight={
+                                      theme.typography.fontWeightRegular
+                                    }
+                                  >
+                                    {data.name}
+                                  </Typography>
                                 </MemberProfile>
                               ))}
                             </ReportingList>
                           }
                         >
-                          <MoreTag>
+                          <MoreTag
+                            fontSize={theme.typography.fontSize.medium}
+                            fontWeight={theme.typography.fontWeightRegular}
+                          >
                             + {row?.reporting_to?.length - 1} More{" "}
                           </MoreTag>
                         </LightTooltip>
                       )}
                     </MemberProfile>
                   </StyledTableCell>
-                  <StyledTableCell>{row?.role}</StyledTableCell>
-                  <StyledTableCell>{row?.email}</StyledTableCell>
-                  <StyledTableCell>{row?.experience}</StyledTableCell>
                   <StyledTableCell>
-                    <IOSSwitch
-                      onChange={(e) => {
-                        setRows((prev) => {
-                          const newPrev = [...prev];
-                          const target = newPrev.findIndex(
-                            (data) => data.id === row?.id
-                          );
-                          newPrev[target].status = e.target.checked ? 1 : 0;
-                          return newPrev;
-                        });
-                      }}
-                      checked={row?.status}
-                    />{" "}
-                    {row?.status ? "Active" : "Deactive"}
+                    <Typography
+                      fontSize={theme.typography.fontSize.medium}
+                      fontWeight={theme.typography.fontWeightRegular}
+                    >
+                      {row?.role}
+                    </Typography>
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <Typography
+                      fontSize={theme.typography.fontSize.medium}
+                      fontWeight={theme.typography.fontWeightRegular}
+                    >
+                      {row?.email}
+                    </Typography>
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <Typography
+                      fontSize={theme.typography.fontSize.medium}
+                      fontWeight={theme.typography.fontWeightRegular}
+                    >
+                      {row?.experience}
+                    </Typography>
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <StatusContainer>
+                      <IOSSwitch
+                        onChange={(e) => {
+                          setRows((prev) => {
+                            const newPrev = [...prev];
+                            const target = newPrev.findIndex(
+                              (data) => data.id === row?.id
+                            );
+                            newPrev[target].status = e.target.checked ? 1 : 0;
+                            return newPrev;
+                          });
+                        }}
+                        checked={row?.status}
+                      />{" "}
+                      <Typography
+                        fontSize={theme.typography.fontSize.medium}
+                        fontWeight={theme.typography.fontWeightRegular}
+                      >
+                        {row?.status ? "Active" : "Deactive"}
+                      </Typography>
+                    </StatusContainer>
                   </StyledTableCell>
                   <StickyCell align="center">
                     <ActionContainer>
@@ -241,7 +321,12 @@ const MembersTableComponent = ({
                           size="small"
                           variant="contained"
                         >
-                          Add Feedback
+                          <Typography
+                            fontSize={theme.typography.fontSize.medium}
+                            fontWeight={theme.typography.fontWeightRegular}
+                          >
+                            Add Feedback
+                          </Typography>
                         </StyledButton>
                         <PencilIcon
                           onClick={() => {

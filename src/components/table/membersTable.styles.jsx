@@ -14,6 +14,7 @@ import {
   Switch,
   Box,
   FormControl,
+  Typography,
 } from "@mui/material";
 
 import PencilIconSvg from "../../assets/icons/pencil.svg";
@@ -82,9 +83,9 @@ const MemberProfile = styled("div")(({ fontSize }) => ({
   width: "100%",
 }));
 
-const MoreTag = styled("div")({
-  color: "#49C792",
-});
+const MoreTag = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+}));
 
 const SignalsAvatar = styled(Avatar)(({ bgColor, color }) => ({
   backgroundColor: bgColor,
@@ -226,6 +227,7 @@ const ActionContent = styled("div")({
   gap: "10px",
   justifyContent: "center",
   flex: 1,
+  margin: "0px 6px",
 });
 
 const StyledTable = styled(Table)({
@@ -238,6 +240,12 @@ const StyledFormControl = styled(Box)({
   display: "flex",
   gap: "12px",
   flexDirection: "column",
+});
+
+const StatusContainer = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
 });
 
 export {
@@ -268,4 +276,5 @@ export {
   ActionContent,
   StyledTable,
   StyledFormControl,
+  StatusContainer,
 };

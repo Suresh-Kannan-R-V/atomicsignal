@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import { MembersTable } from "../../components/table";
 import StyledButton from "../../components/button/button";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
@@ -35,6 +35,7 @@ const TeamPage = () => {
   const [isFilterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [isAddMemberOpen, setIsAddMemberOpen] = useState(false);
   const stickyHeadings = ["Actions"];
+  const theme = useTheme();
   const [rowData, setRowData] = useState([
     {
       id: 40,
@@ -152,13 +153,21 @@ const TeamPage = () => {
   return (
     <TeamMembersContainer>
       <TeamMembersHeader>
-        <Typography fontFamily={"Poppins"} fontSize={"1.2em"}>
+        <Typography
+          fontSize={theme.typography.fontSize.large}
+          fontWeight={theme.typography.fontWeightMedium}
+        >
           Team members
         </Typography>
         <TeamMembersPageTools>
           <CheckBoxWithLabel>
             <CheckBox></CheckBox>
-            Show only my reportees
+            <Typography
+              fontSize={theme.typography.fontSize.small}
+              fontWeight={theme.typography.fontWeightMedium}
+            >
+              Show only my reportees
+            </Typography>
           </CheckBoxWithLabel>
 
           <SearchBox
@@ -177,12 +186,20 @@ const TeamPage = () => {
             variant="contained"
           >
             <StyledBadge overlap="circular" badgeContent={1} variant="dot">
-              <FilterAltOutlinedIcon />
+              <FilterAltOutlinedIcon
+                sx={{ fontSize: "19px", padding: "none" }}
+                fontSize="inherit"
+              />
             </StyledBadge>
           </StyledButton>
           <VerticalDivider orientation="vertical" />
           <StyledButton startIcon={<ImportIcon />} variant="outlined">
-            Import
+            <Typography
+              fontSize={theme.typography.fontSize.small}
+              fontWeight={theme.typography.fontWeightMedium}
+            >
+              Import
+            </Typography>
           </StyledButton>
 
           <StyledButton
@@ -191,7 +208,12 @@ const TeamPage = () => {
             }}
             variant="contained"
           >
-            Add member
+            <Typography
+              fontSize={theme.typography.fontSize.medium}
+              fontWeight={theme.typography.fontWeightRegular}
+            >
+              Add member
+            </Typography>
           </StyledButton>
         </TeamMembersPageTools>
       </TeamMembersHeader>

@@ -1,4 +1,4 @@
-import { styled, TextField } from "@mui/material";
+import { styled, TextField, useTheme } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 const SearchBox = styled((props) => (
   <TextField
@@ -7,31 +7,35 @@ const SearchBox = styled((props) => (
     }}
     slotProps={{
       input: {
-        startAdornment: <SearchIcon />,
+        startAdornment: <SearchIcon sx={{ fontSize: "20px" }} />,
       },
     }}
     variant={"outlined"}
     {...props}
   />
-))(({ minWidth, width }) => ({
+))(({ theme, minWidth, width }) => ({
   "& .MuiOutlinedInput-root": {
     background: "white",
     minWidth,
     width,
     padding: "0",
+    gap: "0.3rem",
     paddingLeft: "10px",
+    "&.Mui-focused fieldset": {
+      borderColor: theme.palette.secondary.main,
+    },
   },
   "& .MuiOutlinedInput-input": {
-    fontFamily: "Poppins",
-    fontSize: "14px",
-    fontWeight: "500",
+    fontWeight: theme.typography.fontWeightMedium,
+    fontSize: theme.typography.fontSize.small,
   },
-  fontFamily: "Poppins",
+  "& .MuiOutlinedInput-input:focus": {
+    border: "none",
+  },
 }));
 
 const SearchIcon = styled(SearchOutlinedIcon)({
   color: "#888888",
-  paddingRight: "10px",
 });
 
 export default SearchBox;

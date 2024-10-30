@@ -1,22 +1,26 @@
-import { Button, styled } from "@mui/material";
+import { Button, styled, useTheme } from "@mui/material";
+import Theme from "../../themes/theme";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   textTransform: "none",
   fontFamily: "Poppins",
-  color: "#ffffff", // all colour inside the coloured box is white
+  color: "#ffffff",
+  minWidth: "0px",
+
   "&.MuiButton-contained": {
-    backgroundColor: "#49C792",
+    backgroundColor: theme.palette.secondary.main,
     boxShadow: "none",
     color: "white",
     border: "none",
-    "& .hover": {
+
+    "&:hover": {
       boxShadow: "none",
       border: "none",
     },
   },
   "&.MuiButton-outlined": {
-    color: "#49C792",
-    border: "solid #49C792 2px",
+    color: theme.palette.secondary.main,
+    border: `solid ${theme.palette.secondary.main} 2px`,
   },
 }));
 
