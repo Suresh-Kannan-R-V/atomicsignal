@@ -19,7 +19,7 @@ const TeamMembersHeader = styled("div")({
 const TeamMembersPageTools = styled("div")({
   display: "flex",
   alignItems: "center",
-  gap: "10px",
+  gap: "24px",
   flexWrap: "wrap",
 });
 

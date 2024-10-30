@@ -1,6 +1,6 @@
 import { Box, Grid2, styled } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import VNavBar from "../../components/navbar/navbar";
+import VNavBar from "../../components/navBar/navBar";
 
 const LayoutContainer = styled(Box)({
   height: "97vh",
