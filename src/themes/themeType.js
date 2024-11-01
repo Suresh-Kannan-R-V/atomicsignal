@@ -39,7 +39,7 @@ export const lightTheme = {
     text: {
       default: "#353448",
       secondary: "#71707E",
-      subText: "#999943",
+      subText: "#9999A3",
       danger: "#F44F5A",
     },
     error: {
