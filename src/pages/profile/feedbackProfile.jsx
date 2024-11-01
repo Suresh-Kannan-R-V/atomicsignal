@@ -36,7 +36,7 @@ import {
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { format } from "date-fns";
-import StyledButton from "../../components/button/Button";
+import StyledButton from "../../components/button/button";
 
 const FeedbackCard = ({ teamMembers, feedbackData, word = "Efficitive" }) => {
   const [expanded, setExpanded] = useState(false);
