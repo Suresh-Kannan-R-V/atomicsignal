@@ -205,7 +205,6 @@ export const FullWord = styled(Box)(({ theme }) => ({
 }));
 
 export const Rating = styled(Typography)(({ theme }) => ({
-  marginLeft: "8px",
   fontSize: theme.typography.fontSize.small,
   color: theme.palette.text.default,
   fontWeight: theme.typography.fontWeight.medium,

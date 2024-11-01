@@ -24,7 +24,8 @@ const ProfileInfoBox = styled(Box)(({ theme }) => ({
 
 const ProfileBox = styled(Box)(({ theme }) => ({
   position: "relative",
-  [theme.breakpoints.up("xs")]: { marginBottom: "30px" },
+  [theme.breakpoints.up("xs")]: { marginBottom: "230x" },
+
   [theme.breakpoints.up("sm")]: { marginBottom: "0px" },
 }));
 
