@@ -19,6 +19,7 @@ export const lightTheme = {
   palette: {
     background: {
       default: "#F0F0F0",
+      onBoard: "#EFEEFB",
     },
     primary: {
       main: "#665CD7",

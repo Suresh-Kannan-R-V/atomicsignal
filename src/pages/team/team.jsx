@@ -188,7 +188,7 @@ const TeamPage = () => {
             size="large"
           >
             <StyledBadge overlap="circular" badgeContent={1} variant="dot">
-              <FilterSvg />
+              <FilterAltOutlinedIcon sx={{ fontSize: "24px" }} />
             </StyledBadge>
           </StyledButton>
           <VerticalDivider orientation="vertical" />
