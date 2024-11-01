@@ -14,9 +14,7 @@ const ContentWrapper = styled(Box)({
   height: "100%",
 });
 
-const SidebarLayout = styled(Box)({
-  // Style adjustments for the sidebar container
-});
+const SidebarLayout = styled(Box)({});
 
 const MainContent = styled(Grid2)({
   width: "100%",

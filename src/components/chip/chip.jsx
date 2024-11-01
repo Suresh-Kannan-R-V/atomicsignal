@@ -17,6 +17,7 @@ const StyledChip = styled(({ hasAvatar, avatarImg, ...props }) => (
   "&.MuiChip-root": {
     maxWidth: "min-content",
     fontSize: "14px",
+    fontWeight: "500",
   },
   "&.MuiChip-outlined": {
     border: "solid #CACACA 1px",

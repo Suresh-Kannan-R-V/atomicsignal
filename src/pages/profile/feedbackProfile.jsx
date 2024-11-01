@@ -30,13 +30,15 @@ import {
   CollapseContent,
   ResponseText,
   FeedbackResponseText,
+  FullWord,
+  Rating,
 } from "./profile.style";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { format } from "date-fns";
-import StyledButton from "../../components/button/button";
+import StyledButton from "../../components/button/Button";
 
-const FeedbackCard = ({ teamMembers, feedbackData }) => {
+const FeedbackCard = ({ teamMembers, feedbackData, word = "Efficitive" }) => {
   const [expanded, setExpanded] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [response, setResponse] = useState("");
@@ -75,10 +77,12 @@ const FeedbackCard = ({ teamMembers, feedbackData }) => {
                 </HeaderDate>
               </HeaderInfo>
               <RatingContainer>
-                <RatingAvatar>E</RatingAvatar>
-                <Typography variant="body2" color="textSecondary">
-                  {feedback.rating}
-                </Typography>
+                <RatingAvatar bgcolor="#007C32">
+                  <Typography>{feedback.performance[0]}</Typography>
+                </RatingAvatar>
+                <FullWord className="fullWord">{feedback.performance}</FullWord>
+
+                <Rating>{feedback.rating}</Rating>
               </RatingContainer>
             </Header>
             <FeedbackContent>
