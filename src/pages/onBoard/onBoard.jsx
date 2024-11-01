@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 import { InputCard, OnBoardContainer } from "./onBoard.styles";
 import Logo from "../../assets/logo";
-const OnBoard = ({ content }) => {
+const OnBoard = ({ children }) => {
   return (
     <OnBoardContainer>
       <InputCard>
         <Logo />
-        {content}
+        {children}
       </InputCard>
     </OnBoardContainer>
   );

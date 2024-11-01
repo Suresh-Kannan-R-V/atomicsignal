@@ -23,6 +23,9 @@ const InputCard = styled(Box)(({ theme }) => ({
   top: 0,
   bottom: 0,
   padding: "24px",
+  display: "flex",
+  flexDirection: "column",
+  gap: "24px",
 }));
 
 export { OnBoardContainer, InputCard };

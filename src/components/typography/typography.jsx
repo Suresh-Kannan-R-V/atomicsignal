@@ -37,4 +37,29 @@ const MSizeMWeight = ({ content }) => {
   );
 };
 
-export { EmSizeMWeight, MSizeRWeight, MSizeMWeight };
+const LSizeSBWeight = ({ content }) => {
+  const theme = useTheme();
+  return (
+    <Typography
+      fontSize={theme.typography.fontSize.large}
+      fontWeight={theme.typography.fontWeight.semiBold}
+    >
+      {content}
+    </Typography>
+  );
+};
+
+const VSSizeMWeight = ({ content, color }) => {
+  const theme = useTheme();
+  return (
+    <Typography
+      fontSize={theme.typography.fontSize.verySmall}
+      fontWeight={theme.typography.fontWeightMedium}
+      color={theme.palette.text[color] || ""}
+    >
+      {content}
+    </Typography>
+  );
+};
+
+export { EmSizeMWeight, MSizeRWeight, MSizeMWeight, LSizeSBWeight };
