@@ -1,9 +1,11 @@
 import { Profile, TeamPage, FeedbackPage, Settings } from "../pages";
+import OnBoard from "../pages/onBoard/onBoard";
+import SignUp from "../pages/onBoard/signUp";
 import { PATH } from "./path";
 import { Navigate } from "react-router-dom";
 export const pathSlicer = (path, sliceStart = 1) => path?.slice(sliceStart);
 
-const AllRoutes = [
+const privateRoutes = [
   {
     path: "/",
     element: <Navigate to={PATH.Profile} />,
@@ -26,4 +28,11 @@ const AllRoutes = [
   },
 ];
 
-export default AllRoutes;
+const publicRoutes = [
+  {
+    path: PATH.SignUp,
+    element: <SignUp />,
+  },
+];
+
+export { privateRoutes, publicRoutes };

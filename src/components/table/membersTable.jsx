@@ -50,6 +50,7 @@ import StyledTextField from "../textField/TextField";
 import StyledDatePicker from "../datePicker/datePicker";
 import StyledSelect from "../select/Select";
 import StyledChip from "../chip/Chip";
+import { EmSizeMWeight, MSizeRWeight } from "../typography/typography";
 const MembersTableComponent = ({
   headings,
   stickyheadings,
@@ -100,23 +101,13 @@ const MembersTableComponent = ({
             <StyledTableRow>
               {headings?.map((data) => (
                 <StyledTableHeading>
-                  <Typography
-                    fontSize={theme.typography.fontSize.extraMedium}
-                    fontWeight={theme.typography.fontWeightMedium}
-                  >
-                    {data}
-                  </Typography>
+                  <EmSizeMWeight content={data} />
                 </StyledTableHeading>
               ))}
               {stickyheadings?.map((data) => (
                 <StickyHeading align="center">
                   {" "}
-                  <Typography
-                    fontSize={theme.typography.fontSize.extraMedium}
-                    fontWeight={theme.typography.fontWeightMedium}
-                  >
-                    {data}
-                  </Typography>
+                  <EmSizeMWeight content={data} />
                 </StickyHeading>
               ))}
             </StyledTableRow>
@@ -132,29 +123,14 @@ const MembersTableComponent = ({
                         width={"35px"}
                         src={row?.profile?.image}
                       ></ProfileAvatar>{" "}
-                      <Typography
-                        fontSize={theme.typography.fontSize.medium}
-                        fontWeight={theme.typography.fontWeightRegular}
-                      >
-                        {row?.profile?.name}
-                      </Typography>
+                      <MSizeRWeight content={row?.profile?.name} />
                     </MemberProfile>
                   </StyledTableCell>
                   <StyledTableCell>
-                    <Typography
-                      fontSize={theme.typography.fontSize.medium}
-                      fontWeight={theme.typography.fontWeightRegular}
-                    >
-                      {row?.designation}
-                    </Typography>
+                    <MSizeRWeight content={row?.designation} />
                   </StyledTableCell>
                   <StyledTableCell>
-                    <Typography
-                      fontSize={theme.typography.fontSize.medium}
-                      fontWeight={theme.typography.fontWeightRegular}
-                    >
-                      {row?.department}
-                    </Typography>
+                    <MSizeRWeight content={row?.department} />
                   </StyledTableCell>
                   <StyledTableCell>
                     <SignalList>
@@ -226,12 +202,7 @@ const MembersTableComponent = ({
                         width={"35px"}
                         src={row?.reporting_to?.[0]?.image}
                       ></ProfileAvatar>{" "}
-                      <Typography
-                        fontSize={theme.typography.fontSize.medium}
-                        fontWeight={theme.typography.fontWeightRegular}
-                      >
-                        {row?.reporting_to?.[0]?.name}
-                      </Typography>
+                      <MSizeRWeight content={row?.reporting_to?.[0]?.name} />
                       {row?.reporting_to?.length > 1 && (
                         <LightTooltip
                           title={
@@ -243,23 +214,13 @@ const MembersTableComponent = ({
                                     width={"25px"}
                                     src={data?.image}
                                   ></ProfileAvatar>{" "}
-                                  <Typography
-                                    fontSize={theme.typography.fontSize.medium}
-                                    fontWeight={
-                                      theme.typography.fontWeightRegular
-                                    }
-                                  >
-                                    {data.name}
-                                  </Typography>
+                                  <MSizeRWeight content={data.name} />
                                 </MemberProfile>
                               ))}
                             </ReportingList>
                           }
                         >
-                          <MoreTag
-                            fontSize={theme.typography.fontSize.medium}
-                            fontWeight={theme.typography.fontWeightRegular}
-                          >
+                          <MoreTag>
                             + {row?.reporting_to?.length - 1} More{" "}
                           </MoreTag>
                         </LightTooltip>
@@ -267,28 +228,13 @@ const MembersTableComponent = ({
                     </MemberProfile>
                   </StyledTableCell>
                   <StyledTableCell>
-                    <Typography
-                      fontSize={theme.typography.fontSize.medium}
-                      fontWeight={theme.typography.fontWeightRegular}
-                    >
-                      {row?.role}
-                    </Typography>
+                    <MSizeRWeight content={row?.role} />
                   </StyledTableCell>
                   <StyledTableCell>
-                    <Typography
-                      fontSize={theme.typography.fontSize.medium}
-                      fontWeight={theme.typography.fontWeightRegular}
-                    >
-                      {row?.email}
-                    </Typography>
+                    <MSizeRWeight content={row?.email} />
                   </StyledTableCell>
                   <StyledTableCell>
-                    <Typography
-                      fontSize={theme.typography.fontSize.medium}
-                      fontWeight={theme.typography.fontWeightRegular}
-                    >
-                      {row?.experience}
-                    </Typography>
+                    <MSizeRWeight content={row?.experience} />
                   </StyledTableCell>
                   <StyledTableCell>
                     <StatusContainer>
@@ -305,12 +251,9 @@ const MembersTableComponent = ({
                         }}
                         checked={row?.status}
                       />{" "}
-                      <Typography
-                        fontSize={theme.typography.fontSize.medium}
-                        fontWeight={theme.typography.fontWeightRegular}
-                      >
-                        {row?.status ? "Active" : "Deactive"}
-                      </Typography>
+                      <MSizeRWeight
+                        content={row?.status ? "Active" : "Deactive"}
+                      />
                     </StatusContainer>
                   </StyledTableCell>
                   <StickyCell align="center">
@@ -321,12 +264,7 @@ const MembersTableComponent = ({
                           size="small"
                           variant="contained"
                         >
-                          <Typography
-                            fontSize={theme.typography.fontSize.medium}
-                            fontWeight={theme.typography.fontWeightRegular}
-                          >
-                            Add Feedback
-                          </Typography>
+                          <MSizeRWeight content={"Add Feedback"} />
                         </StyledButton>
                         <PencilIcon
                           onClick={() => {

@@ -1,10 +1,11 @@
 import { InputLabel, styled } from "@mui/material";
 
-const StyledInputLabel = styled(InputLabel)({
+const StyledInputLabel = styled(InputLabel)(({ theme }) => ({
   "& .MuiInputLabel-asterisk": {
-    color: "red",
+    color: theme.palette.text.danger,
   },
-  fontSize: "13px", // 13px is enough , it is correct for all
-});
+  color: theme.palette.text.label,
+  fontSize: theme.typography.fontSize.verySmall, // 13px is enough , it is correct for all
+}));
 
 export default StyledInputLabel;
