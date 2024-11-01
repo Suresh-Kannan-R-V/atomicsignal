@@ -53,5 +53,8 @@ export const lightTheme = {
     icon: {
       secondary: "#808080",
     },
+    button: {
+      secondary: "#F8F8F8",
+    },
   },
 };
