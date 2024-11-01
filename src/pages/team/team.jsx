@@ -8,12 +8,12 @@ import {
   TeamMembersContainer,
   TeamMembersHeader,
   TeamMembersPageTools,
-  ImportIcon,
   VerticalDivider,
   CheckBoxWithLabel,
   StyledBadge,
   FilterFormContainer,
   FilterFormField,
+  ImportIcon,
 } from "./team.styles";
 
 import { useEffect, useState } from "react";
@@ -21,7 +21,6 @@ import StyledDrawer from "../../components/drawer/Drawer";
 import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
 import StyledInputLabel from "../../components/inputLabel/InputLabel";
 import StyledTextField from "../../components/textField/TextField";
-import StyledDatePicker from "../../components/datePicker/DatePicker";
 import StyledSelect from "../../components/select/Select";
 import StyledChip from "../../components/chip/Chip";
 import {
@@ -30,6 +29,8 @@ import {
 } from "../../components/toggleButton/StyledToggleButton";
 import FilterForm from "./FilterForm";
 import AddMembersDrawerForm from "./AddMemberForm";
+import ImportIconStyled from "../../assets/icons/import";
+import FilterSvg from "../../assets/icons/filter";
 const TeamPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isFilterDrawerOpen, setFilterDrawerOpen] = useState(false);
@@ -184,16 +185,18 @@ const TeamPage = () => {
               setFilterDrawerOpen(true);
             }}
             variant="contained"
+            size="large"
           >
             <StyledBadge overlap="circular" badgeContent={1} variant="dot">
-              <FilterAltOutlinedIcon
-                sx={{ fontSize: "19px", padding: "none" }}
-                fontSize="inherit"
-              />
+              <FilterSvg />
             </StyledBadge>
           </StyledButton>
           <VerticalDivider orientation="vertical" />
-          <StyledButton startIcon={<ImportIcon />} variant="outlined">
+          <StyledButton
+            size="large"
+            startIcon={<ImportIcon />}
+            variant="outlined"
+          >
             <Typography
               fontSize={theme.typography.fontSize.small}
               fontWeight={theme.typography.fontWeightMedium}
@@ -203,6 +206,7 @@ const TeamPage = () => {
           </StyledButton>
 
           <StyledButton
+            size="large"
             onClick={() => {
               setIsAddMemberOpen(true);
             }}

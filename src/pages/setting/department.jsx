@@ -91,11 +91,10 @@ const DepartmentSectionContainer = styled(Box)({
   gap: "24px",
 });
 
-const SignalsTitle = styled(Typography)({
-  fontSize: "16px",
-  fontFamily: "Poppins",
-  fontWeight: "550",
-});
+const SignalsTitle = styled(Typography)(({ theme }) => ({
+  fontSize: theme.typography.fontSize.medium,
+  fontWeight: theme.typography.fontWeightMedium,
+}));
 
 const DepartmentHeader = styled(Box)({
   display: "flex",

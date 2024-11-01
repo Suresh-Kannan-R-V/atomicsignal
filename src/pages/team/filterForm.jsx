@@ -29,9 +29,7 @@ const FilterForm = () => {
   return (
     <FilterFormContainer>
       <FilterFormField>
-        <StyledInputLabel sx={{ fontSize: "12px" }}>
-          Overall Performance
-        </StyledInputLabel>
+        <StyledInputLabel>Overall Performance</StyledInputLabel>
         <StyledToggleButtonGroup>
           {performanceFilters.map((data, i) => (
             <StyledToggleButton
@@ -52,27 +50,19 @@ const FilterForm = () => {
         </StyledToggleButtonGroup>
       </FilterFormField>
       <FilterFormField>
-        <StyledInputLabel sx={{ fontSize: "12px" }}>
-          Department
-        </StyledInputLabel>
+        <StyledInputLabel>Department</StyledInputLabel>
         <StyledSelect size="small" placeholder="Select"></StyledSelect>
       </FilterFormField>
       <FilterFormField>
-        <StyledInputLabel sx={{ fontSize: "12px" }}>
-          Designation
-        </StyledInputLabel>
+        <StyledInputLabel>Designation</StyledInputLabel>
         <StyledSelect size="small" placeholder="Select"></StyledSelect>
       </FilterFormField>
       <FilterFormField>
-        <StyledInputLabel sx={{ fontSize: "12px" }}>
-          Reporting to
-        </StyledInputLabel>
+        <StyledInputLabel>Reporting to</StyledInputLabel>
         <StyledSelect size="small" placeholder="Name"></StyledSelect>
       </FilterFormField>
       <FilterFormField>
-        <StyledInputLabel sx={{ fontSize: "12px" }}>
-          Overall Performance
-        </StyledInputLabel>
+        <StyledInputLabel>Overall Performance</StyledInputLabel>
         <StyledToggleButtonGroup>
           {roleFilters.map((data, i) => (
             <StyledToggleButton
