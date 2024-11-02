@@ -7,7 +7,7 @@ const SearchBox = styled((props) => (
     }}
     slotProps={{
       input: {
-        startAdornment: <SearchIcon sx={{ fontSize: "20px" }} />,
+        startAdornment: <SearchIcon />,
       },
     }}
     variant={"outlined"}
@@ -18,15 +18,21 @@ const SearchBox = styled((props) => (
     background: "white",
     minWidth,
     width,
-    padding: "0",
+    height: "40px",
+    padding: "0px",
     gap: "0.3rem",
-    paddingLeft: "10px",
     "&.Mui-focused fieldset": {
       borderColor: theme.palette.secondary.main,
     },
     "&:hover fieldset": {
       borderColor: theme.palette.secondary.main,
     },
+  },
+  "& .MuiInputBase-input::placeholder": {
+    color: theme.palette.text.placeholder,
+    opacity: 1,
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.fontSize.small,
   },
   "& .MuiOutlinedInput-input": {
     fontWeight: theme.typography.fontWeightMedium,
@@ -39,6 +45,8 @@ const SearchBox = styled((props) => (
 
 const SearchIcon = styled(SearchOutlinedIcon)({
   color: "#888888",
+  fontSize: "24px",
+  paddingLeft: "10px",
 });
 
 export default SearchBox;

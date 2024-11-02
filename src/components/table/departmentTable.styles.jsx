@@ -16,14 +16,7 @@ import {
   FormControl,
 } from "@mui/material";
 
-import PencilIconSvg from "../../assets/icons/pencil.svg";
-
-const ReportingList = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  gap: "10px",
-  padding: "5px",
-});
+import PencilIconSvg from "../../assets/icons/pencil.jsx";
 
 const TableDiv = styled(Box)({
   position: "relative",
@@ -37,7 +30,6 @@ const StyledTableContainer = styled(TableContainer)({
   backgroundColor: "white",
   borderRadius: "10px  10px 0px 0px ",
   position: "relative",
-  fontFamily: "Poppins",
   minHeight: "35rem",
   maxHeight: "40rem",
   scrollSnapType: "both mandatory",
@@ -46,52 +38,19 @@ const StyledTableContainer = styled(TableContainer)({
 
 const StyledBottomTableContainer = styled(TableContainer)({
   backgroundColor: "white",
-
   borderRadius: "0px 0px 10px  10px",
-  fontFamily: "Poppins",
   zIndex: 10,
   position: "relative",
 });
 
-const StyledTablePagination = styled(TablePagination)({
-  "& .MuiTablePagination-root": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-selectLabel": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-select": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-displayedRows": {
-    fontFamily: "Poppins",
-  },
-});
+const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightRegular,
+  fontSize: theme.typography.fontSize.small,
+}));
 
 const StyledTableFooter = styled(TableFooter)({});
 
 const StyledTableRow = styled(TableRow)({});
-
-const MemberProfile = styled("div")(({ fontSize }) => ({
-  display: "flex",
-  alignItems: "center",
-  gap: "5px",
-  fontSize,
-  width: "100%",
-}));
-
-const MoreTag = styled("div")({
-  color: "#49C792",
-});
-
-const SignalsAvatar = styled(Avatar)(({ bgColor, color }) => ({
-  backgroundColor: bgColor,
-  color: color,
-  padding: 0,
-  width: "30px",
-  height: "30px",
-  fontSize: "small",
-}));
 
 const StyledTableHead = styled(TableHead)({
   fontWeight: "bold",
@@ -101,8 +60,7 @@ const StyledTableHead = styled(TableHead)({
 const StyledTableHeading = styled(TableCell)(({ minWidth }) => ({
   fontWeight: "500",
   fontSize: "1rem",
-  fontFamily: "Poppins",
-  minWidth: "minmax(100,10)",
+  paddingRight: "20px",
   position: "sticky",
   textWrap: "nowrap",
   top: 0,
@@ -117,78 +75,19 @@ const StyledTableHeading = styled(TableCell)(({ minWidth }) => ({
 const StyledTableCell = styled(TableCell)(({ minWidth }) => ({
   fontSize: "1em",
   borderBottom: "none",
-  padding: "0px 15px",
-  paddingTop: "25px",
+  paddingRight: "20px",
   cursor: "pointer",
-  fontFamily: "Poppins",
   minWidth: minWidth,
+  textWrap: "nowrap",
   "&:last-child": {
     textAlign: "center",
   },
-}));
-
-const ToolTipContent = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-});
-
-const SignalList = styled("div")({
-  display: "flex",
-  alignItems: "center",
-  gap: "10px",
-});
-
-const LightTooltip = styled(({ className, fontSize, ...props }) => (
-  <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme, fontSize }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: theme.palette.common.white,
-    color: "rgba(0, 0, 0, 0.87)",
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.12) ",
-    fontSize: fontSize || 11,
-  },
-  [`& .${tooltipClasses.arrow}`]: {
-    color: theme.palette.common.white,
-  },
-}));
-
-const StickyHeading = styled(TableCell)({
-  position: "sticky",
-  right: 0,
-  zIndex: 2,
-  fontWeight: "500",
-  fontSize: "18px",
-  fontFamily: "Poppins",
-  borderBottom: "none",
-  minWidth: 190,
-  backgroundColor: "white",
-  bottom: 0,
-  top: 0,
-});
-
-const ProfileAvatar = styled(Avatar)(({ height, width, fontSize }) => ({
-  height,
-  width,
-  fontSize,
 }));
 
 const PencilIconContainer = styled(Box)({
   height: "100%",
   display: "flex",
   justifyContent: "center",
-});
-
-const StickyCell = styled(TableCell)({
-  position: "sticky",
-  right: 0,
-  fontSize: "16px",
-  zIndex: 1,
-  minWidth: 200,
-  cursor: "pointer",
-  backgroundColor: "white",
-  borderBottom: "none",
-  padding: "20px 10px",
-  fontFamily: "Poppins",
 });
 
 const PencilIcon = styled((props) => <img src={PencilIconSvg} {...props} />)({
@@ -198,21 +97,10 @@ const PencilIcon = styled((props) => <img src={PencilIconSvg} {...props} />)({
   borderRadius: "100px",
 });
 
-const ActionContainer = styled("div")({
+const ActiveContainer = styled(Box)({
   display: "flex",
   alignItems: "center",
-  gap: "10px",
-  position: "relative",
-  width: "100%",
-});
-
-const ActionStickyContainerSeparator = styled("div")({
-  borderLeft: "solid rgba(0, 0, 0, 0.12) 1px",
-  height: "100%",
-  position: "absolute",
-  zIndex: 4,
-  right: 0,
-  transform: "translate(-220px,0%)",
+  gap: "8px",
 });
 
 const ActionPaginationContainerSeparator = styled("div")({
@@ -232,14 +120,6 @@ const ActionHeaderContainerSeparator = styled("div")({
   zIndex: 10,
 });
 
-const ActionContent = styled("div")({
-  display: "flex",
-  alignItems: "center",
-  gap: "10px",
-  justifyContent: "center",
-  flex: 1,
-});
-
 const StyledTable = styled(Table)({
   position: "relative",
 });
@@ -252,32 +132,20 @@ const StyledFormControl = styled(Box)({
 });
 
 export {
-  ReportingList,
   TableDiv,
   StyledTableContainer,
   StyledBottomTableContainer,
   StyledTablePagination,
   StyledTableFooter,
   StyledTableRow,
-  MemberProfile,
-  MoreTag,
-  SignalsAvatar,
   StyledTableHead,
   StyledTableHeading,
   StyledTableCell,
-  ToolTipContent,
-  SignalList,
-  LightTooltip,
-  StickyHeading,
-  ProfileAvatar,
-  StickyCell,
   PencilIcon,
-  ActionContainer,
-  ActionStickyContainerSeparator,
   ActionPaginationContainerSeparator,
   ActionHeaderContainerSeparator,
-  ActionContent,
   StyledTable,
   StyledFormControl,
   PencilIconContainer,
+  ActiveContainer,
 };

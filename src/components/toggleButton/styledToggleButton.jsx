@@ -1,17 +1,16 @@
 import { styled, ToggleButton, ToggleButtonGroup } from "@mui/material";
 
-const StyledToggleButton = styled(ToggleButton)({
-  color: "#353448",
-  border: "solid 1px #EBEBEB  !important",
+const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
+  color: theme.palette.text.default,
+  border: `solid 1px ${theme.palette.secondary.disabledOutline} !important`,
   borderRadius: "4px !important",
   textTransform: "none",
 
   "&.Mui-selected": {
-    color: "#353448",
-    border: "solid 1px #49C792  !important",
-    backgroundColor: "#EEFBF6",
+    border: `solid 1px ${theme.palette.secondary.main}  !important`,
+    backgroundColor: theme.palette.secondary.outlinedHover,
   },
-});
+}));
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   gap: "8px",
@@ -19,9 +18,6 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   width: "100%",
   "& .MuiToggleButtonGroup-grouped:hover": {
     backgroundColor: "transparent",
-  },
-  "& .Mui-selected:hover": {
-    backgroundColor: "#EEFBF6",
   },
 });
 
