@@ -6,12 +6,12 @@ import { styled } from "@mui/material/styles";
 const IOSSwitch = styled((props) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
-  width: 30,
-  height: 20,
+  width: "29px",
+  height: "20px",
   padding: 0,
   "& .MuiSwitch-switchBase": {
     padding: 0,
-    margin: 2,
+    margin: "2px",
     transitionDuration: "300ms",
     "&.Mui-checked": {
       transform: "translateX(10px)",
@@ -47,11 +47,11 @@ const IOSSwitch = styled((props) => (
   },
   "& .MuiSwitch-thumb": {
     boxSizing: "border-box",
-    width: 16,
-    height: 16,
+    width: "16px",
+    height: "16px",
   },
   "& .MuiSwitch-track": {
-    borderRadius: 20 / 2,
+    borderRadius: "20px",
     backgroundColor: "#E9E9EA",
     opacity: 1,
     transition: theme.transitions.create(["background-color"], {
@@ -63,6 +63,6 @@ const IOSSwitch = styled((props) => (
   },
 }));
 
-export function IosSwitch() {
+export default function IosSwitch() {
   return <FormControlLabel control={<IOSSwitch />} sx={{ margin: 0 }} />;
 }

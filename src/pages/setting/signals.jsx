@@ -1,303 +1,197 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Grid2,
-  InputBase,
-  Paper,
-  Stack,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TablePagination,
-  TableRow,
-  Typography,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import { styledItem } from "./style";
-import { useEffect, useState } from "react";
-import { IosSwitch } from "../../components/switch/iosswitch";
+import { Box, InputBase, styled, TextField, Typography } from "@mui/material";
+import { SignalTable } from "../../components/table";
+import { useState } from "react";
 import StyledDrawer from "../../components/drawer/Drawer";
-import { EditContent } from "./editContent";
-import { useSelector } from "react-redux";
+import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
+import StyledInputLabel from "../../components/inputLabel/InputLabel";
+import StyledTextField from "../../components/textField/TextField";
+import StyledTextArea from "../../components/textArea/StyledTextArea";
+import SearchIcon from "@mui/icons-material/Search";
+import { useDispatch, useSelector } from "react-redux";
+import { addSignalBody, addSignalHead } from "./slices/signalsSlice";
 
-export function Signals() {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
+function Signals() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isAddSignalsOpen, setIsAddSignalsOpen] = useState(false);
+  const [rows, setRows] = useState([
+    {
+      id: 1,
+      signal: "Communication",
+      created_on: "08 Feb 2023, 04:40 PM",
+      modified_on: "08 Feb 2023, 04:40 PM",
+      status: 1,
+    },
+    {
+      id: 2,
+      signal: "Efficiency",
+      created_on: "08 Feb 2023, 04:40 PM",
+      modified_on: "08 Feb 2023, 04:40 PM",
+      status: 1,
+    },
+    {
+      id: 3,
+      signal: "Time Management",
+      created_on: "08 Feb 2023, 04:40 PM",
+      modified_on: "08 Feb 2023, 04:40 PM",
+      status: 1,
+    },
+    {
+      id: 4,
+      signal: "Attitude",
+      created_on: "08 Feb 2023, 04:40 PM",
+      modified_on: "08 Feb 2023, 04:40 PM",
+      status: 1,
+    },
+    {
+      id: 5,
+      signal: "Unavailable",
+      created_on: "08 Feb 2023, 04:40 PM",
+      modified_on: "08 Feb 2023, 04:40 PM",
+      status: 1,
+    },
+  ]);
+
+  const AddSignalsDrawerForm = () => {
+    return (
+      <StyledFormControl>
+        <StyledInputLabel required>Name</StyledInputLabel>
+        <StyledTextField
+          placeholder="Type name"
+          size="small"
+          fullWidth
+        ></StyledTextField>
+        <StyledInputLabel>Description</StyledInputLabel>
+        <StyledTextArea minRows={7} />
+      </StyledFormControl>
+    );
   };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-  const [searchTerm, setSearchTerm] = useState("");
-  const [IsEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
-  const [title, setTitle] = useState("");
-  useEffect(() => {}, [title]);
-
-  const body = useSelector((state) => state.signalsBody);
-  const head = useSelector((state) => state.signalsHead);
-
-  const filteredData = body.filter((data) =>
-    data.signalName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
   return (
-    <Grid2>
-      <Grid2 sx={styledItem.parentGridSignalStyleWeb}>
-        <Box sx={styledItem.parentBoxSignalStyle}>
-          <Typography sx={styledItem.headSignalStyle}>
-            Signals ({filteredData.length})
-          </Typography>
-          <Stack direction="row" spacing={2}>
-            <Paper
-              component="form"
-              sx={{ ...styledItem.paperSearchStyle, boxShadow: "none" }}
-            >
-              <SearchIcon sx={styledItem.searchIconStyle} />
-              <InputBase
-                fullWidth
-                placeholder="Search by signal name"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                sx={styledItem.searchInputBarStyle}
-              />
-            </Paper>
-            <Button
-              variant="contained"
-              sx={styledItem.signalButtonStyle}
-              onClick={() => {
-                setIsEditMemberDrawerOpen(true);
-                setTitle("Add Signal");
-              }}
-            >
-              Add signal
-            </Button>
-          </Stack>
-        </Box>
-        <Grid2 sx={styledItem.parentGridStyle}>
-          <TableContainer sx={styledItem.tableContainerStyle}>
-            <Table stickyHeader>
-              <TableHead>
-                <TableRow>
-                  {head.map((element, index) => (
-                    <TableCell key={index} align={element.LabelAlign}>
-                      <Typography sx={styledItem.headStyle}>
-                        {element.HeadLabel}
-                      </Typography>
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {filteredData
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((element, index) => (
-                    <TableRow key={index}>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Typography sx={styledItem.dataStyle}>
-                          {index + 1}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Typography sx={styledItem.dataStyle}>
-                          {element.signalName}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Typography sx={styledItem.dataStyle}>
-                          {element.date}, {element.time}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Typography sx={styledItem.dataStyle}>
-                          {element.date}, {element.time}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Stack
-                          direction="row"
-                          sx={{ alignItems: "center" }}
-                          spacing={1}
-                        >
-                          <IosSwitch />
-                          <Typography>Active</Typography>
-                        </Stack>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle} align="center">
-                        <Box sx={{ display: "flex", justifyContent: "center" }}>
-                          <Avatar
-                            src="edit.png"
-                            onClick={() => {
-                              setIsEditMemberDrawerOpen(true);
-                              setTitle("Edit Signal");
-                            }}
-                            sx={styledItem.bodyActionIconStyle}
-                          />
-                        </Box>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 20, 50, 100]}
-            component="div"
-            sx={styledItem.tablePagenationStyle}
-            count={filteredData.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </Grid2>
-        <StyledDrawer
-          title={title}
-          content={<EditContent />}
-          anchor={"right"}
-          bottomLeftButton={{ label: "Save", onClick: () => {} }}
-          onClose={() => {
-            setIsEditMemberDrawerOpen(false);
+    <SignalsSectionContainer>
+      <SignalsHeader>
+        <SignalsTitle>Signals ({rows.length})</SignalsTitle>
+        <Searchbox />
+        <AddButton
+          onClick={() => {
+            setIsAddSignalsOpen(true);
           }}
-          bottomRightButton={{ label: "Cancel", onClick: () => {} }}
-          open={IsEditMemberDrawerOpen}
         />
-      </Grid2>
-      <Grid2 sx={styledItem.parentGridSignalStyleMob}>
-        <Box sx={styledItem.parentBoxSignalStyleMob}>
-          <Typography sx={styledItem.headSignalStyleMob}>
-            Signals ({filteredData.length})
-          </Typography>
-          <Paper component="form" sx={styledItem.paperSearchStyleMob}>
-            <SearchIcon sx={styledItem.searchIconStyle} />
-            <InputBase
-              fullWidth
-              placeholder="Search by signal name"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              sx={styledItem.searchInputBarStyle}
-            />
-          </Paper>
-          <Button
-            variant="contained"
-            sx={styledItem.signalButtonStyleMob}
-            onClick={() => {
-              setIsEditMemberDrawerOpen(true);
-              setTitle("Add Signal");
-            }}
-          >
-            Add signal
-          </Button>
-        </Box>
-        <Grid2 sx={styledItem.parentGridStyle}>
-          <TableContainer sx={styledItem.tableContainerStyle}>
-            <Table stickyHeader>
-              <TableHead>
-                <TableRow>
-                  {head.map((element, index) => (
-                    <TableCell
-                      key={index}
-                      align={element.LabelAlign}
-                      sx={{
-                        position: element.Position,
-                        right: element.Right,
-                        zIndex: element.zindex,
-                      }}
-                    >
-                      <Typography sx={styledItem.headStyle}>
-                        {element.HeadLabel}
-                      </Typography>
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {filteredData
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((element, index) => (
-                    <TableRow key={index}>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Typography sx={styledItem.dataStyle}>
-                          {index + 1}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Typography sx={styledItem.dataStyle}>
-                          {element.signalName}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Typography sx={styledItem.dataStyle}>
-                          {element.date}, {element.time}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Typography sx={styledItem.dataStyle}>
-                          {element.date}, {element.time}
-                        </Typography>
-                      </TableCell>
-                      <TableCell sx={styledItem.tableCellStyle}>
-                        <Stack
-                          direction="row"
-                          sx={{ alignItems: "center" }}
-                          spacing={1}
-                        >
-                          <IosSwitch />
-                          <Typography>Active</Typography>
-                        </Stack>
-                      </TableCell>
-                      <TableCell
-                        sx={{
-                          ...styledItem.tableCellStyle,
-                          position: "sticky",
-                          zIndex: 1,
-                          right: 0,
-                        }}
-                        align="center"
-                      >
-                        <Box sx={{ display: "flex", justifyContent: "center" }}>
-                          <Avatar
-                            src="edit.png"
-                            onClick={() => {
-                              setIsEditMemberDrawerOpen(true);
-                              setTitle("Edit Signal");
-                            }}
-                            sx={styledItem.bodyActionIconStyle}
-                          />
-                        </Box>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 20, 50, 100]}
-            component="div"
-            sx={styledItem.tablePagenationStyle}
-            count={filteredData.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </Grid2>
-        <StyledDrawer
-          title={title}
-          content={<EditContent />}
-          anchor={"right"}
-          bottomLeftButton={{ label: "Save", onClick: () => {} }}
-          onClose={() => {
-            setIsEditMemberDrawerOpen(false);
-          }}
-          bottomRightButton={{ label: "Cancel", onClick: () => {} }}
-          open={IsEditMemberDrawerOpen}
-        />
-      </Grid2>
-    </Grid2>
+      </SignalsHeader>
+
+      <SignalTable
+        searchQuery={searchQuery}
+        rowData={rows}
+        setRowData={setRows}
+      ></SignalTable>
+      <StyledDrawer
+        anchor={"right"}
+        bottomLeftButton={{ label: "Add", onClick: AddSignal }}
+        title={"Add Signal"}
+        content={<AddSignalsDrawerForm />}
+        onClose={() => {
+          setIsAddSignalsOpen(false);
+        }}
+        open={isAddSignalsOpen}
+      />
+    </SignalsSectionContainer>
   );
 }
+
+const SignalsSectionContainer = styled(Box)({
+  marginTop: "20px",
+  padding: "16px",
+  backgroundColor: "white",
+  borderRadius: "4px",
+  display: "flex",
+  flexDirection: "column",
+  gap: "24px",
+});
+
+const SignalsTitle = styled(Typography)({
+  fontSize: "16px",
+  fontFamily: "Poppins",
+  fontWeight: "500",
+  whiteSpace: "nowrap",
+  gridArea: "heading",
+});
+
+const SignalsHeader = styled(Box)({
+  display: "grid",
+  justifyContent: "space-between",
+  alignItems: "center",
+  rowGap: "10px",
+  overflowX: "auto",
+  gridTemplateColumns: "1fr 1fr",
+  gridTemplateAreas: `"heading addbutton" "inputbox inputbox"`,
+  gridTemplateRows: "auto",
+  "@media(min-width:  576px)": {
+    gridTemplateAreas: `"heading heading inputbox addbutton"`,
+  },
+  columnGap: "16px",
+});
+const AddButton = ({ onClick }) => {
+  return (
+    <Box
+      component="div"
+      sx={{
+        background: "#49C792 0% 0% no-repeat padding-box",
+        borderRadius: "4px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Poppins",
+        color: "#ffffff",
+        fontSize: "16px",
+        padding: "8px 40px",
+        cursor: "pointer",
+        whiteSpace: "nowrap",
+        overflowX: "auto",
+        gridArea: "addbutton",
+      }}
+      onClick={onClick}
+    >
+      <Typography>Add signal</Typography>
+    </Box>
+  );
+};
+
+const Searchbox = () => {
+  return (
+    <Box
+      sx={{
+        border: "1px solid #CACACA",
+        borderRadius: "4px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        whiteSpace: "nowrap",
+        padding: "9px ",
+        overflowX: "auto",
+        gridArea: "inputbox",
+      }}
+    >
+      <SearchIcon
+        sx={{
+          marginRight: "12px",
+          height: "20px",
+          width: "20px",
+          color: "#888888",
+        }}
+      />
+      <Box
+        component="input"
+        placeholder="Search by signal name"
+        sx={{
+          width: "100%",
+          height: "50%",
+          border: "transparent",
+          outline: "none",
+          color: "#353448",
+          fontSize: "14px",
+          paddingRight: "5.92vw",
+        }}
+      />
+    </Box>
+  );
+};
+
+export default Signals;

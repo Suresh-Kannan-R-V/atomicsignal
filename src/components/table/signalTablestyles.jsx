@@ -100,14 +100,14 @@ const StyledTableHead = styled(TableHead)({
 
 const StyledTableHeading = styled(TableCell)(({ minWidth }) => ({
   fontWeight: "500",
-  fontSize: "1rem",
+  fontSize: "16px",
   fontFamily: "Poppins",
   minWidth: "minmax(100,10)",
-  position: "sticky",
   textWrap: "nowrap",
   top: 0,
   backgroundColor: "white",
   zIndex: 1,
+  right: 0,
   borderBottom: "none",
   "&:last-child": {
     textAlign: "center",
@@ -115,16 +115,18 @@ const StyledTableHeading = styled(TableCell)(({ minWidth }) => ({
 }));
 
 const StyledTableCell = styled(TableCell)(({ minWidth }) => ({
-  fontSize: "1em",
+  fontSize: "16px",
   borderBottom: "none",
   padding: "0px 15px",
   paddingTop: "25px",
   cursor: "pointer",
   fontFamily: "Poppins",
   minWidth: minWidth,
+  whiteSpace: "nowrap",
   "&:last-child": {
     textAlign: "center",
   },
+  backgroundColor: "#FFFFFF",
 }));
 
 const ToolTipContent = styled("div")({

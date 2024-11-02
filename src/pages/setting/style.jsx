@@ -13,7 +13,6 @@ export const styledItem = {
     fontFamily: "Poppins",
     textAlign: "left",
     letterSpacing: "0px",
-    whiteSpace: "nowrap",
   },
   linkStyle: {
     color: "#49C792",
@@ -110,6 +109,7 @@ export const styledItem = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    overflowX: "auto",
   },
   parentBoxSignalStyleMob: {
     display: "grid",

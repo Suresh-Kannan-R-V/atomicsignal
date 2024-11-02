@@ -43,7 +43,13 @@ export function Grading() {
   }
   return (
     <Grid2>
-      <Grid2 sx={{ ...styledItem.parentGridSignalStyleWeb, padding: 0 }}>
+      <Grid2
+        sx={{
+          ...styledItem.parentGridSignalStyleWeb,
+          padding: 0,
+          overflowX: "auto",
+        }}
+      >
         <Grid2
           sx={{ ...styledItem.parentGridSignalStyleWeb, border: 0, margin: 0 }}
         >
@@ -94,16 +100,17 @@ export function Grading() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    width: "450px",
                     padding: "12px",
-                    marginBottom: "8px",
+                    marginBottom: "10px",
+                    width: "-webkit-fill-available",
                   }}
                 >
                   <Box
                     sx={{
                       display: "flex",
                       alignItems: "center",
-                      columnGap: "10px",
+                      columnGap: "12px",
+                      overflow: "auto",
                     }}
                   >
                     <Chart Size="small" value={element.value} />
@@ -112,6 +119,7 @@ export function Grading() {
                         ...styledItem.dataStyle,
                         fontSize: "14px",
                         fontWeight: "500",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       {element.chartDesc}
@@ -129,7 +137,13 @@ export function Grading() {
           </Box>
         </Grid2>
       </Grid2>
-      <Grid2 sx={{ ...styledItem.parentGridSignalStyleMob, padding: 0 }}>
+      <Grid2
+        sx={{
+          ...styledItem.parentGridSignalStyleMob,
+          padding: 0,
+          overflowX: "auto",
+        }}
+      >
         <Grid2
           sx={{ ...styledItem.parentGridSignalStyleMob, border: 0, margin: 0 }}
         >
@@ -190,6 +204,7 @@ export function Grading() {
                       display: "flex",
                       alignItems: "center",
                       columnGap: "10px",
+                      overflow: "hidden",
                     }}
                   >
                     <Chart Size="small" value={element.value} />

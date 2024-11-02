@@ -38,7 +38,14 @@ export default function FeedBack() {
     <Grid2
       sx={{ ...styledItem.parentGridSignalStyle, padding: 0, height: "85vh" }}
     >
-      <Grid2 sx={{ ...styledItem.parentGridSignalStyle, border: 0, margin: 0 }}>
+      <Grid2
+        sx={{
+          ...styledItem.parentGridSignalStyle,
+          border: 0,
+          margin: 0,
+          overflowX: "auto",
+        }}
+      >
         <Box sx={styledItem.parentBoxSignalStyle}>
           <Typography sx={styledItem.headSignalStyle}>
             Edit feedback structure type
@@ -58,11 +65,16 @@ export default function FeedBack() {
             What type of feedback structure have you implemented or would like
             to implement?
           </Typography>
-          <Box sx={{ marginTop: "12px", width: "399px" }}>
+          <Box sx={{ marginTop: "12px", overflowX: "auto" }}>
             <Stack
-              direction={{ sm: "row", xs: "column" }}
+              direction="row"
               alignItems="center"
-              spacing={2}
+              sx={{
+                display: "inline-grid",
+                gridTemplateColumns: "repeat(3,1fr)",
+                overflowX: "auto",
+                columnGap: "16px",
+              }}
             >
               {FeedbackButton.map((item, index) => {
                 return (
@@ -107,7 +119,13 @@ export default function FeedBack() {
                 fontSize="verysmall"
                 sx={{ color: "#49C792" }}
               />
-              <Typography sx={{ ...styledItem.dataStyle, fontSize: "12px" }}>
+              <Typography
+                sx={{
+                  ...styledItem.dataStyle,
+                  fontSize: "12px",
+                  width: "389px",
+                }}
+              >
                 {FeedbackDesc[selectedItem]}
               </Typography>
             </Box>
