@@ -50,15 +50,22 @@ function Signals() {
       status: 1,
     },
   ]);
+  const [input, setInput] = useState("");
+  function HandleChange(e) {
+    e.pr;
+    setInput(e);
+    console.log(input);
+  }
 
   const AddSignalsDrawerForm = () => {
     return (
-      <StyledFormControl>
+      <StyledFormControl component="form">
         <StyledInputLabel required>Name</StyledInputLabel>
         <StyledTextField
           placeholder="Type name"
           size="small"
           fullWidth
+          onSubmit={(e) => HandleChange(e.target.value)}
         ></StyledTextField>
         <StyledInputLabel>Description</StyledInputLabel>
         <StyledTextArea minRows={7} />
@@ -84,7 +91,7 @@ function Signals() {
       ></SignalTable>
       <StyledDrawer
         anchor={"right"}
-        bottomLeftButton={{ label: "Add", onClick: AddSignal }}
+        bottomLeftButton={{ label: "Add" }}
         title={"Add Signal"}
         content={<AddSignalsDrawerForm />}
         onClose={() => {
