@@ -21,6 +21,8 @@ import {
   AddDeleteButtonContainer,
   AddButton,
   DeleteButton,
+  SettingContainer,
+  LabelWithAvatarContainer,
 } from "./ProfileCard.styles";
 
 const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
@@ -119,8 +121,10 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
                   src={data.icon}
                   title={data.name}
                 />
-                {data.image && <ManagerAvatar src={data.image} />}
-                <ProfileIconsLabel>{data.name}</ProfileIconsLabel>
+                <LabelWithAvatarContainer>
+                  {data.image && <ManagerAvatar src={data.image} />}
+                  <ProfileIconsLabel>{data.name}</ProfileIconsLabel>
+                </LabelWithAvatarContainer>
               </ProfileIconsAndLabelsContainer>
             ))}
           </OthersContainer>

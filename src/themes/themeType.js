@@ -21,6 +21,7 @@ export const lightTheme = {
       default: "#F0F0F0",
       primary: "#FFFFFF",
       navbgcolor: "#1b1558",
+      onBoard: "#EFEEFB",
     },
     primary: {
       main: "#665CD7",
@@ -33,6 +34,7 @@ export const lightTheme = {
       contrastText: "rgba(0,0,0,0.87)",
       containedHover: "#6CDBAD",
       outlinedHover: "#EEFBF6",
+      disabledOutline: "#EBEBEB",
       disable: "#B9B9B9",
       textColor: "#FFFFFF",
     },
@@ -41,6 +43,8 @@ export const lightTheme = {
       secondary: "#71707E",
       subText: "#9999A3",
       danger: "#F44F5A",
+      label: "#484759",
+      placeholder: "#C2C1C7",
     },
     error: {
       main: "#F44F5A",
@@ -50,6 +54,9 @@ export const lightTheme = {
     },
     icon: {
       secondary: "#808080",
+    },
+    button: {
+      secondary: "#F8F8F8",
     },
   },
 };

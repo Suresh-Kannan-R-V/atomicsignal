@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import { MembersTable } from "../../components/table";
 import StyledButton from "../../components/button/button";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
@@ -8,33 +8,26 @@ import {
   TeamMembersContainer,
   TeamMembersHeader,
   TeamMembersPageTools,
-  ImportIcon,
   VerticalDivider,
   CheckBoxWithLabel,
   StyledBadge,
   FilterFormContainer,
   FilterFormField,
+  ImportIcon,
 } from "./team.styles";
 
 import { useEffect, useState } from "react";
 import StyledDrawer from "../../components/drawer/Drawer";
-import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
-import StyledInputLabel from "../../components/inputLabel/InputLabel";
-import StyledTextField from "../../components/textField/TextField";
-import StyledDatePicker from "../../components/datePicker/DatePicker";
-import StyledSelect from "../../components/select/Select";
-import StyledChip from "../../components/chip/Chip";
-import {
-  StyledToggleButton,
-  StyledToggleButtonGroup,
-} from "../../components/toggleButton/StyledToggleButton";
 import FilterForm from "./FilterForm";
 import AddMembersDrawerForm from "./AddMemberForm";
+import ImportIconStyled from "../../assets/icons/import";
+import FilterSvg from "../../assets/icons/filter";
 const TeamPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isFilterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [isAddMemberOpen, setIsAddMemberOpen] = useState(false);
   const stickyHeadings = ["Actions"];
+  const theme = useTheme();
   const [rowData, setRowData] = useState([
     {
       id: 40,
@@ -152,13 +145,21 @@ const TeamPage = () => {
   return (
     <TeamMembersContainer>
       <TeamMembersHeader>
-        <Typography fontFamily={"Poppins"} fontSize={"1.2em"}>
+        <Typography
+          fontSize={theme.typography.fontSize.large}
+          fontWeight={theme.typography.fontWeightMedium}
+        >
           Team members
         </Typography>
         <TeamMembersPageTools>
           <CheckBoxWithLabel>
             <CheckBox></CheckBox>
-            Show only my reportees
+            <Typography
+              fontSize={theme.typography.fontSize.small}
+              fontWeight={theme.typography.fontWeightMedium}
+            >
+              Show only my reportees
+            </Typography>
           </CheckBoxWithLabel>
 
           <SearchBox
@@ -175,23 +176,39 @@ const TeamPage = () => {
               setFilterDrawerOpen(true);
             }}
             variant="contained"
+            size="large"
           >
             <StyledBadge overlap="circular" badgeContent={1} variant="dot">
-              <FilterAltOutlinedIcon />
+              <FilterAltOutlinedIcon sx={{ fontSize: "24px" }} />
             </StyledBadge>
           </StyledButton>
           <VerticalDivider orientation="vertical" />
-          <StyledButton startIcon={<ImportIcon />} variant="outlined">
-            Import
+          <StyledButton
+            size="large"
+            startIcon={<ImportIcon />}
+            variant="outlined"
+          >
+            <Typography
+              fontSize={theme.typography.fontSize.small}
+              fontWeight={theme.typography.fontWeightMedium}
+            >
+              Import
+            </Typography>
           </StyledButton>
 
           <StyledButton
+            size="large"
             onClick={() => {
               setIsAddMemberOpen(true);
             }}
             variant="contained"
           >
-            Add member
+            <Typography
+              fontSize={theme.typography.fontSize.medium}
+              fontWeight={theme.typography.fontWeightRegular}
+            >
+              Add member
+            </Typography>
           </StyledButton>
         </TeamMembersPageTools>
       </TeamMembersHeader>

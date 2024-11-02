@@ -4,6 +4,7 @@ import {
   TableBody,
   TableRow,
   Typography,
+  useTheme,
 } from "@mui/material";
 import StyledInputLabel from "../inputLabel/InputLabel";
 import {
@@ -34,6 +35,7 @@ import {
   ActionContent,
   StyledTable,
   StyledFormControl,
+  StatusContainer,
 } from "./MembersTable.styles";
 
 import ReactSpeedometer from "react-d3-speedometer";
@@ -48,6 +50,7 @@ import StyledTextField from "../textField/TextField";
 import StyledDatePicker from "../datePicker/datePicker";
 import StyledSelect from "../select/Select";
 import StyledChip from "../chip/Chip";
+import { EmSizeMWeight, MSizeRWeight } from "../typography/typography";
 const MembersTableComponent = ({
   headings,
   stickyheadings,
@@ -56,6 +59,7 @@ const MembersTableComponent = ({
   setRows,
   searchQuery = "",
 }) => {
+  const theme = useTheme();
   const [filteredRows, setFilteredRows] = useState([]);
   const [currPage, setCurrPage] = useState(0);
   const [isEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
@@ -96,10 +100,15 @@ const MembersTableComponent = ({
           <StyledTableHead>
             <StyledTableRow>
               {headings?.map((data) => (
-                <StyledTableHeading>{data}</StyledTableHeading>
+                <StyledTableHeading>
+                  <EmSizeMWeight content={data} />
+                </StyledTableHeading>
               ))}
               {stickyheadings?.map((data) => (
-                <StickyHeading align="center">{data}</StickyHeading>
+                <StickyHeading align="center">
+                  {" "}
+                  <EmSizeMWeight content={data} />
+                </StickyHeading>
               ))}
             </StyledTableRow>
           </StyledTableHead>
@@ -114,11 +123,15 @@ const MembersTableComponent = ({
                         width={"35px"}
                         src={row?.profile?.image}
                       ></ProfileAvatar>{" "}
-                      {row?.profile?.name}
+                      <MSizeRWeight content={row?.profile?.name} />
                     </MemberProfile>
                   </StyledTableCell>
-                  <StyledTableCell>{row?.designation}</StyledTableCell>
-                  <StyledTableCell>{row?.department}</StyledTableCell>
+                  <StyledTableCell>
+                    <MSizeRWeight content={row?.designation} />
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <MSizeRWeight content={row?.department} />
+                  </StyledTableCell>
                   <StyledTableCell>
                     <SignalList>
                       {row?.signals.map((signal) => {
@@ -189,7 +202,7 @@ const MembersTableComponent = ({
                         width={"35px"}
                         src={row?.reporting_to?.[0]?.image}
                       ></ProfileAvatar>{" "}
-                      {row?.reporting_to?.[0]?.name}
+                      <MSizeRWeight content={row?.reporting_to?.[0]?.name} />
                       {row?.reporting_to?.length > 1 && (
                         <LightTooltip
                           title={
@@ -201,7 +214,7 @@ const MembersTableComponent = ({
                                     width={"25px"}
                                     src={data?.image}
                                   ></ProfileAvatar>{" "}
-                                  {data.name}
+                                  <MSizeRWeight content={data.name} />
                                 </MemberProfile>
                               ))}
                             </ReportingList>
@@ -214,24 +227,34 @@ const MembersTableComponent = ({
                       )}
                     </MemberProfile>
                   </StyledTableCell>
-                  <StyledTableCell>{row?.role}</StyledTableCell>
-                  <StyledTableCell>{row?.email}</StyledTableCell>
-                  <StyledTableCell>{row?.experience}</StyledTableCell>
                   <StyledTableCell>
-                    <IOSSwitch
-                      onChange={(e) => {
-                        setRows((prev) => {
-                          const newPrev = [...prev];
-                          const target = newPrev.findIndex(
-                            (data) => data.id === row?.id
-                          );
-                          newPrev[target].status = e.target.checked ? 1 : 0;
-                          return newPrev;
-                        });
-                      }}
-                      checked={row?.status}
-                    />{" "}
-                    {row?.status ? "Active" : "Deactive"}
+                    <MSizeRWeight content={row?.role} />
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <MSizeRWeight content={row?.email} />
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <MSizeRWeight content={row?.experience} />
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <StatusContainer>
+                      <IOSSwitch
+                        onChange={(e) => {
+                          setRows((prev) => {
+                            const newPrev = [...prev];
+                            const target = newPrev.findIndex(
+                              (data) => data.id === row?.id
+                            );
+                            newPrev[target].status = e.target.checked ? 1 : 0;
+                            return newPrev;
+                          });
+                        }}
+                        checked={row?.status}
+                      />{" "}
+                      <MSizeRWeight
+                        content={row?.status ? "Active" : "Deactive"}
+                      />
+                    </StatusContainer>
                   </StyledTableCell>
                   <StickyCell align="center">
                     <ActionContainer>
@@ -241,7 +264,7 @@ const MembersTableComponent = ({
                           size="small"
                           variant="contained"
                         >
-                          Add Feedback
+                          <MSizeRWeight content={"Add Feedback"} />
                         </StyledButton>
                         <PencilIcon
                           onClick={() => {

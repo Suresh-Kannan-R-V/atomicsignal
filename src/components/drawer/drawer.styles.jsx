@@ -17,12 +17,12 @@ const DrawerCloseButton = styled(CloseIcon)({
   padding: "10px",
   borderRadius: "100px",
   margin: "15px",
+  fontSize: "24px",
   cursor: "pointer",
 });
 
 const DrawerTitle = styled(Box)({
   padding: "24px 0px 0px 24px",
-  fontWeight: 520,
 });
 
 const DrawerContentLayout = styled(Box)({

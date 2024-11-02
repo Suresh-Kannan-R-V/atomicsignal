@@ -13,23 +13,23 @@ const StyledChip = styled(({ hasAvatar, avatarImg, ...props }) => (
     deleteIcon={<CloseIcon />}
     {...props}
   />
-))({
+))(({ theme }) => ({
   "&.MuiChip-root": {
     maxWidth: "min-content",
-    fontSize: "14px",
-    fontWeight: "500",
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.fontSize.small,
   },
   "&.MuiChip-outlined": {
     border: "solid #CACACA 1px",
     backgroundColor: "#F5F5F5",
     "& .MuiChip-deleteIcon": {
-      color: "#353448",
+      color: theme.palette.text.default,
       fontSize: "16px",
     },
   },
   "&.MuiChip-filled": {
     backgroundColor: "#F8F8F8",
   },
-});
+}));
 
 export default StyledChip;

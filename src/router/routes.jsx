@@ -1,14 +1,16 @@
 import { useRoutes } from "react-router-dom";
 import Layout from "../pages/layout/Layout";
-import AllRoutes from "./allRouter";
+import { privateRoutes, publicRoutes } from "./allRouter";
+import Theme from "../themes/theme";
 
 const Routes = () => {
   const routes = useRoutes([
     {
       path: "/",
       element: <Layout />,
-      children: AllRoutes,
+      children: privateRoutes,
     },
+    ...publicRoutes,
   ]);
   return routes;
 };
