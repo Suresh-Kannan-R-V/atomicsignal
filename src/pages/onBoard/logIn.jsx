@@ -19,12 +19,24 @@ import StyledInputLabel from "../../components/inputLabel/InputLabel";
 import StyledTextField from "../../components/textField/TextField";
 import StyledButton from "../../components/button/button";
 import PasswordField from "../../components/textField/passwordInput";
+import { useDispatch, useSelector } from "react-redux";
+import { updateLogIn } from "../../slice/onBoard";
 
 const LogIn = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+  const { email, password } = useSelector((state) => state.onBoard.loginData);
 
-  const handleTogglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
+  const handleEmailChange = (e) => {
+    dispatch(updateLogIn({ email: e.target.value }));
+  };
+
+  const handlePasswordChange = (e) => {
+    dispatch(updateLogIn({ password: e.target.value }));
+  };
+
+  const handleLogIn = () => {
+    // Dispatch action to submit login form (e.g., API call)
+    console.log("Logging in with email:", email, "password:", password);
   };
 
   return (
@@ -44,21 +56,25 @@ const LogIn = () => {
               size="small"
               placeholder="Email"
               fullWidth
-              slotProps={{
-                input: {
-                  endAdornment: (
-                    <InputAdornment position="start">kg</InputAdornment>
-                  ),
-                },
-              }}
+              value={email}
+              onChange={handleEmailChange}
             ></StyledTextField>
             <StyledInputLabel>Password</StyledInputLabel>
-            <PasswordField placeholder="Password" />
+            <PasswordField
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
             <QueryContainer>
               <ForgotLink to="/forgotpassword">Forgot Password?</ForgotLink>
             </QueryContainer>
           </LoginBox>
-          <StyledButton size="large" variant="contained" fullWidth>
+          <StyledButton
+            size="large"
+            variant="contained"
+            fullWidth
+            onClick={handleLogIn}
+          >
             <SSizeMWeight content={"Log in"} />
           </StyledButton>
         </LoginContainer>

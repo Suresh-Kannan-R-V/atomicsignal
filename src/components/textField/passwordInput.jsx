@@ -26,7 +26,7 @@ const PasswordField = ({
       type={showPassword ? "text" : "password"}
       size={size}
       fullWidth={fullWidth}
-      slotProps={{
+      InputProps={{
         endAdornment: (
           <InputAdornment position="end">
             <IconButton

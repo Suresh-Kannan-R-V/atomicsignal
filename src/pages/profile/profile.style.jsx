@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Avatar, Box, Grid, Grid2, Typography } from "@mui/material";
+import { Avatar, Box, Grid, Grid2, Typography, Tooltip } from "@mui/material";
 
 export const ProfileBody = styled(Box)(({ theme }) => ({
   position: "relative",
@@ -60,7 +60,7 @@ export const PipBarStyle = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   gap: "12px",
   width: "100%",
-  height: "150px",
+  // height: "100%",
   marginTop: "40px",
   backgroundColor: theme.palette.background.primary,
   // overflow: "scroll",
@@ -104,7 +104,7 @@ export const Circle = styled(Box)(({ color }) => ({
   backgroundColor: color,
 }));
 
-export const Tooltip = styled(Box)(({ theme }) => ({
+export const TooltipStyle = styled(Tooltip)(({ theme }) => ({
   display: "none",
   position: "absolute",
   top: "30px",
@@ -146,8 +146,10 @@ export const CardContentWrapper = styled(Box)(({ expanded, theme }) => ({
 
 export const Header = styled(Box)(({ theme }) => ({
   display: "flex",
-  alignItems: "center",
+  justifyContent: "space-between",
   marginBottom: "8px",
+  [theme.breakpoints.up("xs")]: { flexDirection: "column" },
+  [theme.breakpoints.up("sm")]: { flexDirection: "row" },
 }));
 
 export const AvatarContainer = styled(Avatar)({
@@ -173,6 +175,8 @@ export const RatingContainer = styled(Box)(({ theme }) => ({
   borderRadius: "16px",
   overflow: "hidden",
   cursor: "pointer",
+  [theme.breakpoints.up("xs")]: { marginLeft: "0px", maxWidth: "170px" },
+  [theme.breakpoints.up("sm")]: { marginLeft: "auto" },
 
   "&:hover .fullWord": {
     maxWidth: "200px",
@@ -199,6 +203,8 @@ export const FullWord = styled(Box)(({ theme }) => ({
   fontSize: theme.typography.fontSize.small,
   margin: "0px 5px",
   maxWidth: 0,
+  [theme.breakpoints.up("xs")]: { maxWidth: 200, visibility: "visible" },
+  [theme.breakpoints.up("sm")]: { maxWidth: 0, visibility: "hidden" },
   visibility: "hidden",
   overflow: "hidden",
   transition: "max-width 0.4s ease-in-out, visibility 0.3s 0s",

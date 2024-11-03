@@ -24,6 +24,7 @@ import {
   SettingContainer,
   LabelWithAvatarContainer,
 } from "./ProfileCard.styles";
+import { LightTooltip, ToolTipContent } from "../table/MembersTable.styles";
 
 const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
   const [profileImage, setProfileImage] = useState("");
@@ -115,12 +116,22 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
           <OthersContainer>
             {ProfileData.others.map((data, index) => (
               <ProfileIconsAndLabelsContainer key={index}>
-                <StyledSvgIcon
-                  height={"16px"}
-                  width={"16px"}
-                  src={data.icon}
-                  title={data.name}
-                />
+                <LightTooltip
+                  fontSize={"0.8em"}
+                  title={
+                    <ToolTipContent>
+                      <div>hgjhdfg</div>
+                    </ToolTipContent>
+                  }
+                  arrow
+                  placement="bottom"
+                >
+                  <StyledSvgIcon
+                    height={"16px"}
+                    width={"16px"}
+                    src={data.icon}
+                  />
+                </LightTooltip>
                 <LabelWithAvatarContainer>
                   {data.image && <ManagerAvatar src={data.image} />}
                   <ProfileIconsLabel>{data.name}</ProfileIconsLabel>

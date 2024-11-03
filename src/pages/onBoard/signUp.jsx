@@ -23,8 +23,21 @@ import {
 import StyledInputLabel from "../../components/inputLabel/InputLabel";
 import StyledTextField from "../../components/textField/textField";
 import StyledButton from "../../components/button/button";
+import { useDispatch, useSelector } from "react-redux";
+import { updateSignUp } from "../../slice/onBoard";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const email = useSelector((state) => state.onBoard.signUpData.email);
+
+  const handleInputChange = (e) => {
+    dispatch(updateSignUp({ email: e.target.value }));
+  };
+
+  const handleSignUp = () => {
+    // Dispatch action to submit signup form (e.g., API call)
+    console.log("Signing up with email:", email);
+  };
   return (
     <OnBoard
       children={
@@ -61,10 +74,17 @@ const SignUp = () => {
                 size="small"
                 placeholder="Email"
                 fullWidth
+                value={email}
+                onChange={handleInputChange}
               ></StyledTextField>
             </SignUpBox>
 
-            <StyledButton size="large" variant="contained" fullWidth>
+            <StyledButton
+              size="large"
+              variant="contained"
+              fullWidth
+              onClick={handleSignUp}
+            >
               <SSizeMWeight content={"Sign up"} />
             </StyledButton>
           </SignUpInputContainer>

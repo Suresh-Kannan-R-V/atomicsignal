@@ -6,8 +6,8 @@ import {
   HoverRowContainer,
   Label,
   PipBarStyle,
-  Tooltip,
   TooltipBox,
+  TooltipStyle,
 } from "./profile.style";
 import { Typography } from "@mui/material";
 import { formatDate } from "../../utils/formatedDate.js";
@@ -50,7 +50,7 @@ const PipBar = ({ data, performanceDescriptions }) => {
               />
             ))}
           </CircleBox>
-          <Tooltip className="tooltip">
+          <TooltipStyle className="tooltip" arrow placement="bottom">
             <TooltipBox>{performanceDescriptions[item.values]}</TooltipBox>
             Last updated{" "}
             <Typography
@@ -61,7 +61,7 @@ const PipBar = ({ data, performanceDescriptions }) => {
             >
               {formatDate(item.lastUpdated)}
             </Typography>
-          </Tooltip>
+          </TooltipStyle>
         </HoverRowContainer>
       ))}
     </PipBarStyle>

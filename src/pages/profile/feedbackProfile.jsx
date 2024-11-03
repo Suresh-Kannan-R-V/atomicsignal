@@ -67,23 +67,29 @@ const FeedbackCard = ({ teamMembers, feedbackData, word = "Efficitive" }) => {
         <Card key={index}>
           <CardContentWrapper expanded={expanded}>
             <Header>
-              <AvatarContainer alt={feedback.name} src="/users.jpg" />
-              <HeaderInfo>
-                <Typography fontWeight="bold" fontSize={16}>
-                  {feedback.name}
-                </Typography>
-                <HeaderDate>
-                  {format(new Date(feedback.date), "dd MMM yyyy, hh:mm a")}
-                </HeaderDate>
-              </HeaderInfo>
-              <RatingContainer>
-                <RatingAvatar bgcolor="#007C32">
-                  <Typography>{feedback.performance[0]}</Typography>
-                </RatingAvatar>
-                <FullWord className="fullWord">{feedback.performance}</FullWord>
+              <Box display={"flex"}>
+                <AvatarContainer alt={feedback.name} src="/users.jpg" />
+                <HeaderInfo>
+                  <Typography fontWeight="bold" fontSize={16}>
+                    {feedback.name}
+                  </Typography>
+                  <HeaderDate>
+                    {format(new Date(feedback.date), "dd MMM yyyy, hh:mm a")}
+                  </HeaderDate>
+                </HeaderInfo>
+              </Box>
+              <Box>
+                <RatingContainer>
+                  <RatingAvatar bgcolor="#007C32">
+                    <Typography>{feedback.performance[0]}</Typography>
+                  </RatingAvatar>
+                  <FullWord className="fullWord">
+                    {feedback.performance}
+                  </FullWord>
 
-                <Rating>{feedback.rating}</Rating>
-              </RatingContainer>
+                  <Rating>{feedback.rating}</Rating>
+                </RatingContainer>
+              </Box>
             </Header>
             <FeedbackContent>
               Feedback reason will be displayed here

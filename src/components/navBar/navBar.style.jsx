@@ -4,11 +4,26 @@ import { Avatar, Box, Typography } from "@mui/material";
 export const Sidebar = styled(Box)(({ theme }) => ({
   position: "relative",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   alignItems: "center",
-  width: "72px",
-  height: "100vh",
+  height: "72px",
+  width: "100vw ",
+  [theme.breakpoints.up("xs")]: {
+    height: "72px",
+    width: "100vw ",
+    flexDirection: "row",
+  },
+  [theme.breakpoints.up("sm")]: {
+    width: "72px",
+    height: "100vh ",
+    flexDirection: "column",
+  },
   backgroundColor: theme.palette.background.navbgcolor,
+}));
+export const NavBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  [theme.breakpoints.up("xs")]: { flexDirection: "row", display: "none" },
+  [theme.breakpoints.up("sm")]: { flexDirection: "column", display: "block" },
 }));
 
 export const SidebarHeader = styled(Box)(({ theme }) => ({
@@ -35,12 +50,16 @@ export const Version = styled(Typography)(({ theme }) => ({
   marginTop: "5px",
   fontSize: theme.typography.fontSize.verySmall,
   color: "#ebebeb",
+  [theme.breakpoints.up("xs")]: { display: "none" },
+  [theme.breakpoints.up("sm")]: { display: "block" },
 }));
 
 export const SidebarMenu = styled(Box)(({ theme }) => ({
-  height: "100vh",
+  height: "10vh",
+  [theme.breakpoints.up("xs")]: { height: "10vh", flexDirection: "row" },
+  [theme.breakpoints.up("sm")]: { height: "100vh", flexDirection: "column" },
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   justifyContent: "space-between",
-  paddingBottom: "15px",
+  addingBottom: "15px",
 }));

@@ -20,12 +20,20 @@ import StyledInputLabel from "../../components/inputLabel/InputLabel";
 import StyledTextField from "../../components/textField/TextField";
 import StyledButton from "../../components/button/button";
 import { QueryContainer } from "./signUp.styles";
+import { useDispatch, useSelector } from "react-redux";
+import { updateForgotPassword } from "../../slice/onBoard";
 
 const ForgotPassword = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+  const email = useSelector((state) => state.onBoard.forgotPasswordData.email);
 
-  const handleTogglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
+  const handleEmailChange = (e) => {
+    dispatch(updateForgotPassword({ email: e.target.value }));
+  };
+
+  const handleForgotPassword = () => {
+    // Dispatch action to submit forgot password form (e.g., API call)
+    console.log("Requesting password reset for email:", email);
   };
 
   return (
@@ -41,9 +49,19 @@ const ForgotPassword = () => {
           </LogInTitle>
           <LoginBox>
             <StyledInputLabel>Email</StyledInputLabel>
-            <StyledTextField size="small" fullWidth></StyledTextField>
+            <StyledTextField
+              size="small"
+              fullWidth
+              value={email}
+              onChange={handleEmailChange}
+            ></StyledTextField>
           </LoginBox>
-          <StyledButton size="large" variant="contained" fullWidth>
+          <StyledButton
+            size="large"
+            variant="contained"
+            fullWidth
+            onClick={handleForgotPassword}
+          >
             <SSizeMWeight content={"Get Link"} />
           </StyledButton>
           <QueryContainer>
