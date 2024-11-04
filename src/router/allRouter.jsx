@@ -1,4 +1,7 @@
 import { Profile, TeamPage, FeedbackPage, Settings } from "../pages";
+import AlmostThere from "../pages/onBoard/almostThere";
+import ForgotPassword from "../pages/onBoard/forgetPassword";
+import LogIn from "../pages/onBoard/login";
 import OnBoard from "../pages/onBoard/onBoard";
 import SignUp from "../pages/onBoard/signUp";
 import { PATH } from "./path";
@@ -30,8 +33,20 @@ const privateRoutes = [
 
 const publicRoutes = [
   {
-    path: PATH.SignUp,
+    path: PATH.onBoard,
     element: <SignUp />,
+  },
+  {
+    path: PATH.SignUp,
+    element: <AlmostThere />,
+  },
+  {
+    path: PATH.Login,
+    element: <LogIn />,
+  },
+  {
+    path: PATH.ForgotPassword,
+    element: <ForgotPassword />,
   },
 ];
 

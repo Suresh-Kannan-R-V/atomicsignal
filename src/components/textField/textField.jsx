@@ -16,11 +16,14 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
       borderRadius: "4px",
       borderColor: theme.palette.secondary.disabledOutline,
     },
-
     "&.Mui-focused fieldset": {
       borderColor: theme.palette.secondary.main,
     },
   },
 }));
-
+export const textFieldStyles = {
+  inputStyles: {
+    color: "red",
+  },
+};
 export default StyledTextField;
