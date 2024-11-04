@@ -1,5 +1,6 @@
 import { Profile, TeamPage, FeedbackPage, Settings } from "../pages";
 import OnBoard from "../pages/onBoard/onBoard";
+import { ResetPage } from "../pages/onBoard/resetPage";
 import SignUp from "../pages/onBoard/signUp";
 import { PATH } from "./path";
 import { Navigate } from "react-router-dom";
@@ -32,6 +33,10 @@ const publicRoutes = [
   {
     path: PATH.SignUp,
     element: <SignUp />,
+  },
+  {
+    path: PATH.ResetPage,
+    element: <ResetPage />,
   },
 ];
 

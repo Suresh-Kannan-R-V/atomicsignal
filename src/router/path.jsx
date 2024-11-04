@@ -5,4 +5,5 @@ export const PATH = {
   Setting: "/setting",
   Department: "/department",
   SignUp: "/signup",
+  ResetPage: "/reset",
 };

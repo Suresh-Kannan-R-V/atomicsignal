@@ -16,7 +16,7 @@ import {
   FormControl,
 } from "@mui/material";
 
-import PencilIconSvg from "../../assets/icons/pencil.svg";
+import PencilIconSvg from "../../assets/icons/pencil.jsx";
 
 const ReportingList = styled("div")({
   display: "flex",
