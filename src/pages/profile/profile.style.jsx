@@ -1,94 +1,96 @@
 import styled from "@emotion/styled";
-import { Avatar, Box, Grid, Grid2, Typography } from "@mui/material";
+import { Avatar, Box, Grid, Grid2, Typography, Tooltip } from "@mui/material";
 
-export const ProfileBody = styled(Box)({
+export const ProfileBody = styled(Box)(({ theme }) => ({
   position: "relative",
-  padding: "20px",
+  padding: "15px 20px",
   height: "auto",
-  backgroundColor: "#F0F0F0",
-});
+  backgroundColor: theme.palette.background.default,
+}));
 
-export const PerformanceContainer = styled(Box)({
-  background: "#fff",
+export const PerformanceContainer = styled(Box)(({ theme }) => ({
+  background: theme.palette.background.primary,
   display: "flex",
   flexDirection: "column",
   padding: "20px",
   borderRadius: "8px",
   height: "460px",
-  overflow: "scroll",
-});
-export const SpeedometerContainer = styled(Box)({
-  background: "#fff",
+}));
+export const SpeedometerContainer = styled(Box)(({ theme }) => ({
+  background: theme.palette.background.primary,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   overflow: "scroll",
-});
+}));
 
-export const LabelContainer = styled(Box)({
+export const LabelContainer = styled(Box)(({ theme }) => ({
   marginTop: "5px",
-  backgroundColor: "#F0F0F0",
+  backgroundColor: theme.palette.background.default,
   padding: "10px 20px",
   borderRadius: "10px",
   display: "flex",
   alignItems: "center",
-});
+}));
 
-export const LabelText = styled(Typography)({
-  fontWeight: 400,
-  fontSize: "16px",
-  color: "#6F6F6F",
+export const LabelText = styled(Typography)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeight.regular,
+  fontSize: theme.typography.fontSize.medium,
+  color: theme.palette.text.secondary,
   marginRight: "5px",
-});
+}));
 
-export const LabelValue = styled(Typography)({
-  fontWeight: 600,
-  fontSize: "16px",
+export const LabelValue = styled(Typography)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeight.semiBold,
+  fontSize: theme.typography.fontSize.medium,
   color: "#2C2C2C",
-});
+}));
 
-export const FeedbackContainer = styled(Box)({
-  backgroundColor: "#fff",
+export const FeedbackContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.background.primary,
   borderRadius: "8px",
-  minHeight: "700px",
+  minHeight: "668px",
   padding: "20px 25px",
-});
+}));
 
 //PipBar.jsx
 
-export const PipBarStyle = styled(Box)({
+export const PipBarStyle = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: "12px",
-  width: "450px",
+  width: "100%",
+  // height: "100%",
   marginTop: "40px",
-  backgroundColor: "#ffffff",
-});
+  backgroundColor: theme.palette.background.primary,
+  // overflow: "scroll",
+  zIndex: 1,
+}));
 
-export const RowContainer = styled(Box)({
+export const RowContainer = styled(Box)(({ theme }) => ({
   position: "relative",
   display: "flex",
   justifyContent: "space-between",
   gap: "10px",
-});
-export const HoverRowContainer = styled(RowContainer)({
+}));
+export const HoverRowContainer = styled(RowContainer)(({ theme }) => ({
   "&:hover .tooltip": {
     display: "block",
   },
-});
-export const FirstLabel = styled(Typography)({
+}));
+export const FirstLabel = styled(Typography)(({ theme }) => ({
   width: "24px",
   height: "24px",
   borderRadius: "50%",
   textAlign: "center",
-  fontWeight: "600",
+  fontWeight: theme.typography.fontWeight.semiBold,
   color: "#3D3D3D",
-  background: "#F0F0F0",
-});
-export const Label = styled(Typography)({
-  color: "#808080",
-  fontWeight: "400",
-});
+  background: theme.palette.background.default,
+}));
+export const Label = styled(Typography)(({ theme }) => ({
+  color: theme.palette.icon.secondary,
+  fontWeight: theme.typography.fontWeight.regular,
+}));
 export const CircleBox = styled(Box)({
   display: "flex",
   cursor: "pointer",
@@ -102,51 +104,53 @@ export const Circle = styled(Box)(({ color }) => ({
   backgroundColor: color,
 }));
 
-export const Tooltip = styled(Box)({
+export const TooltipStyle = styled(Tooltip)(({ theme }) => ({
   display: "none",
   position: "absolute",
   top: "30px",
   left: "10%",
   transform: "translateX(-50%)",
   boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-  backgroundColor: "#fff",
-  color: "#9999A3",
+  backgroundColor: theme.palette.background.primary,
+  color: theme.palette.text.subText,
   padding: "8px 15px ",
   borderRadius: "5px",
-  fontSize: "12px",
+  fontSize: theme.typography.fontSize.verySmall,
   whiteSpace: "nowrap",
-  zIndex: 1,
-});
-export const TooltipBox = styled(Box)({
-  color: "#000",
-  fontSize: "14px",
-  fontWeight: "500",
-});
+  zIndex: 5,
+}));
+export const TooltipBox = styled(Box)(({ theme }) => ({
+  color: theme.palette.text.default,
+  fontSize: theme.typography.fontSize.small,
+  fontWeight: theme.typography.fontWeight.medium,
+}));
 
 // feedbackprofile
 
-export const Card = styled(Box)({
+export const Card = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   border: "1px solid #e0e0e0",
   borderRadius: "8px",
   marginBottom: "16px",
-  backgroundColor: "#fff",
+  backgroundColor: theme.palette.background.primary,
   transition: "all 0.3s ease",
-});
+}));
 
-export const CardContentWrapper = styled(Box)(({ expanded }) => ({
+export const CardContentWrapper = styled(Box)(({ expanded, theme }) => ({
   margin: "16px",
   marginBottom: "10px",
   paddingBottom: expanded ? "20px" : "0px",
   borderBottom: expanded ? "2px dashed #B9B9B9" : "",
 }));
 
-export const Header = styled(Box)({
+export const Header = styled(Box)(({ theme }) => ({
   display: "flex",
-  alignItems: "center",
+  justifyContent: "space-between",
   marginBottom: "8px",
-});
+  [theme.breakpoints.up("xs")]: { flexDirection: "column" },
+  [theme.breakpoints.up("sm")]: { flexDirection: "row" },
+}));
 
 export const AvatarContainer = styled(Avatar)({
   marginRight: "8px",
@@ -156,40 +160,72 @@ export const HeaderInfo = styled(Box)({
   lineHeight: 0,
 });
 
-export const HeaderDate = styled(Typography)({
-  color: "textSecondary",
-  fontSize: "12px",
-});
+export const HeaderDate = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.subText,
+  fontSize: theme.typography.fontSize.verySmall,
+  fontWeight: theme.typography.fontWeight.regular,
+}));
 
-export const RatingContainer = styled(Box)({
+export const RatingContainer = styled(Box)(({ theme }) => ({
   marginLeft: "auto",
   display: "flex",
   alignItems: "center",
   backgroundColor: "#F5F5F5",
   padding: "5px 10px",
   borderRadius: "16px",
-});
+  overflow: "hidden",
+  cursor: "pointer",
+  [theme.breakpoints.up("xs")]: { marginLeft: "0px", maxWidth: "170px" },
+  [theme.breakpoints.up("sm")]: { marginLeft: "auto" },
 
-export const RatingAvatar = styled(Avatar)({
-  backgroundColor: "#4caf50",
+  "&:hover .fullWord": {
+    maxWidth: "200px",
+    visibility: "visible",
+  },
+}));
+
+export const RatingAvatar = styled(Box)(({ theme, bgcolor }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: bgcolor,
+  color: theme.palette.background.primary,
   width: 24,
   height: 24,
-  marginRight: "4px",
-  fontSize: "14px",
-  color: "#fff",
-});
+  fontSize: theme.typography.fontSize.small,
+  fontWeight: theme.typography.fontWeight.bold,
+  borderRadius: "50%",
+  overflow: "hidden",
+}));
 
-export const FeedbackContent = styled(Typography)({
-  color: "#353448",
-  fontWeight: "500",
-});
+export const FullWord = styled(Box)(({ theme }) => ({
+  color: "#484759",
+  fontSize: theme.typography.fontSize.small,
+  margin: "0px 5px",
+  maxWidth: 0,
+  [theme.breakpoints.up("xs")]: { maxWidth: 200, visibility: "visible" },
+  [theme.breakpoints.up("sm")]: { maxWidth: 0, visibility: "hidden" },
+  visibility: "hidden",
+  overflow: "hidden",
+  transition: "max-width 0.4s ease-in-out, visibility 0.3s 0s",
+}));
 
-export const FeedbackText = styled(Typography)({
-  color: "textSecondary",
-  fontSize: "14px",
-});
+export const Rating = styled(Typography)(({ theme }) => ({
+  fontSize: theme.typography.fontSize.small,
+  color: theme.palette.text.default,
+  fontWeight: theme.typography.fontWeight.medium,
+}));
+export const FeedbackContent = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.default,
+  fontWeight: theme.typography.fontWeight.medium,
+}));
 
-export const Status = styled(Box)(({ isResponse, expanded }) => ({
+export const FeedbackText = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  fontSize: theme.typography.fontSize.small,
+}));
+
+export const Status = styled(Box)(({ isResponse, expanded, theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
@@ -201,80 +237,81 @@ export const Status = styled(Box)(({ isResponse, expanded }) => ({
   padding: "10px",
   height: "20px",
   cursor: "pointer",
-  fontSize: "14px",
+  fontSize: theme.typography.fontSize.small,
   color: "#4caf50",
   fontWeight: isResponse ? "bold" : "normal",
 }));
 
-export const ResponseStatusText = styled(Typography)({
-  color: "#353448",
-  fontWeight: "500",
-});
+export const ResponseStatusText = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.default,
+  fontWeight: theme.typography.fontWeight.medium,
+}));
 
-export const StatusDate = styled(Typography)({
+export const StatusDate = styled(Typography)(({ theme }) => ({
   margin: "2px 15px",
-  fontSize: "14px",
-  color: "#71707E",
-});
+  fontSize: theme.typography.fontSize.small,
+  color: theme.palette.text.secondary,
+}));
 
-export const NotRespondedText = styled(Typography)({
+export const NotRespondedText = styled(Typography)(({ theme }) => ({
   color: "#515151",
-  fontSize: "14px",
+  fontSize: theme.typography.fontSize.small,
   marginTop: "2px",
-});
+}));
 
-export const ViewLink = styled(Typography)({
-  color: "#49C792",
-  fontSize: "12px",
+export const ViewLink = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.main,
+  fontSize: theme.typography.fontSize.verySmall,
   cursor: "pointer",
-  fontWeight: "500",
-});
+  fontWeight: theme.typography.fontWeight.medium,
+}));
 
-export const ResponseContainer = styled(Box)(({ showInput }) => ({
+export const ResponseContainer = styled(Box)(({ showInput, theme }) => ({
   marginTop: "16px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   padding: "3px 10px",
   background: showInput ? "#EEFBF6" : "",
-  color: "#49C792",
-  fontWeight: "500",
+  color: theme.palette.secondary.main,
+  fontWeight: theme.typography.fontWeight.medium,
   cursor: "pointer",
 }));
 
-export const SubmitBox = styled(Box)({
+export const SubmitBox = styled(Typography)(({ theme }) => ({
   width: "100%",
   textAlign: "center",
-});
-export const InputRespondBox = styled(Box)({
+  fontWeight: theme.typography.fontWeight.medium,
+}));
+export const InputRespondBox = styled(Box)(({ theme }) => ({
   width: "95%",
   display: "flex",
   gap: "10PX",
   marginBottom: "10PX",
-});
+}));
 
-export const ResponseInput = styled(Box)({
+export const ResponseInput = styled(Box)(({ theme }) => ({
   marginTop: "8px",
   padding: "8px",
   borderRadius: "4px",
   border: "1px solid #e0e0e0",
   width: "100%",
-});
+}));
 
-export const CollapseContent = styled(Box)({
+export const CollapseContent = styled(Box)(({ theme }) => ({
   color: "textSecondary",
-  fontSize: "14px",
+  fontSize: theme.typography.fontSize.small,
   padding: "0px 15px 5px 15px",
   marginBottom: "15px",
-});
+}));
 
-export const ResponseText = styled(Typography)({
-  fontSize: "14px",
-  fontWeight: "600",
+export const ResponseText = styled(Typography)(({ theme }) => ({
+  fontSize: theme.typography.fontSize.small,
+  fontWeight: theme.typography.fontWeight.semiBold,
   color: "textPrimary",
-});
+}));
 
-export const FeedbackResponseText = styled(Typography)({
-  fontSize: "14px",
-  color: "#71707E",
-});
+export const FeedbackResponseText = styled(Typography)(({ theme }) => ({
+  fontSize: theme.typography.fontSize.small,
+  color: theme.palette.text.secondary,
+}));

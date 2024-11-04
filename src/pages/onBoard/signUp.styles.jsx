@@ -1,5 +1,6 @@
-import { Box, Button, Link, styled } from "@mui/material";
+import { Box, Button, Grid2, styled } from "@mui/material";
 import { SSizeMWeight } from "../../components/typography/typography";
+import { Link } from "react-router-dom";
 
 const SignUpContainer = styled(Box)({
   display: "flex",
@@ -77,15 +78,15 @@ const SignUpBox = styled(Box)({
   gap: "8px",
 });
 
-const LoginLink = styled(({ ...props }) => <Link {...props}>Log in</Link>)(
-  ({ theme }) => ({
-    color: theme.palette.text.default,
-    fontSize: theme.typography.fontSize.small,
-    fontWeight: theme.typography.fontWeight.semiBold,
-    textDecorationColor: theme.palette.text.default,
-    textDecorationThickness: "1px",
-  })
-);
+const LoginLink = styled(Link)(({ theme }) => ({
+  color: theme.palette.text.primary,
+  fontSize: theme.typography.fontSize.small,
+  fontWeight: theme.typography.fontWeight.semiBold,
+  textDecoration: "underline",
+  textDecorationColor: theme.palette.text.primary,
+  textDecorationThickness: "1.5px",
+  cursor: "pointer",
+}));
 
 const QueryContainer = styled(Box)({
   display: "flex",
@@ -93,6 +94,24 @@ const QueryContainer = styled(Box)({
   justifyContent: "center",
   gap: "8px",
 });
+
+//almost there page styles
+const SignUpPageContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.button.secondary,
+  height: "100vh",
+  width: "100%",
+}));
+const SignupBoxLeft = styled(Grid2)(({ theme }) => ({
+  margin: "auto",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
+const LeftBox = styled(Box)(({ theme }) => ({
+  width: "468px",
+  marginTop: "40%",
+  height: "368.42px",
+}));
 
 export {
   SignUpContainer,
@@ -105,4 +124,7 @@ export {
   SignUpBox,
   LoginLink,
   QueryContainer,
+  SignUpPageContainer,
+  SignupBoxLeft,
+  LeftBox,
 };

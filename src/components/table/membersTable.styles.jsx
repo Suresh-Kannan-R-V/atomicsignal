@@ -130,8 +130,8 @@ const LightTooltip = styled(({ className, fontSize, ...props }) => (
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: theme.palette.common.white,
     color: "rgba(0, 0, 0, 0.87)",
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.12) ",
-    fontSize: fontSize || 11,
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.12)",
+    fontSize: fontSize || "0.8em",
   },
   [`& .${tooltipClasses.arrow}`]: {
     color: theme.palette.common.white,
