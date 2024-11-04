@@ -1,7 +1,7 @@
 import { Box, Grid, Grid2, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Chart from "./chart";
-import PipBar from "./pipbar";
+import PipBar from "./pipBar";
 import {
   FeedbackContainer,
   LabelContainer,
@@ -11,7 +11,7 @@ import {
   ProfileBody,
   SpeedometerContainer,
 } from "./profile.style";
-import ProfileCard from "../../components/profilecard/ProfileCard";
+import ProfileCard from "../../components/profileCard/profileCard";
 import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
 import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
 import ManagerIcon from "../../assets/icons/manager.svg";
@@ -70,19 +70,21 @@ const Profile = () => {
   const data = [
     {
       name: "Communication",
+      values: 1,
+      lastUpdated: "2024-09-11T03:53:09.000Z",
+    },
+    { name: "Efficiency", values: 2, lastUpdated: "2024-09-11T03:53:09.000Z" },
+    { name: "Efficiency", values: 3, lastUpdated: "2024-09-11T03:53:09.000Z" },
+    { name: "Efficiency", values: 4, lastUpdated: "2024-09-11T03:53:09.000Z" },
+    {
+      name: "Time Management",
       values: 5,
       lastUpdated: "2024-09-11T03:53:09.000Z",
     },
-    { name: "Efficiency", values: 7, lastUpdated: "2024-09-11T03:53:09.000Z" },
-    {
-      name: "Time Management",
-      values: 1,
-      lastUpdated: "2024-09-11T03:53:09.000Z",
-    },
-    { name: "Delivery", values: 3, lastUpdated: "2024-09-11T03:53:09.000Z" },
+    { name: "Delivery", values: 6, lastUpdated: "2024-09-11T03:53:09.000Z" },
     {
       name: "Unavailability",
-      values: 1,
+      values: 7,
       lastUpdated: "2024-09-11T03:53:09.000Z",
     },
   ];
