@@ -1,6 +1,6 @@
 import { Box, InputBase, styled, TextField, Typography } from "@mui/material";
 import { SignalTable } from "../../components/table";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import StyledDrawer from "../../components/drawer/Drawer";
 import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
 import StyledInputLabel from "../../components/inputLabel/InputLabel";
@@ -11,51 +11,39 @@ import { useDispatch, useSelector } from "react-redux";
 import { addSignalBody, addSignalHead } from "./slices/signalsSlice";
 
 function Signals() {
+  const BodyDatas = useSelector((state) => state.signalsBody);
+
+  const dispatch = useDispatch();
+
   const [searchQuery, setSearchQuery] = useState("");
   const [isAddSignalsOpen, setIsAddSignalsOpen] = useState(false);
-  const [rows, setRows] = useState([
-    {
-      id: 1,
-      signal: "Communication",
-      created_on: "08 Feb 2023, 04:40 PM",
-      modified_on: "08 Feb 2023, 04:40 PM",
-      status: 1,
-    },
-    {
-      id: 2,
-      signal: "Efficiency",
-      created_on: "08 Feb 2023, 04:40 PM",
-      modified_on: "08 Feb 2023, 04:40 PM",
-      status: 1,
-    },
-    {
-      id: 3,
-      signal: "Time Management",
-      created_on: "08 Feb 2023, 04:40 PM",
-      modified_on: "08 Feb 2023, 04:40 PM",
-      status: 1,
-    },
-    {
-      id: 4,
-      signal: "Attitude",
-      created_on: "08 Feb 2023, 04:40 PM",
-      modified_on: "08 Feb 2023, 04:40 PM",
-      status: 1,
-    },
-    {
-      id: 5,
-      signal: "Unavailable",
-      created_on: "08 Feb 2023, 04:40 PM",
-      modified_on: "08 Feb 2023, 04:40 PM",
-      status: 1,
-    },
-  ]);
-  const [input, setInput] = useState("");
-  function HandleChange(e) {
-    e.pr;
-    setInput(e);
-    console.log(input);
+  const [rows, setRows] = useState([]);
+
+  function Clicked() {
+    const currentDate = new Date();
+    const time = currentDate.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: "true",
+    });
+    const day = currentDate.toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+
+    dispatch(
+      addSignalBody({
+        signal: inputRef.current.value,
+        day: day,
+        time: time,
+        status: 1,
+      })
+    );
+    setIsAddSignalsOpen(false);
   }
+
+  const inputRef = useRef();
 
   const AddSignalsDrawerForm = () => {
     return (
@@ -65,7 +53,7 @@ function Signals() {
           placeholder="Type name"
           size="small"
           fullWidth
-          onSubmit={(e) => HandleChange(e.target.value)}
+          inputRef={inputRef}
         ></StyledTextField>
         <StyledInputLabel>Description</StyledInputLabel>
         <StyledTextArea minRows={7} />
@@ -76,7 +64,7 @@ function Signals() {
     <SignalsSectionContainer>
       <SignalsHeader>
         <SignalsTitle>Signals ({rows.length})</SignalsTitle>
-        <Searchbox />
+        <Searchbox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <AddButton
           onClick={() => {
             setIsAddSignalsOpen(true);
@@ -86,12 +74,13 @@ function Signals() {
 
       <SignalTable
         searchQuery={searchQuery}
-        rowData={rows}
+        rowData={BodyDatas}
         setRowData={setRows}
       ></SignalTable>
+
       <StyledDrawer
         anchor={"right"}
-        bottomLeftButton={{ label: "Add" }}
+        bottomLeftButton={{ label: "Add", onClick: Clicked }}
         title={"Add Signal"}
         content={<AddSignalsDrawerForm />}
         onClose={() => {
@@ -161,7 +150,7 @@ const AddButton = ({ onClick }) => {
   );
 };
 
-const Searchbox = () => {
+const Searchbox = ({ searchQuery, setSearchQuery }) => {
   return (
     <Box
       sx={{
@@ -195,6 +184,9 @@ const Searchbox = () => {
           color: "#353448",
           fontSize: "14px",
           paddingRight: "5.92vw",
+        }}
+        onChange={(e) => {
+          setSearchQuery(e.target.value);
         }}
       />
     </Box>

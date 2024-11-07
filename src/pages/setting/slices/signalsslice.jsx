@@ -1,5 +1,41 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = [];
+const initialState = [
+  {
+    id: 1,
+    signal: "Communication",
+    day: "08 Feb 2023",
+    time: "04:40 PM",
+    status: 1,
+  },
+  {
+    id: 2,
+    signal: "Efficiency",
+    day: "08 Feb 2023",
+    time: "04:40 PM",
+    status: 1,
+  },
+  {
+    id: 3,
+    signal: "Time Management",
+    day: "08 Feb 2023",
+    time: "04:40 PM",
+    status: 1,
+  },
+  {
+    id: 4,
+    signal: "Attitude",
+    day: "08 Feb 2023",
+    time: "04:40 PM",
+    status: 1,
+  },
+  {
+    id: 5,
+    signal: "Unavailable",
+    day: "08 Feb 2023",
+    time: "04:40 PM",
+    status: 1,
+  },
+];
 const HeadDatas = [
   {
     HeadLabel: "S.No",

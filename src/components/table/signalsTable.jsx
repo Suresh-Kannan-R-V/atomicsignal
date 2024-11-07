@@ -109,8 +109,12 @@ const SignalTableComponent = ({
                 <StyledTableRow>
                   <StyledTableCell>{i + 1}</StyledTableCell>
                   <StyledTableCell>{row?.signal}</StyledTableCell>
-                  <StyledTableCell>{row?.created_on}</StyledTableCell>
-                  <StyledTableCell>{row?.modified_on}</StyledTableCell>
+                  <StyledTableCell>
+                    {row?.day}, {row?.time}
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    {row?.day}, {row?.time}
+                  </StyledTableCell>
                   <StyledTableCell minWidth={125}>
                     <IosSwitch
                       onChange={(e) => {
