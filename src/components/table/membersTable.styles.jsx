@@ -17,7 +17,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import PencilIconSvg from "../../assets/icons/pencil.svg";
+import PencilIconSvg from "../../assets/icons/pencil.jsx";
 
 const ReportingList = styled("div")({
   display: "flex",
@@ -49,27 +49,15 @@ const StyledTableContainer = styled(TableContainer)({
 
 const StyledBottomTableContainer = styled(TableContainer)({
   backgroundColor: "white",
-
   borderRadius: "0px 0px 10px  10px",
-  fontFamily: "Poppins",
   zIndex: 10,
   position: "relative",
 });
 
-const StyledTablePagination = styled(TablePagination)({
-  "& .MuiTablePagination-root": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-selectLabel": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-select": {
-    fontFamily: "Poppins",
-  },
-  "& .MuiTablePagination-displayedRows": {
-    fontFamily: "Poppins",
-  },
-});
+const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightRegular,
+  fontSize: theme.typography.fontSize.small,
+}));
 
 const StyledTableFooter = styled(TableFooter)({});
 
@@ -85,6 +73,8 @@ const MemberProfile = styled("div")(({ fontSize }) => ({
 
 const MoreTag = styled(Typography)(({ theme }) => ({
   color: theme.palette.secondary.main,
+  fontSize: theme.typography.fontSize.medium,
+  fontWeight: theme.typography.fontWeightRegular,
 }));
 
 const SignalsAvatar = styled(Avatar)(({ bgColor, color }) => ({
@@ -104,8 +94,8 @@ const StyledTableHead = styled(TableHead)({
 const StyledTableHeading = styled(TableCell)(({ minWidth }) => ({
   fontWeight: "500",
   fontSize: "1.07em",
-  fontFamily: "Poppins",
-  minWidth: "minmax(100,10)",
+  padding: "0px",
+  paddingRight: "20px",
   position: "sticky",
   top: 0,
   backgroundColor: "white",
@@ -116,10 +106,11 @@ const StyledTableHeading = styled(TableCell)(({ minWidth }) => ({
 const StyledTableCell = styled(TableCell)(({ minWidth }) => ({
   fontSize: "1.07em",
   borderBottom: "none",
-  padding: "0px 15px",
+  padding: "0px",
+  paddingRight: "20px",
   cursor: "pointer",
-  fontFamily: "Poppins",
-  minWidth: minWidth || "9rem",
+  minWidth: minWidth,
+  textWrap: "nowrap",
 }));
 
 const ToolTipContent = styled("div")({
@@ -139,8 +130,8 @@ const LightTooltip = styled(({ className, fontSize, ...props }) => (
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: theme.palette.common.white,
     color: "rgba(0, 0, 0, 0.87)",
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.12) ",
-    fontSize: fontSize || 11,
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.12)",
+    fontSize: fontSize || "0.8em",
   },
   [`& .${tooltipClasses.arrow}`]: {
     color: theme.palette.common.white,
@@ -172,7 +163,7 @@ const StickyCell = styled(TableCell)({
   right: 0,
   fontSize: "16px",
   zIndex: 1,
-  minWidth: 200,
+  minWidth: 220,
   cursor: "pointer",
   backgroundColor: "white",
   borderBottom: "none",
@@ -180,12 +171,7 @@ const StickyCell = styled(TableCell)({
   fontFamily: "Poppins",
 });
 
-const PencilIcon = styled((props) => <img src={PencilIconSvg} {...props} />)({
-  color: "#49C792",
-  backgroundColor: "#EEFBF6",
-  padding: "2px",
-  borderRadius: "100px",
-});
+const PencilIcon = styled((props) => <PencilIconSvg {...props} />)({});
 
 const ActionContainer = styled("div")({
   display: "flex",
@@ -201,7 +187,7 @@ const ActionStickyContainerSeparator = styled("div")({
   position: "absolute",
   zIndex: 4,
   right: 0,
-  transform: "translate(-220px,0%)",
+  transform: "translate(-240px,0%)",
 });
 
 const ActionPaginationContainerSeparator = styled("div")({
@@ -227,7 +213,7 @@ const ActionContent = styled("div")({
   gap: "10px",
   justifyContent: "center",
   flex: 1,
-  margin: "0px 6px",
+  margin: "0px 16px",
 });
 
 const StyledTable = styled(Table)({

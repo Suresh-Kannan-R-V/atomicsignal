@@ -9,54 +9,35 @@ import {
 } from "@mui/material";
 import StyledInputLabel from "../inputLabel/InputLabel";
 import {
-  ReportingList,
   TableDiv,
   StyledTableContainer,
   StyledBottomTableContainer,
   StyledTablePagination,
   StyledTableFooter,
   StyledTableRow,
-  MemberProfile,
-  MoreTag,
-  SignalsAvatar,
   StyledTableHead,
   StyledTableHeading,
   StyledTableCell,
-  ToolTipContent,
-  SignalList,
-  LightTooltip,
-  StickyHeading,
-  ProfileAvatar,
-  StickyCell,
   PencilIcon,
-  ActionContainer,
-  ActionStickyContainerSeparator,
   ActionPaginationContainerSeparator,
   ActionHeaderContainerSeparator,
-  ActionContent,
   StyledTable,
   StyledFormControl,
   PencilIconContainer,
+  ActiveContainer,
 } from "./DepartmentTable.styles";
 
-import ReactSpeedometer from "react-d3-speedometer";
 import Table from "@mui/material/Table";
 import IOSSwitch from "../switch/Switch";
-import StyledButton from "../button/button";
 import { useEffect, useState } from "react";
-import Drawer from "../drawer/Drawer";
 import StyledDrawer from "../drawer/Drawer";
-import StyledInput from "../input/Input";
 import StyledTextField from "../textField/TextField";
-import StyledDatePicker from "../datePicker/datePicker";
-import StyledSelect from "../select/Select";
-import StyledChip from "../chip/Chip";
 import StyledTextArea from "../textArea/StyledTextArea";
+import { EmSizeMWeight, MSizeRWeight } from "../typography/typography";
+import PencilIconSvg from "../../assets/icons/pencil";
 const DepartmentTableComponent = ({
   headings,
-  stickyheadings,
   rows,
-  stickyColumnData,
   setRows,
   searchQuery = "",
 }) => {
@@ -95,7 +76,9 @@ const DepartmentTableComponent = ({
           <StyledTableHead>
             <StyledTableRow>
               {headings?.map((data) => (
-                <StyledTableHeading>{data}</StyledTableHeading>
+                <StyledTableHeading>
+                  <EmSizeMWeight content={data} />
+                </StyledTableHeading>
               ))}
             </StyledTableRow>
           </StyledTableHead>
@@ -103,29 +86,41 @@ const DepartmentTableComponent = ({
             {filteredRows?.map((row, i) => {
               return (
                 <StyledTableRow>
-                  <StyledTableCell>{i + 1}</StyledTableCell>
-                  <StyledTableCell>{row?.department}</StyledTableCell>
-                  <StyledTableCell>{row?.created_on}</StyledTableCell>
-                  <StyledTableCell>{row?.modified_on}</StyledTableCell>
+                  <StyledTableCell>
+                    <MSizeRWeight content={i + 1} />
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <MSizeRWeight content={row?.department} />
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <MSizeRWeight content={row?.created_on} />
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <MSizeRWeight content={row?.modified_on} />
+                  </StyledTableCell>
                   <StyledTableCell minWidth={125}>
-                    <IOSSwitch
-                      onChange={(e) => {
-                        setRows((prev) => {
-                          const newPrev = [...prev];
-                          const target = newPrev.findIndex(
-                            (data) => data?.id === row?.id
-                          );
-                          newPrev[target].status = e.target.checked ? 1 : 0;
-                          return newPrev;
-                        });
-                      }}
-                      checked={row?.status}
-                    />{" "}
-                    {row?.status ? "Active" : "Deactive"}
+                    <ActiveContainer>
+                      <IOSSwitch
+                        onChange={(e) => {
+                          setRows((prev) => {
+                            const newPrev = [...prev];
+                            const target = newPrev.findIndex(
+                              (data) => data?.id === row?.id
+                            );
+                            newPrev[target].status = e.target.checked ? 1 : 0;
+                            return newPrev;
+                          });
+                        }}
+                        checked={row?.status}
+                      />
+                      <MSizeRWeight
+                        content={row?.status ? "Active" : "Deactive"}
+                      />
+                    </ActiveContainer>
                   </StyledTableCell>
                   <StyledTableCell>
                     <PencilIconContainer>
-                      <PencilIcon
+                      <PencilIconSvg
                         onClick={() => {
                           setIsEditMemberDrawerOpen(true);
                         }}

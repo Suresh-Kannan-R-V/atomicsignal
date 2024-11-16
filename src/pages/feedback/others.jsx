@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import photo from "../../assets/image1.jpg";
-import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import Tablesty from "../../components/table/Table";
+import React, { useState } from "react";
+import photo from "../../assets/image1.jpg";
 import View from "../../components/popUp/View";
+import Tablesty from "../../components/table/Table";
+import Popupcontainer from "./popupcontiner";
+import { DoneIcon, Signalcolour, stylesnew } from "./style";
 
 function Others(searchQuery) {
   const [view, setView] = useState(false);
@@ -227,7 +228,19 @@ function Others(searchQuery) {
           setPrincing={() => setView(false)}
           height={"400px"}
           width={"500px"}
-          children={<popupCon />}
+          children={
+            <Popupcontainer
+              setPrincing={() => setView(false)}
+              name={selectedPerson.name}
+              to={selectedPerson.to}
+              signal={selectedPerson.signal}
+              performance={selectedPerson.performance}
+              photo={selectedPerson.nameprofile}
+              response={selectedPerson.response}
+              nameprofile={selectedPerson.nameprofile}
+              c={1}
+            />
+          }
         />
       )}
     </>

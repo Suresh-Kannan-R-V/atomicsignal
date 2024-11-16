@@ -5,8 +5,14 @@ const StyledButton = styled(Button)(({ theme }) => ({
   textTransform: "none",
   fontFamily: "Poppins",
   color: "#ffffff",
+  padding: "10px 16px",
   minWidth: "0px",
-
+  "&.MuiButton-sizeSmall": {
+    height: "28px",
+  },
+  "&.MuiButton-sizeLarge": {
+    height: "40px",
+  },
   "&.MuiButton-contained": {
     backgroundColor: theme.palette.secondary.main,
     boxShadow: "none",

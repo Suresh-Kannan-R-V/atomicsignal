@@ -30,7 +30,7 @@ export const Popuphead = styled(Box)(() => ({
 }));
 
 export const Body = styled(Box)(() => ({
-  padding: "24px",
+  padding: "16px 24px", // height 16 is enough
 }));
 
 export const stylesnew = {
@@ -122,6 +122,7 @@ export const stylesnew = {
     color: "#25C460",
     fontSize: "18px",
     display: "flex",
+    marginRight: "10px",
     alignItems: "center",
   },
 };

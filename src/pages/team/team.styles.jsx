@@ -1,6 +1,6 @@
 import { Badge, Box, colors, Divider, styled } from "@mui/material";
 
-import ImportIconSvg from "../../assets/icons/import.svg";
+import ImportIconStyled from "../../assets/icons/import";
 
 const TeamMembersContainer = styled("div")({
   padding: "30px",
@@ -23,9 +23,7 @@ const TeamMembersPageTools = styled("div")({
   flexWrap: "wrap",
 });
 
-const ImportIcon = styled((props) => <img src={ImportIconSvg} {...props} />)(
-  {}
-);
+const ImportIcon = styled(() => <ImportIconStyled />)({});
 
 const VerticalDivider = styled(Divider)({
   "&.MuiDivider-vertical": {

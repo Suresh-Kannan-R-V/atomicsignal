@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Divider, Typography } from "@mui/material";
+import { Avatar, Box, Divider, Typography } from "@mui/material";
 import StyledChip from "../chip/Chip";
-import StyledSvgIcon from "../svgIcon/SvgIcon";
+import StyledSvgIcon from "../svgicon/SvgIcon";
 import LinkedCameraOutlinedIcon from "@mui/icons-material/LinkedCameraOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
@@ -9,6 +9,7 @@ import {
   ManagerAvatar,
   OthersContainer,
   ProfileAvatar,
+  ProfileBox,
   ProfileCardContainer,
   ProfileIconsAndLabelsContainer,
   ProfileIconsLabel,
@@ -21,12 +22,12 @@ import {
   AddButton,
   DeleteButton,
   SettingContainer,
+  LabelWithAvatarContainer,
 } from "./ProfileCard.styles";
+import { LightTooltip, ToolTipContent } from "../table/MembersTable.styles";
 
 const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
-  const [profileImage, setProfileImage] = useState(
-    "https://img.freepik.com/free-photo/portrait-young-businesswoman-holding-eyeglasses-hand-against-gray-backdrop_23-2148029483.jpg"
-  );
+  const [profileImage, setProfileImage] = useState("");
 
   useEffect(() => {
     const storedImage = localStorage.getItem("profileImage");
@@ -58,62 +59,83 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
   return (
     <ProfileCardContainer profilepage={profilepage}>
       <ProfileInfoBox>
-        <ProfileAvatar
-          alt={ProfileData?.userData?.r || "--"}
-          src={profileImage || ""}
-          variant="rounded"
-        >
-          {!isSetting && (
-            <Typography sx={{ fontSize: "50px" }}>
+        <ProfileBox>
+          <ProfileAvatar
+            alt={ProfileData.userData.name}
+            src={profileImage || ""}
+            variant="rounded"
+          >
+            <Typography sx={{ fontSize: "50px", color: "#484759" }}>
               {" "}
-              {!profileImage && ProfileData?.userData?.name[0]}
+              {!profileImage && ProfileData.userData.name[0]}
             </Typography>
-          )}
-        </ProfileAvatar>
+          </ProfileAvatar>
 
-        {!isSetting && (
-          <AddDeleteButtonContainer>
-            {!profileImage && (
-              <>
-                <input
-                  type="file"
-                  accept="image/*"
-                  style={{ display: "none" }}
-                  ref={fileInputRef}
-                  onChange={handleImageUpload}
-                />
-                <AddButton onClick={() => fileInputRef.current.click()}>
-                  <LinkedCameraOutlinedIcon
-                    style={{ color: "#49C792", fontSize: "20px" }}
+          {!isSetting && (
+            <AddDeleteButtonContainer>
+              {!profileImage && (
+                <>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    ref={fileInputRef}
+                    onChange={handleImageUpload}
                   />
-                </AddButton>
-              </>
-            )}
-            {profileImage && (
-              <DeleteButton onClick={handleDeleteImage}>
-                <DeleteOutlinedIcon
-                  style={{ color: "#F44F5A", fontSize: "20px" }}
-                />
-              </DeleteButton>
-            )}
-          </AddDeleteButtonContainer>
-        )}
+                  <AddButton onClick={() => fileInputRef.current.click()}>
+                    <Avatar
+                      src="/camera.svg"
+                      variant="square"
+                      sx={{ width: 15, height: 15, bgcolor: "transparent" }}
+                    />
+                  </AddButton>
+                </>
+              )}
+              {profileImage && (
+                <DeleteButton onClick={handleDeleteImage}>
+                  <Avatar
+                    src="/delete.svg"
+                    variant="square"
+                    sx={{ width: 16, height: 18, bgcolor: "transparent" }}
+                  />
+                </DeleteButton>
+              )}
+            </AddDeleteButtonContainer>
+          )}
+        </ProfileBox>
 
         <ProfileInfoAndOthersContainer>
           <UserNameAndPeriodOfServiceContainer>
-            <ProfileName>{ProfileData?.userData?.name}</ProfileName>
+            <ProfileName>{ProfileData.userData.name}</ProfileName>
             <StyledChip
               variant="filled"
-              label={ProfileData?.userData?.period_of_service}
+              label={ProfileData.userData.period_of_service}
             />
           </UserNameAndPeriodOfServiceContainer>
 
           <OthersContainer>
-            {ProfileData?.others.map((data, index) => (
+            {ProfileData.others.map((data, index) => (
               <ProfileIconsAndLabelsContainer key={index}>
-                <StyledSvgIcon height={"16px"} width={"16px"} src={data.icon} />
-                {data.image && <ManagerAvatar src={data.image} />}
-                <ProfileIconsLabel>{data.name}</ProfileIconsLabel>
+                <LightTooltip
+                  fontSize={"0.8em"}
+                  title={
+                    <ToolTipContent>
+                      <div>hgjhdfg</div>
+                    </ToolTipContent>
+                  }
+                  arrow
+                  placement="bottom"
+                >
+                  <StyledSvgIcon
+                    height={"16px"}
+                    width={"16px"}
+                    src={data.icon}
+                  />
+                </LightTooltip>
+                <LabelWithAvatarContainer>
+                  {data.image && <ManagerAvatar src={data.image} />}
+                  <ProfileIconsLabel>{data.name}</ProfileIconsLabel>
+                </LabelWithAvatarContainer>
               </ProfileIconsAndLabelsContainer>
             ))}
           </OthersContainer>
@@ -121,10 +143,10 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
       </ProfileInfoBox>
 
       {isSetting && (
-        <SettingContainer>
+        <>
           <Divider />
           <ResetPasswordContainer>Reset password</ResetPasswordContainer>
-        </SettingContainer>
+        </>
       )}
     </ProfileCardContainer>
   );

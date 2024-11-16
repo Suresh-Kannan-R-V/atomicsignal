@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import photo from "../../assets/image1.jpg";
-import { DoneIcon, Signalcolour, stylesnew } from "./Style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
+import React, { useState } from "react";
+import photo from "../../assets/image1.jpg";
 import Buttonsty from "../../components/button/Buttonfeed";
-import View from "../../components/Popup/View";
+import View from "../../components/popUp/view";
 import Tablesty from "../../components/Table/Table";
+import Popupcontainer from "./popupcontiner";
+import { DoneIcon, Signalcolour, stylesnew } from "./Style";
 function Tome(searchQuery) {
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -225,13 +226,22 @@ function Tome(searchQuery) {
       <Tablesty Rowdata={Rowdata} Column={Column} searchQuery={searchQuery} />
       {view && (
         <View
+          title={"View Feedback"}
           setPrincing={() => setView(false)}
-          name={selectedPerson.name}
-          signal={selectedPerson.signal}
-          performance={selectedPerson.performance}
-          photo={selectedPerson.nameprofile}
-          response={selectedPerson.response}
-          c={0}
+          height={"400px"}
+          width={"500px"}
+          children={
+            <Popupcontainer
+              setPrincing={() => setView(false)}
+              name={selectedPerson.name}
+              signal={selectedPerson.signal}
+              performance={selectedPerson.performance}
+              photo={selectedPerson.nameprofile}
+              response={selectedPerson.response}
+              nameprofile={selectedPerson.nameprofile}
+              c={0}
+            />
+          }
         />
       )}
     </>

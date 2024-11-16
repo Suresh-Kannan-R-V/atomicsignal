@@ -17,47 +17,59 @@ const ProfileInfoBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up("xs")]: { flexDirection: "column" },
   [theme.breakpoints.up("sm")]: { flexDirection: "row", gap: "1.5rem" },
   alignItems: "center",
-  position: "relative",
   flexWrap: "wrap",
   margin: "1.5rem",
   borderRadius: "0.5rem",
+}));
+
+const ProfileBox = styled(Box)(({ theme }) => ({
+  position: "relative",
+  [theme.breakpoints.up("xs")]: { marginBottom: "230x" },
+
+  [theme.breakpoints.up("sm")]: { marginBottom: "0px" },
 }));
 
 const ProfileAvatar = styled(Avatar)(({ theme }) => ({
   height: "7.5rem",
   width: "7.5rem",
   [theme.breakpoints.up("sm")]: { marginLeft: "1.5rem" },
+  background: "#F5F5F5",
+  border: "1px solid #E6E6E6",
 }));
 
-const AddDeleteButtonContainer = styled(Box)({
+const AddDeleteButtonContainer = styled(Box)(({ theme }) => ({
   position: "absolute",
-  bottom: 8,
-  left: 68,
-});
+  bottom: -15,
+  left: "50%",
+  transform: "translateX(-50%)",
+  [theme.breakpoints.up("xs")]: { left: "50%" },
+  [theme.breakpoints.up("sm")]: { left: "60%" },
+}));
 
 const AddButton = styled(Box)({
   backgroundColor: "#fff",
-  padding: "5px 4px 0px 4px",
+  padding: "8px",
   borderRadius: "50%",
   border: "2px solid #49C792",
 });
 
 const DeleteButton = styled(Box)({
   backgroundColor: "#fff",
-  padding: "5px 4px 0px 4px",
+  padding: "6px 7px",
   borderRadius: "50%",
   border: "1px solid #ccc",
 });
 
-const ProfileName = styled(Typography)({
-  fontSize: "24px",
-  fontWeight: "bold",
-});
+const ProfileName = styled(Typography)(({ theme }) => ({
+  fontSize: theme.typography.fontSize.extraLarge,
+  fontWeight: theme.typography.fontWeight.semiBold,
+}));
 
-const ProfileIconsLabel = styled(Typography)({
+const ProfileIconsLabel = styled(Typography)(({ theme }) => ({
   backgroundColor: "white",
-  fontSize: "14px",
-});
+  fontWeight: theme.typography.fontWeightRegular,
+  fontSize: theme.typography.fontSize.small,
+}));
 
 const ProfileInfoAndOthersContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -91,14 +103,14 @@ const OthersContainer = styled(Box)({
   gap: "12px",
 });
 
-const ResetPasswordContainer = styled(Box)({
+const ResetPasswordContainer = styled(Box)(({ theme }) => ({
   height: "20px",
   padding: "16px",
   textAlign: "center",
   fontSize: "14px",
-  color: "#F44F5A",
+  color: theme.palette.text.danger,
   fontWeight: "500",
-});
+}));
 
 const ManagerAvatar = styled(Avatar)({
   height: "24px",
@@ -109,9 +121,16 @@ const SettingContainer = styled(Box)({
   width: "100%",
 });
 
+const LabelWithAvatarContainer = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  gap: "4px",
+});
+
 export {
   ProfileCardContainer,
   ProfileInfoBox,
+  ProfileBox,
   ProfileAvatar,
   ProfileName,
   ProfileIconsLabel,
@@ -125,4 +144,5 @@ export {
   AddButton,
   DeleteButton,
   SettingContainer,
+  LabelWithAvatarContainer,
 };

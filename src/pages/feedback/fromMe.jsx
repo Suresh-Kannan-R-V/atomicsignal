@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import photo from "../../assets/image1.jpg";
-import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
+import React, { useState } from "react";
+import photo from "../../assets/image1.jpg";
 import Buttonsty from "../../components/button/buttonFeed";
-import Tablesty from "../../components/table/table";
 import View from "../../components/popUp/view";
-import popupCon from "./popupCon";
-
+import Tablesty from "../../components/table/table";
+import Popupcontainer from "./popupcontiner";
+import { DoneIcon, Signalcolour, stylesnew } from "./style";
 function Fromme(searchQuery) {
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -233,12 +232,14 @@ function Fromme(searchQuery) {
           height={"400px"}
           width={"500px"}
           children={
-            <popupCon
+            <Popupcontainer
+              setPrincing={() => setView(false)}
               name={selectedPerson.name}
               signal={selectedPerson.signal}
               performance={selectedPerson.performance}
               photo={selectedPerson.nameprofile}
               response={selectedPerson.response}
+              nameprofile={selectedPerson.nameprofile}
               c={0}
             />
           }
