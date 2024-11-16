@@ -4,8 +4,8 @@ import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Buttonsty from "../../components/button/buttonFeed";
-import Tablesty from "../../components/table/Table";
-import View from "../../components/popUp/View";
+import Tablesty from "../../components/table/table";
+import View from "../../components/popUp/view";
 import popupCon from "./popupCon";
 
 function Fromme(searchQuery) {

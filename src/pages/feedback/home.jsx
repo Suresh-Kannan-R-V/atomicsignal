@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Base, Flex, Head, Heading, stylesnew, Table1 } from "./style";
+import { Base, Flex, Head, Heading, stylesnew, Table1, Filter } from "./style";
 import { Box, Tabs, Tab, Divider } from "@mui/material";
 import Tome from "./Tome";
 import Others from "./Others";
@@ -11,7 +11,6 @@ import { ImportIcon } from "../team/team.styles";
 import StyledDrawer from "../../components/drawer/Drawer";
 import Filterdrawer from "../../components/drawer/Filter";
 import { CiFilter } from "react-icons/ci";
-import { Filter } from "../../components/iconButton/Style";
 
 function Home() {
   const [active, setActive] = useState("1");
