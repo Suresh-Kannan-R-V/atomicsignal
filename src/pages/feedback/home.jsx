@@ -9,7 +9,7 @@ import Fromme from "./fromme";
 import StyledButton from "../../components/button/button";
 import { ImportIcon } from "../team/team.styles";
 import StyledDrawer from "../../components/drawer/Drawer";
-import Filterdrawer from "../../components/drawer/Filter";
+import Filterdrawer from "../../components/drawer/filter";
 import { CiFilter } from "react-icons/ci";
 
 function Home() {
@@ -75,7 +75,11 @@ function Home() {
           </Filter>
           <Flex sx={active === "3" ? stylesnew.hide : { display: "none" }}>
             <Divider orientation="horizontal" sx={stylesnew.divider} />
-            <StyledButton startIcon={<ImportIcon />} variant="outlined">
+            <StyledButton
+              sx={{ height: "40px" }}
+              startIcon={<ImportIcon />}
+              variant="outlined"
+            >
               Download
             </StyledButton>
           </Flex>
@@ -88,7 +92,7 @@ function Home() {
         content={<Filterdrawer activeTab={active} />}
         anchor={"right"}
         bottomLeftButton={{ label: "Apply filter", onClick: () => {} }}
-        bottomRightButton={{ label: "Reset" }}
+        bottomRightButton={{ label: "Reset", onClick: () => {} }}
         onClose={() => {
           setIsEditMemberDrawerOpen(false);
         }}

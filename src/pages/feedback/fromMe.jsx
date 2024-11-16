@@ -1,12 +1,12 @@
-import { Box } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
 import React, { useState } from "react";
 import photo from "../../assets/image1.jpg";
-import Buttonsty from "../../components/button/buttonFeed";
-import View from "../../components/popUp/view";
-import Tablesty from "../../components/table/table";
-import Popupcontainer from "./popupcontiner";
 import { DoneIcon, Signalcolour, stylesnew } from "./style";
+import { Box } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Buttonsty from "../../components/button/buttonFeed";
+import Tablesty from "../../components/table/table";
+import View from "../../components/popUp/view";
+import Popupcontainer from "./popupcontiner";
 function Fromme(searchQuery) {
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);

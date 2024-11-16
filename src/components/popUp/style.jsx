@@ -1,4 +1,4 @@
-import { Box, Dialog, styled } from "@mui/material";
+import { Avatar, Box, Dialog, styled } from "@mui/material";
 
 export const Dialogue = styled(Dialog)(({ width, height }) => ({
   "& .MuiDialogContent-root": {
@@ -18,6 +18,11 @@ export const Dialogue = styled(Dialog)(({ width, height }) => ({
   },
 }));
 
+export const Photo = styled(Avatar)(() => ({
+  width: 35,
+  height: 35,
+}));
+
 export const Popuphead = styled(Box)(() => ({
   height: "63px",
   padding: "0 24px",
@@ -27,6 +32,18 @@ export const Popuphead = styled(Box)(() => ({
   fontWeight: "600",
   justifyContent: "space-between",
   borderBottom: "1px solid #CACACA ",
+}));
+
+export const Profile = styled(Box)(() => ({
+  backgroundColor: "#EFEEFB",
+  height: "53px",
+  borderRadius: "4px 4px 0px 0px",
+  display: "flex",
+  fontWeight: "600",
+  width: "436px",
+  padding: "0 8px",
+  alignItems: "center",
+  justifyContent: "space-between",
 }));
 
 export const Body = styled(Box)(() => ({
@@ -43,18 +60,6 @@ export const stylesnew = {
   cross: {
     fontSize: "30px",
     cursor: "pointer",
-  },
-
-  profile: {
-    backgroundColor: "#EFEEFB",
-    height: "53px",
-    borderRadius: "4px 4px 0px 0px",
-    display: "flex",
-    fontWeight: "600",
-    width: "436px",
-    padding: "0 8px",
-    alignItems: "center",
-    justifyContent: "space-between",
   },
 
   feed: {
@@ -74,11 +79,6 @@ export const stylesnew = {
   photo: {
     width: 27,
     height: 27,
-  },
-
-  photo1: {
-    width: 35,
-    height: 35,
   },
 
   desi: {

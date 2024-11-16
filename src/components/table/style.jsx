@@ -14,6 +14,7 @@ export const StyledTableCell = styled(TableCell)(({ align }) => ({
       align === "Response" || align === "Reminder" || align === "Feedback"
         ? "center"
         : "left",
+    backgroundColor: "#ffffff",
   },
 }));
 
@@ -37,7 +38,6 @@ export const stylesnew = {
     height: "550px",
     overflowY: "auto",
     overflowX: "hidden",
-
     scrollbarWidth: "none",
   },
 };

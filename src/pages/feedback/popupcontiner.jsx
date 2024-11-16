@@ -1,9 +1,9 @@
-import { Box, Avatar } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { stylesnew } from "../../components/popup/Style";
-import { Signalcolour } from "./Style";
+import { stylesnew, Profile, Photo } from "../../components/popup/Style";
+import { Signalcolour, Flex } from "./Style";
 
 function Popupcontainer({
   c,
@@ -16,44 +16,42 @@ function Popupcontainer({
   return (
     <Box sx={stylesnew.body}>
       {c === 0 && (
-        <Box sx={stylesnew.profile}>
-          <Box sx={stylesnew.flex}>
-            <Avatar src={nameprofile} sx={stylesnew.photo1} />
+        <Profile>
+          <Flex>
+            <Photo src={nameprofile} />
             <Box>{name}</Box>
-          </Box>
+          </Flex>
           <Box sx={stylesnew.desi}>Visual Designer</Box>
-        </Box>
+        </Profile>
       )}
 
       {c === 1 && (
-        <Box sx={stylesnew.profile}>
-          <Box sx={stylesnew.flex}>
-            <Avatar src={nameprofile} sx={stylesnew.photo1} />{" "}
-            {/* Fixed to use nameprofile */}
+        <Profile>
+          <Flex>
+            <Photo src={nameprofile} />
             <Box>
               {name}
               <Box sx={stylesnew.desi}>Visual Designer</Box>
             </Box>
-          </Box>
-          <Box sx={{ color: "#948DE3" }}>
+          </Flex>
+          <Box>
             <FaArrowRightLong />
           </Box>
-          <Box sx={stylesnew.flex}>
-            <Avatar src={nameprofile} sx={stylesnew.photo1} />{" "}
-            {/* Fixed to use nameprofile */}
+          <Flex>
+            <Photo src={nameprofile} />
             <Box>
-              {name} {/* Used 'name' instead of 'to' to be consistent */}
+              {name}
               <Box sx={stylesnew.desi}>Visual Designer</Box>
             </Box>
-          </Box>
-        </Box>
+          </Flex>
+        </Profile>
       )}
 
       <Box sx={stylesnew.feed}>
-        <Box sx={stylesnew.flex}>
+        <Flex>
           <Signalcolour performance={performance}>{signal[0]}</Signalcolour>
           {signal}
-        </Box>
+        </Flex>
         <Box sx={stylesnew.desi1}>{performance}</Box>
       </Box>
       <Box sx={stylesnew.res}>Feedback reason will be displayed here</Box>
