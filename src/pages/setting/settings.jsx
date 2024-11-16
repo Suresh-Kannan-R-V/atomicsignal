@@ -1,5 +1,5 @@
 import { Grid2 } from "@mui/material";
-import BasicTabs from "../../components/tabbar/tabbar";
+import BasicTabs from "../../components/tabBar/tabbar";
 import { styledItem } from "./style";
 
 export const HeadDatas = [

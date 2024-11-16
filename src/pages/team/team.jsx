@@ -1,9 +1,9 @@
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import { MembersTable } from "../../components/table";
-import StyledButton from "../../components/button/Button";
+import StyledButton from "../../components/button/button";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
-import SearchBox from "../../components/searchbox/SearchBox";
-import CheckBox from "../../components/checkbox/CheckBox";
+import SearchBox from "../../components/searchBox/SearchBox";
+import CheckBox from "../../components/checkBox/CheckBox";
 import {
   TeamMembersContainer,
   TeamMembersHeader,
@@ -19,9 +19,9 @@ import {
 import { useEffect, useState } from "react";
 import StyledDrawer from "../../components/drawer/Drawer";
 import { StyledFormControl } from "../../components/table/DepartmentTable.styles";
-import StyledInputLabel from "../../components/inputlabel/InputLabel";
-import StyledTextField from "../../components/textfield/TextField";
-import StyledDatePicker from "../../components/datepicker/DatePicker";
+import StyledInputLabel from "../../components/inputLabel/InputLabel";
+import StyledTextField from "../../components/textField/TextField";
+import StyledDatePicker from "../../components/datePicker/DatePicker";
 import StyledSelect from "../../components/select/Select";
 import StyledChip from "../../components/chip/Chip";
 import {
@@ -35,6 +35,7 @@ const TeamPage = () => {
   const [isFilterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [isAddMemberOpen, setIsAddMemberOpen] = useState(false);
   const stickyHeadings = ["Actions"];
+  const theme = useTheme();
   const [rowData, setRowData] = useState([
     {
       id: 40,
@@ -152,17 +153,25 @@ const TeamPage = () => {
   return (
     <TeamMembersContainer>
       <TeamMembersHeader>
-        <Typography fontFamily={"Poppins"} fontSize={"1.2em"}>
+        <Typography
+          fontSize={theme.typography.fontSize.large}
+          fontWeight={theme.typography.fontWeightMedium}
+        >
           Team members
         </Typography>
         <TeamMembersPageTools>
           <CheckBoxWithLabel>
             <CheckBox></CheckBox>
-            Show only my reportees
+            <Typography
+              fontSize={theme.typography.fontSize.small}
+              fontWeight={theme.typography.fontWeightMedium}
+            >
+              Show only my reportees
+            </Typography>
           </CheckBoxWithLabel>
 
           <SearchBox
-            minWidth={300}
+            minWidth={"10em"}
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
@@ -177,12 +186,20 @@ const TeamPage = () => {
             variant="contained"
           >
             <StyledBadge overlap="circular" badgeContent={1} variant="dot">
-              <FilterAltOutlinedIcon />
+              <FilterAltOutlinedIcon
+                sx={{ fontSize: "19px", padding: "none" }}
+                fontSize="inherit"
+              />
             </StyledBadge>
           </StyledButton>
           <VerticalDivider orientation="vertical" />
           <StyledButton startIcon={<ImportIcon />} variant="outlined">
-            Import
+            <Typography
+              fontSize={theme.typography.fontSize.small}
+              fontWeight={theme.typography.fontWeightMedium}
+            >
+              Import
+            </Typography>
           </StyledButton>
 
           <StyledButton
@@ -191,7 +208,12 @@ const TeamPage = () => {
             }}
             variant="contained"
           >
-            Add member
+            <Typography
+              fontSize={theme.typography.fontSize.medium}
+              fontWeight={theme.typography.fontWeightRegular}
+            >
+              Add member
+            </Typography>
           </StyledButton>
         </TeamMembersPageTools>
       </TeamMembersHeader>

@@ -1,7 +1,7 @@
 import { Box, Grid, Grid2, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Chart from "./chart";
-import PipBar from "./pipbar";
+import PipBar from "./pipBar";
 import {
   FeedbackContainer,
   LabelContainer,
@@ -11,7 +11,7 @@ import {
   ProfileBody,
   SpeedometerContainer,
 } from "./profile.style";
-import ProfileCard from "../../components/profilecard/ProfileCard";
+import ProfileCard from "../../components/profileCard/profileCard";
 import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
 import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
 import ManagerIcon from "../../assets/icons/manager.svg";
