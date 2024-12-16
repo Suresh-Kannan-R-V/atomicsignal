@@ -4,10 +4,14 @@ import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Buttonsty from "../../components/button/buttonFeed";
-import Tablesty from "../../components/table/table";
+import Tablesty from "../../components/table/Table";
 import View from "../../components/popUp/view";
+import { useTheme } from "@mui/material/styles";
 import Popupcontainer from "./popupcontiner";
 function Fromme(searchQuery) {
+  const theme = useTheme();
+  const styles = stylesnew(theme);
+
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
 
@@ -158,8 +162,8 @@ function Fromme(searchQuery) {
       Header: "To",
       accession: "name",
       container: (row) => (
-        <Box sx={stylesnew.flex}>
-          <Avatar src={row.nameprofile} sx={stylesnew.photo} />
+        <Box sx={styles.flex}>
+          <Avatar src={row.nameprofile} sx={styles.photo} />
           {row.name}
         </Box>
       ),
@@ -175,7 +179,7 @@ function Fromme(searchQuery) {
       Header: "Performance",
       accession: "performance",
       container: (row) => (
-        <Box sx={stylesnew.flex}>
+        <Box sx={styles.flex}>
           <Signalcolour performance={row.performance} />
           {row.performance}
         </Box>
@@ -186,7 +190,7 @@ function Fromme(searchQuery) {
       Header: "Response",
       accession: "response",
       container: (row) => (
-        <Box sx={stylesnew.center}>
+        <Box sx={styles.center}>
           <DoneIcon response={row.response} />
         </Box>
       ),
@@ -201,7 +205,7 @@ function Fromme(searchQuery) {
             setView(true);
             setSelectedPerson(row);
           }}
-          sx={stylesnew.view}
+          sx={styles.view}
         >
           {row.view}
         </Box>
@@ -212,7 +216,7 @@ function Fromme(searchQuery) {
       Header: "Reminder",
       accession: "reminder",
       container: (row) => (
-        <Box sx={stylesnew.center}>
+        <Box sx={styles.center}>
           <Buttonsty
             reminder={row.reminder}
             text={row.reminder === "yes" ? "Add" : "Added"}

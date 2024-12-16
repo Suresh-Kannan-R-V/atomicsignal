@@ -50,7 +50,7 @@ export const Body = styled(Box)(() => ({
   padding: "16px 24px", // height 16 is enough
 }));
 
-export const stylesnew = {
+export const stylesnew = (theme) => ({
   flex: {
     display: "flex",
     alignItems: "center",
@@ -125,4 +125,4 @@ export const stylesnew = {
     marginRight: "10px",
     alignItems: "center",
   },
-};
+});

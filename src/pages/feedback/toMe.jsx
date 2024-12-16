@@ -1,13 +1,15 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import React, { useState } from "react";
 import photo from "../../assets/image1.jpg";
-import Buttonsty from "../../components/button/Buttonfeed";
+import Buttonsty from "../../components/button/buttonFeed";
 import View from "../../components/popUp/view";
-import Tablesty from "../../components/Table/Table";
+import Tablesty from "../../components/table/Table";
 import Popupcontainer from "./popupcontiner";
-import { DoneIcon, Signalcolour, stylesnew } from "./Style";
+import { DoneIcon, Signalcolour, stylesnew } from "./style";
 function Tome(searchQuery) {
+  const theme = useTheme();
+  const styles = stylesnew(theme);
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
   const Rowdata = [
@@ -158,8 +160,8 @@ function Tome(searchQuery) {
       Header: "From",
       accession: "name",
       container: (row) => (
-        <Box sx={stylesnew.flex}>
-          <Avatar src={row.nameprofile} sx={stylesnew.photo} />
+        <Box sx={styles.flex}>
+          <Avatar src={row.nameprofile} sx={styles.photo} />
           {row.name}
         </Box>
       ),
@@ -175,7 +177,7 @@ function Tome(searchQuery) {
       Header: "Performance",
       accession: "performance",
       container: (row) => (
-        <Box sx={stylesnew.flex}>
+        <Box sx={styles.flex}>
           <Signalcolour performance={row.performance} />
           {row.performance}
         </Box>
@@ -186,7 +188,7 @@ function Tome(searchQuery) {
       Header: "Response",
       accession: "response",
       container: (row) => (
-        <Box sx={stylesnew.center}>
+        <Box sx={styles.center}>
           <DoneIcon response={row.response} />
         </Box>
       ),
@@ -201,7 +203,7 @@ function Tome(searchQuery) {
             setView(true);
             setSelectedPerson(row);
           }}
-          sx={stylesnew.view}
+          sx={styles.view}
         >
           {row.view}
         </Box>
@@ -212,7 +214,7 @@ function Tome(searchQuery) {
       Header: "Reminder",
       accession: "reminder",
       container: (row) => (
-        <Box sx={stylesnew.center}>
+        <Box sx={styles.center}>
           <Buttonsty
             reminder={row.reminder}
             text={row.reminder === "yes" ? "Respond" : "Respond"}

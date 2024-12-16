@@ -77,7 +77,7 @@ export const DoneIcon = styled(IoCheckmarkDoneSharp)(({ response }) => ({
   display: "flex",
 }));
 
-export const stylesnew = {
+export const stylesnew = (theme) => ({
   line: {
     hight: "100px",
     width: "100px",
@@ -147,7 +147,7 @@ export const stylesnew = {
     width: 27,
     height: 27,
   },
-};
+});
 
 export const Filter = styled(Button)(() => ({
   height: "40px",

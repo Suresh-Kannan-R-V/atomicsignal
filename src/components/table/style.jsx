@@ -25,7 +25,7 @@ export const StyledTableRow = styled(TableRow)(() => ({
   },
 }));
 
-export const stylesnew = {
+export const stylesnew = (theme) => ({
   tablefooterc: {
     borderTop: "1px solid #E6E6E6",
     borderBottom: "none",
@@ -42,4 +42,4 @@ export const stylesnew = {
     overflowX: "hidden",
     scrollbarWidth: "none",
   },
-};
+});

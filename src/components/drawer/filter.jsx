@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import StyledInputLabel from "../inputLabel/InputLabel";
 import StyledTextField from "../textField/TextField";
@@ -6,6 +6,8 @@ import { CatButton, stylesnew } from "./Styles";
 import StyledDatePicker from "../datePicker/DatePicker";
 
 function Filter({ activeTab }) {
+  const theme = useTheme();
+  const styles = stylesnew(theme);
   const [Signals, setSignal] = useState("Communication");
   const [Performances, setPerformance] = useState("Impactful");
   const [Responses, setResponse] = useState("Yes");
@@ -39,54 +41,54 @@ function Filter({ activeTab }) {
     <Box sx={{ height: "100%", width: "352px", padding: "0 24px" }}>
       <StyledInputLabel>{getLabel()}</StyledInputLabel>
       <StyledTextField
-        sx={stylesnew.mt}
+        sx={styles.mt}
         placeholder="Team member name"
         size="small"
         fullWidth
       />
       {activeTab === "3" && (
         <>
-          <StyledInputLabel sx={stylesnew.mtt}>Send to</StyledInputLabel>
+          <StyledInputLabel sx={styles.mtt}>Send to</StyledInputLabel>
           <StyledTextField
-            sx={stylesnew.mt}
+            sx={styles.mt}
             placeholder="Team member name"
             size="small"
             fullWidth
           />
         </>
       )}
-      <StyledInputLabel sx={stylesnew.mtt}>Signals</StyledInputLabel>
+      <StyledInputLabel sx={styles.mtt}>Signals</StyledInputLabel>
       {Signal.map((category) => (
         <CatButton
           key={category}
-          sx={Signals === category ? { ...stylesnew.active } : ""}
+          sx={Signals === category ? { ...styles.active } : ""}
           onClick={() => setSignal(category)}
         >
           {category}
         </CatButton>
       ))}
 
-      <StyledInputLabel sx={stylesnew.mtt}>Performance</StyledInputLabel>
+      <StyledInputLabel sx={styles.mtt}>Performance</StyledInputLabel>
       {Performance.map((Performance) => (
         <CatButton
           key={Performance}
-          sx={Performances === Performance ? { ...stylesnew.active } : ""}
+          sx={Performances === Performance ? { ...styles.active } : ""}
           onClick={() => setPerformance(Performance)}
         >
           {Performance}
         </CatButton>
       ))}
 
-      <StyledInputLabel sx={stylesnew.mtt} required>
+      <StyledInputLabel sx={styles.mtt} required>
         Date range
       </StyledInputLabel>
       <StyledDatePicker />
 
-      <StyledInputLabel sx={stylesnew.mtt}>Response status</StyledInputLabel>
+      <StyledInputLabel sx={styles.mtt}>Response status</StyledInputLabel>
       {Response.map((Response) => (
         <CatButton
           key={Response}
-          sx={Responses === Response ? { ...stylesnew.active } : ""}
+          sx={Responses === Response ? { ...styles.active } : ""}
           onClick={() => setResponse(Response)}
         >
           {Response}

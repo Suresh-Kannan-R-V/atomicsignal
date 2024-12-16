@@ -1,6 +1,6 @@
 import { Button, styled } from "@mui/material";
 
-export const stylesnew = {
+export const stylesnew = (theme) => ({
   mt: {
     marginTop: "7px",
   },
@@ -12,7 +12,7 @@ export const stylesnew = {
     border: "1px solid #49C792",
     backgroundColor: "#EEFBF6",
   },
-};
+});
 
 export const CatButton = styled(Button)(() => ({
   fontSize: "13px",

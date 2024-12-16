@@ -25,7 +25,7 @@ export const Search = styled(Box)(() => ({
   },
 }));
 
-export const stylesnew = {
+export const stylesnew = (theme) => ({
   searchicon: {
     fontSize: "25px",
     marginLeft: "8px",
@@ -36,4 +36,4 @@ export const stylesnew = {
     color: "#888888",
     justifyContent: "space-between",
   },
-};
+});

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Base, Flex, Head, Heading, stylesnew, Table1, Filter } from "./style";
-import { Box, Tabs, Tab, Divider } from "@mui/material";
+import { Box, Tabs, Tab, Divider, useTheme } from "@mui/material";
 import Tome from "./Tome";
-import Others from "./Others";
+import Others from "./others";
 import Title from "../../components/title/Heading";
 import Searchstar from "../../components/search/Search";
 import Fromme from "./fromme";
@@ -13,6 +13,9 @@ import Filterdrawer from "../../components/drawer/filter";
 import { CiFilter } from "react-icons/ci";
 
 function Home() {
+  const theme = useTheme();
+  const styles = stylesnew(theme);
+
   const [active, setActive] = useState("1");
   const [searchQuery, setSearchQuery] = useState("");
   const [isEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
@@ -51,13 +54,13 @@ function Home() {
   return (
     <Base>
       <Head>
-        <Tabs value={active} onChange={handleTabChange} sx={stylesnew.tabs}>
+        <Tabs value={active} onChange={handleTabChange} sx={styles.tabs}>
           {tabs.map((tab) => (
             <Tab
               key={tab.value}
               value={tab.value}
               label={tab.label}
-              sx={stylesnew.tab}
+              sx={styles.tab}
             />
           ))}
         </Tabs>
@@ -73,8 +76,8 @@ function Home() {
           <Filter onClick={Hndleclick}>
             <CiFilter />
           </Filter>
-          <Flex sx={active === "3" ? stylesnew.hide : { display: "none" }}>
-            <Divider orientation="horizontal" sx={stylesnew.divider} />
+          <Flex sx={active === "3" ? styles.hide : { display: "none" }}>
+            <Divider orientation="horizontal" sx={styles.divider} />
             <StyledButton
               sx={{ height: "40px" }}
               startIcon={<ImportIcon />}
