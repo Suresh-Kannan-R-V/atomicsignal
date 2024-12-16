@@ -1,9 +1,9 @@
 import { Box, Button, styled } from "@mui/material";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
-export const Base = styled(Box)(() => ({
+export const Base = styled(Box)(({ theme }) => ({
   height: "93.75vh",
-  backgroundColor: "#F0F0F0",
+  backgroundColor: theme.palette.background.default,
   width: "96.7%",
   padding: "24px",
 }));
@@ -15,18 +15,18 @@ export const Heading = styled(Box)(() => ({
   justifyContent: "space-between",
 }));
 
-export const Head = styled(Box)(() => ({
+export const Head = styled(Box)(({ theme }) => ({
   display: "flex",
   height: "40px",
   alignItems: "end",
   width: "100%",
-  borderBottom: "1px solid #CACACA ",
+  borderBottom: `1px  ${theme.palette.secondary.search} solid`,
 }));
 
-export const Titlehead = styled(Box)(() => ({
+export const Titlehead = styled(Box)(({ theme }) => ({
   color: "#353448",
-  fontSize: "20px",
-  fontWeight: "600",
+  fontSize: theme.typography.fontSize.large,
+  fontWeight: theme.typography.fontWeight.semiBold,
 }));
 
 export const Container = styled(Box)(() => ({
@@ -35,11 +35,11 @@ export const Container = styled(Box)(() => ({
   overflow: "hidden",
 }));
 
-export const Table1 = styled(Box)(() => ({
-  backgroundColor: "#FFFFFF",
+export const Table1 = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.background.primary,
   height: "620px",
   width: "100%",
-  border: "1px solid #E6E6E6",
+  border: `1px solid ${theme.palette.secondary.tableoutline}`,
   overflow: "hidden",
   borderRadius: "8px",
 }));
@@ -50,7 +50,7 @@ export const Flex = styled(Box)(() => ({
   alignItems: "center",
 }));
 
-export const Signalcolour = styled(Box)(({ performance }) => ({
+export const Signalcolour = styled(Box)(({ theme, performance }) => ({
   backgroundColor:
     performance === "Excellent"
       ? "#007C32"
@@ -68,32 +68,25 @@ export const Signalcolour = styled(Box)(({ performance }) => ({
   justifyContent: "center",
   color: "#ffffff",
   borderRadius: "10px",
-  fontSize: "14px",
+  fontSize: theme.typography.fontSize.small,
 }));
 
-export const DoneIcon = styled(IoCheckmarkDoneSharp)(({ response }) => ({
+export const DoneIcon = styled(IoCheckmarkDoneSharp)(({ theme, response }) => ({
   color: response === "yes" ? "#665CD7" : "#E5E5E5",
-  fontSize: "18px",
+  fontSize: theme.typography.fontSize.extraMedium,
   display: "flex",
 }));
 
 export const stylesnew = (theme) => ({
-  line: {
-    hight: "100px",
-    width: "100px",
-    backgroundColor: "red",
-  },
-
   divider: {
-    color: "red",
     height: "30px",
     width: "1px",
-    backgroundColor: "#CACACA",
+    backgroundColor: theme.palette.secondary.search,
   },
 
   tabs: {
     "& .MuiTabs-indicator": {
-      backgroundColor: "#665CD7",
+      backgroundColor: theme.palette.primary.main,
       height: "3px",
       borderRadius: "50px",
     },
@@ -103,7 +96,7 @@ export const stylesnew = (theme) => ({
   },
 
   tab: {
-    color: "#71707E",
+    color: theme.palette.text.secondary,
     "&.Mui-selected": { color: "#3D3D3D" },
     textTransform: "none",
     alignItems: "start",
@@ -112,12 +105,12 @@ export const stylesnew = (theme) => ({
     minHeight: "32px",
     minWidth: "0",
     padding: "0",
-    fontSize: "16px",
+    fontSize: theme.typography.fontSize.medium,
   },
   word: {
     marginRight: "35px",
-    color: "#71707E",
-    fontSize: "16px",
+    color: theme.palette.text.secondary,
+    fontSize: theme.typography.fontSize.medium,
     cursor: "pointer",
   },
 
@@ -131,7 +124,7 @@ export const stylesnew = (theme) => ({
   },
 
   view: {
-    color: "#49C792 !important",
+    color: `${theme.palette.secondary.main}  !important`,
     textDecoration: "underline",
     cursor: "pointer",
     textAlign: "center",
@@ -149,14 +142,14 @@ export const stylesnew = (theme) => ({
   },
 });
 
-export const Filter = styled(Button)(() => ({
+export const Filter = styled(Button)(({ theme }) => ({
   height: "40px",
   display: "flex",
   justifyContent: "center",
-  backgroundColor: "#49C792",
+  backgroundColor: theme.palette.secondary.main,
   borderRadius: "5px",
   color: "#FFFFFF",
-  fontSize: "20px",
+  fontSize: theme.typography.fontSize.large,
   alignItems: "center",
   cursor: "pointer",
   minWidth: "45px",

@@ -1,24 +1,24 @@
 import { styled, TableCell, tableCellClasses, TableRow } from "@mui/material";
 
-export const StyledTableCell = styled(TableCell)(({ align }) => ({
+export const StyledTableCell = styled(TableCell)(({ theme, align }) => ({
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 15,
+    fontSize: theme.typography.fontSize.medium,
     height: "19px",
-    color: "#353448",
+    color: theme.palette.text.default,
   },
   [`&.${tableCellClasses.head}`]: {
-    fontSize: 18,
-    color: "#353448",
-    fontWeight: "600",
+    fontSize: theme.typography.fontSize.extraMedium,
+    color: theme.palette.text.default,
+    fontWeight: theme.typography.fontWeight.semiBold,
     textAlign:
       align === "Response" || align === "Reminder" || align === "Feedback"
         ? "center"
         : "left",
-    backgroundColor: "#ffffff",
+    backgroundColor: theme.palette.background.primary,
   },
 }));
 
-export const StyledTableRow = styled(TableRow)(() => ({
+export const StyledTableRow = styled(TableRow)(({ theme }) => ({
   td: {
     border: 0,
     padding: "13px 15px",
@@ -27,10 +27,10 @@ export const StyledTableRow = styled(TableRow)(() => ({
 
 export const stylesnew = (theme) => ({
   tablefooterc: {
-    borderTop: "1px solid #E6E6E6",
+    borderTop: `1px solid ${theme.palette.secondary.tableoutline}`,
     borderBottom: "none",
-    color: "#71707E",
-    fontSize: "14px",
+    color: theme.palette.text.secondary,
+    fontSize: theme.typography.fontSize.small,
     padding: "0",
     margin: "0",
     width: "100vw",

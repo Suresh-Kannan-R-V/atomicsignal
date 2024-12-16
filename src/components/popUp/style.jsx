@@ -1,6 +1,6 @@
 import { Avatar, Box, Dialog, styled } from "@mui/material";
 
-export const Dialogue = styled(Dialog)(({ width, height }) => ({
+export const Dialogue = styled(Dialog)(({ theme, width, height }) => ({
   "& .MuiDialogContent-root": {
     padding: 0,
     height: "100%",
@@ -18,36 +18,36 @@ export const Dialogue = styled(Dialog)(({ width, height }) => ({
   },
 }));
 
-export const Photo = styled(Avatar)(() => ({
+export const Photo = styled(Avatar)(({ theme }) => ({
   width: 35,
   height: 35,
 }));
 
-export const Popuphead = styled(Box)(() => ({
+export const Popuphead = styled(Box)(({ theme }) => ({
   height: "63px",
   padding: "0 24px",
   display: "flex",
   alignItems: "center",
-  color: "View feedback",
-  fontWeight: "600",
+  color: theme.palette.text.default,
+  fontWeight: theme.typography.fontWeight.semiBold,
   justifyContent: "space-between",
-  borderBottom: "1px solid #CACACA ",
+  borderBottom: `1px solid ${theme.palette.secondary.disabledOutline}`,
 }));
 
-export const Profile = styled(Box)(() => ({
-  backgroundColor: "#EFEEFB",
+export const Profile = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.background.onBoard,
   height: "53px",
   borderRadius: "4px 4px 0px 0px",
   display: "flex",
-  fontWeight: "600",
+  fontWeight: theme.typography.fontWeight.semiBold,
   width: "436px",
   padding: "0 8px",
   alignItems: "center",
   justifyContent: "space-between",
 }));
 
-export const Body = styled(Box)(() => ({
-  padding: "16px 24px", // height 16 is enough
+export const Body = styled(Box)(({ theme }) => ({
+  padding: "16px 24px",
 }));
 
 export const stylesnew = (theme) => ({
@@ -58,17 +58,17 @@ export const stylesnew = (theme) => ({
   },
 
   cross: {
-    fontSize: "30px",
+    fontSize: theme.typography.fontSize.extraLarge,
     cursor: "pointer",
   },
 
   feed: {
-    backgroundColor: "#FFFFFF",
-    border: "1px solid #EBEBEB",
+    backgroundColor: theme.palette.background.primary,
+    border: `1px solid ${theme.palette.secondary.disabledOutline}`,
     height: "40px",
     borderRadius: "0 0 4px 4px",
-    fontSize: "14ps",
-    color: "#484759",
+    fontSize: theme.typography.fontSize.small,
+    color: theme.palette.text.label,
     display: "flex",
     padding: "0 8px",
     width: "435px",
@@ -82,19 +82,19 @@ export const stylesnew = (theme) => ({
   },
 
   desi: {
-    color: "#71707E",
-    fontSize: "13px",
-    fontWeight: "500",
+    color: theme.palette.text.secondary,
+    fontSize: theme.typography.fontSize.verySmall,
+    fontWeight: theme.typography.fontWeight.medium,
   },
 
   desi1: {
-    color: "#3D3D3D",
-    fontWeight: "600",
+    color: theme.palette.text.default,
+    fontWeight: theme.typography.fontWeight.semiBold,
   },
 
   res: {
-    fontSize: "14px",
-    fontWeight: "600",
+    fontSize: theme.typography.fontSize.small,
+    fontWeight: theme.typography.fontWeight.semiBold,
     marginTop: "12px",
     width: "100%",
     justifyContent: "space-between",
@@ -102,25 +102,26 @@ export const stylesnew = (theme) => ({
   },
 
   respon: {
-    color: "#71707E",
+    color: theme.palette.text.secondary,
     marginTop: "7px",
     height: "41px",
-    fontSize: "14px",
+    fontSize: theme.typography.fontSize.small,
   },
+
   respon1: {
-    color: "#71707E",
+    color: theme.palette.text.secondary,
     marginTop: "5px",
-    fontSize: "14px",
+    fontSize: theme.typography.fontSize.small,
   },
 
   dash: {
-    borderTop: "2px dashed #B9B9B9",
+    borderTop: `2px dashed ${theme.palette.secondary.disable}`,
     marginTop: "15px",
   },
 
   tick: {
-    color: "#25C460",
-    fontSize: "18px",
+    color: theme.palette.text.tick,
+    fontSize: theme.typography.fontSize.medium,
     display: "flex",
     marginRight: "10px",
     alignItems: "center",
