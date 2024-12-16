@@ -31,7 +31,9 @@ export const stylesnew = {
     borderBottom: "none",
     color: "#71707E",
     fontSize: "14px",
-    width: "1400px",
+    padding: "0",
+    margin: "0",
+    width: "100vw",
   },
 
   out: {
