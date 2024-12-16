@@ -13,7 +13,7 @@ const SearchBox = styled((props) => (
     variant={"outlined"}
     {...props}
   />
-))(({ minWidth, width }) => ({
+))(({ theme, minWidth, width }) => ({
   "& .MuiOutlinedInput-root": {
     background: "white",
     minWidth,
