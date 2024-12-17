@@ -9,6 +9,7 @@ import { ImportIcon } from "../team/team.styles";
 import Tome from "./Tome";
 import Fromme from "./fromMe";
 import Others from "./others";
+import * as XLSX from "xlsx";
 import {
   Base,
   Filter,

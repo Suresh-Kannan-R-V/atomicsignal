@@ -6,6 +6,7 @@ import View from "../../components/popUp/view";
 import Tablesty from "../../components/table/Table";
 import Popupcontainer from "./popupcontiner";
 import { DoneIcon, Signalcolour, stylesnew } from "./style";
+import { datastore } from "../../zustand/feedBack/store";
 
 function Others(searchQuery) {
   const theme = useTheme();
@@ -13,142 +14,8 @@ function Others(searchQuery) {
 
   const [view, setView] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
-  const Rowdata = [
-    {
-      id: "2",
-      date: "31 Jan 2023, 02:00 PM",
-      nameprofile: photo,
-      name: "Maria Lopez",
-      to: "Aaron Spencer",
-      signal: "Teamwork",
-      performance: "Very Good",
-      response: "yes",
-      view: "View",
-    },
-    {
-      id: "1",
-      date: "31 Jan 2023, 01:30 PM",
-      nameprofile: photo,
-      name: "Samuel Guerrero",
-      to: "Lina Prevost",
-      signal: "Communication",
-      performance: "Excellent",
-      response: "yes",
-      view: "View",
-    },
+  const Rowdata = datastore((state) => state.others);
 
-    {
-      id: "3",
-      date: "31 Jan 2023, 03:30 PM",
-      nameprofile: photo,
-      name: "John Doe",
-      signal: "Leadership",
-      to: "Lina Prevost",
-      performance: "Need Improvement",
-      response: "no",
-      view: "View",
-    },
-
-    {
-      id: "5",
-      date: "31 Jan 2023, 02:00 PM",
-      nameprofile: photo,
-      name: "Maria Lopez",
-      signal: "Teamwork",
-      to: "Lina Prevost",
-      performance: "Very Good",
-      response: "yes",
-      view: "View",
-    },
-    {
-      id: "6",
-      date: "31 Jan 2023, 03:30 PM",
-      nameprofile: photo,
-      name: "John Doe",
-      signal: "Leadership",
-      to: "Lina Prevost",
-      performance: "Need Improvement",
-      response: "no",
-      view: "View",
-    },
-    {
-      id: "4",
-      date: "31 Jan 2023, 01:30 PM",
-      nameprofile: photo,
-      name: "George Fernandes",
-      signal: "Communication",
-      performance: "Average",
-      to: "Lina Prevost",
-      response: "yes",
-      view: "View",
-    },
-    {
-      id: "7",
-      date: "31 Jan 2023, 01:30 PM",
-      nameprofile: photo,
-      name: "George Fernandes",
-      signal: "Communication",
-      performance: "Excellent",
-      to: "Lina Prevost",
-      response: "yes",
-      view: "View",
-    },
-    {
-      id: "8",
-      date: "31 Jan 2023, 02:00 PM",
-      nameprofile: photo,
-      name: "Maria Lopez",
-      signal: "Teamwork",
-      to: "Lina Prevost",
-      performance: "Very Good",
-      response: "yes",
-      view: "View",
-    },
-    {
-      id: "9",
-      date: "31 Jan 2023, 03:30 PM",
-      nameprofile: photo,
-      name: "John Doe",
-      signal: "Leadership",
-      to: "Lina Prevost",
-      performance: "Need Improvement",
-      response: "no",
-      view: "View",
-    },
-    {
-      id: "10",
-      date: "31 Jan 2023, 01:30 PM",
-      nameprofile: photo,
-      name: "George Fernandes",
-      signal: "Communication",
-      to: "Lina Prevost",
-      performance: "Excellent",
-      response: "yes",
-      view: "View",
-    },
-    {
-      id: "11",
-      date: "31 Jan 2023, 01:30 PM",
-      nameprofile: photo,
-      name: "George Fernandes",
-      to: "Lina Prevost",
-      signal: "Communication",
-      performance: "Excellent",
-      response: "yes",
-      view: "View",
-    },
-    {
-      id: "12",
-      date: "31 Jan 2023, 01:30 PM",
-      nameprofile: photo,
-      name: "George Fernandes",
-      signal: "Communication",
-      performance: "Excellent",
-      to: "Lina Prevost",
-      response: "yes",
-      view: "View",
-    },
-  ];
   const Column = [
     {
       id: "1",
