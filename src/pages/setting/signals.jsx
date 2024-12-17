@@ -9,6 +9,7 @@ import StyledTextArea from "../../components/textArea/StyledTextArea";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { addSignalBody, addSignalHead } from "./slices/signalsSlice";
+import DialogBox from "../../components/dialogBox/dialogBox";
 
 function Signals() {
   const BodyDatas = useSelector((state) => state.signalsBody);
@@ -35,8 +36,10 @@ function Signals() {
     dispatch(
       addSignalBody({
         signal: inputRef.current.value,
-        day: day,
-        time: time,
+        cday: day,
+        ctime: time,
+        mtime: time,
+        mday: day,
         status: 1,
       })
     );
@@ -55,15 +58,20 @@ function Signals() {
           fullWidth
           inputRef={inputRef}
         ></StyledTextField>
-        <StyledInputLabel>Description</StyledInputLabel>
-        <StyledTextArea minRows={7} />
       </StyledFormControl>
     );
   };
+
+  const [indexes, setIndexes] = useState(0);
+  function HandleDialogIndex(index) {
+    setIndexes(index);
+    // console.log(index)
+  }
+
   return (
     <SignalsSectionContainer>
       <SignalsHeader>
-        <SignalsTitle>Signals ({rows.length})</SignalsTitle>
+        <SignalsTitle>Signals ({BodyDatas.length})</SignalsTitle>
         <Searchbox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <AddButton
           onClick={() => {
@@ -76,6 +84,7 @@ function Signals() {
         searchQuery={searchQuery}
         rowData={BodyDatas}
         setRowData={setRows}
+        Deactivate={HandleDialogIndex}
       ></SignalTable>
 
       <StyledDrawer
@@ -88,6 +97,7 @@ function Signals() {
         }}
         open={isAddSignalsOpen}
       />
+      <DialogBox open={indexes} />
     </SignalsSectionContainer>
   );
 }

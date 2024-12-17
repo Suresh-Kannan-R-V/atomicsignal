@@ -59,12 +59,13 @@ const DepartmentTable = ({ rowData, setRowData, searchQuery }) => (
     headings={DepartmentTableHeadings}
   />
 );
-const SignalTable = ({ rowData, setRowData, searchQuery }) => (
+const SignalTable = ({ rowData, setRowData, searchQuery, Deactivate }) => (
   <SignalTableComponent
     rows={rowData}
     searchQuery={searchQuery}
     setRows={setRowData}
     headings={SignalTableHeadings}
+    Deactivate={Deactivate}
   />
 );
 

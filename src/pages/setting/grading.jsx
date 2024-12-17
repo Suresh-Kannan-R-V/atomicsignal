@@ -119,7 +119,6 @@ export function Grading() {
                         ...styledItem.dataStyle,
                         fontSize: "14px",
                         fontWeight: "500",
-                        whiteSpace: "nowrap",
                       }}
                     >
                       {element.chartDesc}

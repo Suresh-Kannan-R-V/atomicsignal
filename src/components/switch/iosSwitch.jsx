@@ -63,6 +63,13 @@ const IOSSwitch = styled((props) => (
   },
 }));
 
-export default function IosSwitch() {
-  return <FormControlLabel control={<IOSSwitch />} sx={{ margin: 0 }} />;
+export default function IosSwitch({ onclick, checked }) {
+  return (
+    <FormControlLabel
+      control={<IOSSwitch />}
+      sx={{ margin: 0 }}
+      onClick={onclick}
+      checked={checked}
+    />
+  );
 }
