@@ -5,13 +5,17 @@ export const StyledTableCell = styled(TableCell)(({ theme, align }) => ({
     fontSize: theme.typography.fontSize.medium,
     height: "19px",
     color: theme.palette.text.default,
+    whiteSpace: "nowrap", // responsive table
   },
   [`&.${tableCellClasses.head}`]: {
     fontSize: theme.typography.fontSize.extraMedium,
     color: theme.palette.text.default,
     fontWeight: theme.typography.fontWeight.semiBold,
     textAlign:
-      align === "Response" || align === "Reminder" || align === "Feedback"
+      align === "Response" ||
+      align === "Reminder" ||
+      align === "Feedback" ||
+      align === "Action"
         ? "center"
         : "left",
     backgroundColor: theme.palette.background.primary,
@@ -31,15 +35,28 @@ export const stylesnew = (theme) => ({
     borderBottom: "none",
     color: theme.palette.text.secondary,
     fontSize: theme.typography.fontSize.small,
-    padding: "0",
+    paddingLeft: "0px",
     margin: "0",
     width: "100vw",
+    "& .MuiTablePagination-toolbar": {
+      paddingLeft: "2px",
+      PaddingRight: "0",
+    },
+    "& .MuiTablePagination-actions": {
+      margin: "0px 0 0 10px",
+    },
+    "&.MuiTablePagination-toolbar": {
+      margin: "0px",
+    },
   },
 
   out: {
     height: "550px",
     overflowY: "auto",
-    overflowX: "hidden",
+    overflowX: "auto",
     scrollbarWidth: "none",
+    [theme.breakpoints.down("sm")]: {
+      height: "400px",
+    },
   },
 });

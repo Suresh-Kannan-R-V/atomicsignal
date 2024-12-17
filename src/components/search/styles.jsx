@@ -23,6 +23,13 @@ export const Search = styled(Box)(({ theme }) => ({
     height: "38px",
     width: "309px",
   },
+
+  [theme.breakpoints.down("sm")]: {
+    width: "285px",
+    "&:focus-within": {
+      width: "283.5px",
+    },
+  },
 }));
 
 export const stylesnew = (theme) => ({

@@ -4,15 +4,26 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 export const Base = styled(Box)(({ theme }) => ({
   height: "93.75vh",
   backgroundColor: theme.palette.background.default,
-  width: "96.7%",
+  // width: "96.7%",
   padding: "24px",
+  [theme.breakpoints.down("sm")]: {
+    height: "87vh",
+    padding: "10px",
+    overflow: "hidden",
+  },
 }));
 
-export const Heading = styled(Box)(() => ({
+export const Heading = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   height: "70px",
   justifyContent: "space-between",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "start",
+    height: "100px",
+    justifyContent: "space-evenly",
+  },
 }));
 
 export const Head = styled(Box)(({ theme }) => ({
@@ -42,6 +53,10 @@ export const Table1 = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.secondary.tableoutline}`,
   overflow: "hidden",
   borderRadius: "8px",
+  [theme.breakpoints.down("sm")]: {
+    marginTop: "5px",
+    height: "460px",
+  },
 }));
 
 export const Flex = styled(Box)(() => ({
@@ -139,6 +154,12 @@ export const stylesnew = (theme) => ({
   photo: {
     width: 27,
     height: 27,
+  },
+
+  hide: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
 });
 

@@ -1,16 +1,24 @@
+import { Divider, Tab, Tabs, useTheme } from "@mui/material";
 import React, { useState } from "react";
-import { Base, Flex, Head, Heading, stylesnew, Table1, Filter } from "./style";
-import { Box, Tabs, Tab, Divider, useTheme } from "@mui/material";
-import Tome from "./Tome";
-import Others from "./others";
-import Title from "../../components/title/Heading";
-import Searchstar from "../../components/search/Search";
-import Fromme from "./fromme";
+import { CiFilter } from "react-icons/ci";
 import StyledButton from "../../components/button/button";
-import { ImportIcon } from "../team/team.styles";
 import StyledDrawer from "../../components/drawer/Drawer";
 import Filterdrawer from "../../components/drawer/filter";
-import { CiFilter } from "react-icons/ci";
+import Searchstar from "../../components/search/Search";
+import { ImportIcon } from "../team/team.styles";
+import Tome from "./Tome";
+import Fromme from "./fromMe";
+import Others from "./others";
+import {
+  Base,
+  Filter,
+  Flex,
+  Head,
+  Heading,
+  stylesnew,
+  Table1,
+  Titlehead,
+} from "./style";
 
 function Home() {
   const theme = useTheme();
@@ -67,7 +75,7 @@ function Home() {
       </Head>
 
       <Heading>
-        <Title />
+        <Titlehead>Feedbacks</Titlehead>
         <Flex>
           <Searchstar
             searchQuery={searchQuery}

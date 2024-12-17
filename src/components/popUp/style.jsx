@@ -16,6 +16,13 @@ export const Dialogue = styled(Dialog)(({ theme, width, height }) => ({
     minHeight: "400px",
     minWidth: "500px",
   },
+
+  [theme.breakpoints.down("sm")]: {
+    "& .MuiPaper-root": {
+      minWidth: "330px",
+      height: "auto",
+    },
+  },
 }));
 
 export const Photo = styled(Avatar)(({ theme }) => ({
@@ -40,10 +47,29 @@ export const Profile = styled(Box)(({ theme }) => ({
   borderRadius: "4px 4px 0px 0px",
   display: "flex",
   fontWeight: theme.typography.fontWeight.semiBold,
-  width: "436px",
+  // width: "436px",
   padding: "0 8px",
   alignItems: "center",
+  gap: "10px",
+}));
+
+export const Profileothers = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.background.onBoard,
+  height: "53px",
+  borderRadius: "4px 4px 0px 0px",
+  display: "flex",
+  fontWeight: theme.typography.fontWeight.semiBold,
+  // width: "436px",
+  padding: "0 8px",
+  alignItems: "center",
+  gap: "10px",
   justifyContent: "space-between",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "start",
+    height: "125px",
+    padding: "10px 8px",
+  },
 }));
 
 export const Body = styled(Box)(({ theme }) => ({
@@ -71,9 +97,12 @@ export const stylesnew = (theme) => ({
     color: theme.palette.text.label,
     display: "flex",
     padding: "0 8px",
-    width: "435px",
+    // width: "435px",
     alignItems: "center",
     justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      height: "50px",
+    },
   },
 
   photo: {
@@ -85,6 +114,40 @@ export const stylesnew = (theme) => ({
     color: theme.palette.text.secondary,
     fontSize: theme.typography.fontSize.verySmall,
     fontWeight: theme.typography.fontWeight.medium,
+  },
+
+  arrow: {
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      justifyContent: "center",
+      width: "100%",
+    },
+  },
+
+  icon1: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+
+  icon2: {
+    display: "none",
+
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+      color: "#B9B9B9",
+    },
+  },
+
+  fli: {
+    justifyContent: "space-between",
+    width: "90%",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      alignItems: "start",
+      height: "40px",
+      gap: "0",
+    },
   },
 
   desi1: {
@@ -99,6 +162,16 @@ export const stylesnew = (theme) => ({
     width: "100%",
     justifyContent: "space-between",
     display: "flex",
+  },
+
+  block: {
+    display: "flex",
+    width: "95%",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      alignItems: "start",
+    },
   },
 
   respon: {

@@ -22,7 +22,7 @@ function Tome(searchQuery) {
       performance: "Very Good",
       response: "yes",
       view: "View",
-      reminder: "no",
+      Action: "no",
     },
     {
       id: "1",
@@ -33,7 +33,7 @@ function Tome(searchQuery) {
       performance: "Excellent",
       response: "yes",
       view: "View",
-      reminder: "yes",
+      Action: "yes",
     },
 
     {
@@ -45,7 +45,7 @@ function Tome(searchQuery) {
       performance: "Need Improvement",
       response: "no",
       view: "View",
-      reminder: "yes",
+      Action: "yes",
     },
 
     {
@@ -57,7 +57,7 @@ function Tome(searchQuery) {
       performance: "Very Good",
       response: "yes",
       view: "View",
-      reminder: "no",
+      Action: "no",
     },
     {
       id: "6",
@@ -68,7 +68,7 @@ function Tome(searchQuery) {
       performance: "Need Improvement",
       response: "no",
       view: "View",
-      reminder: "no",
+      Action: "no",
     },
     {
       id: "4",
@@ -79,7 +79,7 @@ function Tome(searchQuery) {
       performance: "Average",
       response: "yes",
       view: "View",
-      reminder: "yes",
+      Action: "yes",
     },
     {
       id: "7",
@@ -90,7 +90,7 @@ function Tome(searchQuery) {
       performance: "Excellent",
       response: "yes",
       view: "View",
-      reminder: "no",
+      Action: "no",
     },
     {
       id: "8",
@@ -101,7 +101,7 @@ function Tome(searchQuery) {
       performance: "Very Good",
       response: "yes",
       view: "View",
-      reminder: "yes",
+      Action: "yes",
     },
     {
       id: "9",
@@ -112,7 +112,7 @@ function Tome(searchQuery) {
       performance: "Need Improvement",
       response: "no",
       view: "View",
-      reminder: "no",
+      Action: "no",
     },
     {
       id: "10",
@@ -123,7 +123,7 @@ function Tome(searchQuery) {
       performance: "Excellent",
       response: "yes",
       view: "View",
-      reminder: "yes",
+      Action: "yes",
     },
     {
       id: "11",
@@ -134,7 +134,7 @@ function Tome(searchQuery) {
       performance: "Excellent",
       response: "yes",
       view: "View",
-      reminder: "yes",
+      Action: "yes",
     },
     {
       id: "12",
@@ -145,7 +145,7 @@ function Tome(searchQuery) {
       performance: "Excellent",
       response: "yes",
       view: "View",
-      reminder: "no",
+      Action: "no",
     },
   ];
   const Column = [
@@ -211,13 +211,13 @@ function Tome(searchQuery) {
     },
     {
       id: "7",
-      Header: "Reminder",
-      accession: "reminder",
+      Header: "Action",
+      accession: "Action",
       container: (row) => (
         <Box sx={styles.center}>
           <Buttonsty
-            reminder={row.reminder}
-            text={row.reminder === "yes" ? "Respond" : "Respond"}
+            reminder={row.Action}
+            text={row.Action === "yes" ? "Respond" : "Respond"}
           />
         </Box>
       ),

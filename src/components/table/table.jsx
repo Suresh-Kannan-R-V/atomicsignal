@@ -65,7 +65,7 @@ function Tablesty({ Rowdata, Column, searchQuery }) {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-        sx={styles.tablefooterc}
+        sx={{ ...styles.tablefooterc, paddingLeft: "100px" }}
       />
     </Box>
   );
