@@ -14,7 +14,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
     height: "40px",
   },
   "&.MuiButton-contained": {
-    backgroundColor: theme.palette.secondary.search,
+    backgroundColor: theme.palette.secondary.main,
     boxShadow: "none",
     color: "white",
     border: "none",
