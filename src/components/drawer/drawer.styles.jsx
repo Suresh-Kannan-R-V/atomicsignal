@@ -5,6 +5,7 @@ const DrawerBox = styled(Box)(() => ({
   position: "relative",
   height: "100vh",
   display: "flex",
+  width: "100vw",
 }));
 
 const DrawerContentBox = styled(Box)(() => ({
@@ -12,14 +13,15 @@ const DrawerContentBox = styled(Box)(() => ({
   backgroundColor: "white",
 }));
 
-const DrawerCloseButton = styled(CloseIcon)({
+const DrawerCloseButton = styled(CloseIcon)(({ theme }) => ({
   backgroundColor: "white",
+  [theme.breakpoints.down("sm")]: { position: "absolute", right: "0" },
   padding: "10px",
   borderRadius: "100px",
   margin: "15px",
   fontSize: "24px",
   cursor: "pointer",
-});
+}));
 
 const DrawerTitle = styled(Box)({
   padding: "24px 0px 0px 24px",
