@@ -64,7 +64,6 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
             variant="rounded"
           >
             <Typography sx={{ fontSize: "50px", color: "#484759" }}>
-              {" "}
               {!profileImage && ProfileData.userData.name[0]}
             </Typography>
           </ProfileAvatar>
@@ -118,7 +117,7 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
                   fontSize={"0.8em"}
                   title={
                     <ToolTipContent>
-                      <div>hgjhdfg</div>
+                      <div>H</div>
                     </ToolTipContent>
                   }
                   arrow
