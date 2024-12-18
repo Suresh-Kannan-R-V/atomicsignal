@@ -18,7 +18,7 @@ import {
 
 import { useEffect, useState } from "react";
 import StyledDrawer from "../../components/drawer/drawer";
-import FilterForm from "./FilterForm";
+import FilterForm from "./filterForm";
 import AddMembersDrawerForm from "./addMemberForm";
 import ImportIconStyled from "../../assets/icons/import";
 import FilterSvg from "../../assets/icons/filter";
