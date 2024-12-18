@@ -1,56 +1,34 @@
-import {
-  Avatar,
-  Box,
-  FormControl,
-  styled,
-  TableBody,
-  TableRow,
-  Typography,
-} from "@mui/material";
+import { TableBody, TableRow } from "@mui/material";
 import StyledInputLabel from "../inputLabel/InputLabel";
 import {
-  ReportingList,
   TableDiv,
   StyledTableContainer,
   StyledBottomTableContainer,
   StyledTablePagination,
   StyledTableFooter,
   StyledTableRow,
-  MemberProfile,
-  MoreTag,
-  SignalsAvatar,
   StyledTableHead,
   StyledTableHeading,
   StyledTableCell,
-  ToolTipContent,
-  SignalList,
-  LightTooltip,
-  StickyHeading,
-  ProfileAvatar,
-  StickyCell,
-  PencilIcon,
-  ActionContainer,
-  ActionStickyContainerSeparator,
   ActionPaginationContainerSeparator,
   ActionHeaderContainerSeparator,
-  ActionContent,
   StyledTable,
   StyledFormControl,
   PencilIconContainer,
 } from "./signalTablestyles";
 
-import ReactSpeedometer from "react-d3-speedometer";
 import Table from "@mui/material/Table";
-import StyledButton from "../button/Button";
-import { useEffect, useState } from "react";
-import Drawer from "../drawer/Drawer";
+import IosSwitch from "../switch/iosSwitch";
+import PencilIconSvg from "../../assets/icons/pencil";
+import { useEffect, useRef, useState } from "react";
 import StyledDrawer from "../drawer/Drawer";
-import StyledInput from "../input/Input";
 import StyledTextField from "../textField/TextField";
-import StyledDatePicker from "../datePicker/datePicker";
-import StyledSelect from "../select/Select";
-import StyledChip from "../chip/Chip";
-import StyledTextArea from "../textArea/StyledTextArea";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  handleActiveButton,
+  replaceSignalBody,
+} from "../../pages/setting/slices/signalsSlice";
+
 const SignalTableComponent = ({
   headings,
   stickyheadings,
@@ -58,12 +36,21 @@ const SignalTableComponent = ({
   stickyColumnData,
   setRows,
   searchQuery = "",
+  Deactivate,
 }) => {
   const [filteredRows, setFilteredRows] = useState([]);
   const [currPage, setCurrPage] = useState(0);
   const [isEditMemberDrawerOpen, setIsEditMemberDrawerOpen] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [modifiedRows, setModifiedRows] = useState([]);
+  const [clicked, setClicked] = useState(true);
+  const [rowss, setRow] = useState(0);
+  const inputRef = useRef();
+  const [indexs, setIndexs] = useState(0);
+
+  const BodyDatas = useSelector((state) => state.signalsBody);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     setModifiedRows(
       rows?.filter((data) => {
@@ -72,18 +59,82 @@ const SignalTableComponent = ({
           ?.includes(searchQuery?.toLowerCase()?.trim());
       })
     );
-  }, [rows, searchQuery]);
+  }, [rows, searchQuery, indexs]);
 
   useEffect(() => {
     const startIndex = currPage * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
-    console.log(startIndex, endIndex);
     setFilteredRows(modifiedRows?.slice(startIndex, endIndex));
-  }, [modifiedRows, currPage, rowsPerPage]);
+  }, [modifiedRows, currPage, rowsPerPage, rowss]);
 
   useEffect(() => {
     setCurrPage(0);
   }, [rowsPerPage]);
+  const DrawerForm = () => {
+    return (
+      <StyledFormControl>
+        <StyledInputLabel required>Name</StyledInputLabel>
+        <StyledTextField
+          placeholder="Type name"
+          size="small"
+          fullWidth
+          inputRef={inputRef}
+        ></StyledTextField>
+      </StyledFormControl>
+    );
+  };
+
+  function UpdateItem() {
+    console.log(indexs);
+    console.log(filteredRows[indexs].signal);
+    console.log(inputRef.current.value);
+    const currentDate = new Date();
+    const time = currentDate.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: "true",
+    });
+    const day = currentDate.toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+
+    dispatch(
+      replaceSignalBody({
+        oldItem: filteredRows[indexs].signal,
+        newItem: inputRef.current.value,
+        day: day,
+        time: time,
+      })
+    );
+    setIsEditMemberDrawerOpen(false);
+  }
+
+  const handleToggleClick = (index, status, dialog) => {
+    const newClickedState = !clicked;
+    setClicked(newClickedState);
+    setRow(index);
+    if (dialog) {
+      dispatch(
+        handleActiveButton({
+          oldItem: index + 1,
+          status: newClickedState,
+          active: status,
+          dialog: dialog,
+        })
+      );
+    } else {
+      dispatch(
+        handleActiveButton({
+          oldItem: index + 1,
+          status: newClickedState,
+          active: status,
+        })
+      );
+    }
+  };
+  // console.log(rows[rowss].status)
 
   return (
     <TableDiv>
@@ -93,8 +144,11 @@ const SignalTableComponent = ({
         <StyledTable draggable={false}>
           <StyledTableHead>
             <StyledTableRow>
-              {headings?.map((data) => (
-                <StyledTableHeading sx={{ position: data.position }}>
+              {headings?.map((data, index) => (
+                <StyledTableHeading
+                  key={index}
+                  sx={{ position: data.position }}
+                >
                   {data.heading}
                 </StyledTableHeading>
               ))}
@@ -103,33 +157,43 @@ const SignalTableComponent = ({
           <TableBody>
             {filteredRows?.map((row, i) => {
               return (
-                <StyledTableRow>
+                <StyledTableRow key={i}>
                   <StyledTableCell>{i + 1}</StyledTableCell>
                   <StyledTableCell>{row?.signal}</StyledTableCell>
-                  <StyledTableCell>{row?.created_on}</StyledTableCell>
-                  <StyledTableCell>{row?.modified_on}</StyledTableCell>
+                  <StyledTableCell>
+                    {row?.cday}, {row?.ctime}
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    {row?.mday}, {row?.mtime}
+                  </StyledTableCell>
                   <StyledTableCell minWidth={125}>
                     <IosSwitch
-                      onChange={(e) => {
-                        setRows((prev) => {
-                          const newPrev = [...prev];
-                          const target = newPrev.findIndex(
-                            (data) => data?.id === row?.id
-                          );
-                          newPrev[target].status = e.target.checked ? 1 : 0;
-                          return newPrev;
-                        });
+                      onclick={(dialog) => {
+                        if (row.status) {
+                          handleToggleClick(i, row.status, (dialog = true));
+                        } else {
+                          handleToggleClick(i, row.status, (dialog = false));
+                        }
+                        // setIndexs(i)
+                        Deactivate(i);
                       }}
-                      checked={row?.status}
+                      checked={row.status}
                     />{" "}
-                    {row?.status ? "Active" : "Deactive"}
+                    {i === rowss
+                      ? row.status
+                        ? "Active"
+                        : "Deactive"
+                      : row.status
+                        ? "Active"
+                        : "Deactive"}
                   </StyledTableCell>
                   <StyledTableCell
                     sx={{ position: "sticky", zIndex: 2, right: 0 }}
                   >
                     <PencilIconContainer>
-                      <PencilIcon
+                      <PencilIconSvg
                         onClick={() => {
+                          setIndexs(i);
                           setIsEditMemberDrawerOpen(true);
                         }}
                       />
@@ -165,28 +229,13 @@ const SignalTableComponent = ({
         title={"Edit Department"}
         content={<DrawerForm />}
         anchor={"right"}
-        bottomLeftButton={{ label: "Save", onClick: () => {} }}
+        bottomLeftButton={{ label: "Save", onClick: UpdateItem }}
         onClose={() => {
           setIsEditMemberDrawerOpen(false);
         }}
         open={isEditMemberDrawerOpen}
       />
     </TableDiv>
-  );
-};
-
-const DrawerForm = () => {
-  return (
-    <StyledFormControl>
-      <StyledInputLabel required>Name</StyledInputLabel>
-      <StyledTextField
-        placeholder="Type name"
-        size="small"
-        fullWidth
-      ></StyledTextField>
-      <StyledInputLabel>Description</StyledInputLabel>
-      <StyledTextArea minRows={7} />
-    </StyledFormControl>
   );
 };
 

@@ -21,7 +21,7 @@ import {
   SSOContainer,
 } from "./signUp.styles";
 import StyledInputLabel from "../../components/inputLabel/InputLabel";
-import StyledTextField from "../../components/textField/textField";
+import StyledTextField from "../../components/textField/TextField";
 import StyledButton from "../../components/button/button";
 import { useDispatch, useSelector } from "react-redux";
 import { updateSignUp } from "../../slice/onBoard";

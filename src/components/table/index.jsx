@@ -1,5 +1,6 @@
 import DepartmentTableComponent from "./DepartmentTableComponent";
 import MembersTableComponent from "./MembersTable";
+import SignalTableComponent from "./signalsTable";
 
 const MembersTableHeadings = [
   "Name",
@@ -21,6 +22,14 @@ const DepartmentTableHeadings = [
   "Modified on",
   "Status",
   "Action",
+];
+const SignalTableHeadings = [
+  { heading: "S.No", position: "relative" },
+  { heading: "Signal name", position: "relative" },
+  { heading: "Created on", position: "relative" },
+  { heading: "Modified on", position: "relative" },
+  { heading: "Status", position: "relative" },
+  { heading: "Action", position: "sticky" },
 ];
 
 const MembersTable = ({
@@ -50,5 +59,14 @@ const DepartmentTable = ({ rowData, setRowData, searchQuery }) => (
     headings={DepartmentTableHeadings}
   />
 );
+const SignalTable = ({ rowData, setRowData, searchQuery, Deactivate }) => (
+  <SignalTableComponent
+    rows={rowData}
+    searchQuery={searchQuery}
+    setRows={setRowData}
+    headings={SignalTableHeadings}
+    Deactivate={Deactivate}
+  />
+);
 
-export { MembersTable, DepartmentTable };
+export { MembersTable, DepartmentTable, SignalTable };

@@ -1,13 +1,12 @@
 import { Box, Button, Grid2, Typography } from "@mui/material";
 import { styledItem } from "./style";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { useState } from "react";
 import Chart from "../profile/chart";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFeedBackType } from "./slices/feedbackslice";
+import { removeFeedBackType } from "./slices/feedbackSlice";
 
 export function Grading() {
-  const feedBack = useSelector((state) => state.feedBacktype);
+  const feedBack = useSelector((state) => state.feedBackType);
   const dispatch = useDispatch();
   const datas = [
     {
@@ -44,7 +43,13 @@ export function Grading() {
   }
   return (
     <Grid2>
-      <Grid2 sx={{ ...styledItem.parentGridSignalStyleWeb, padding: 0 }}>
+      <Grid2
+        sx={{
+          ...styledItem.parentGridSignalStyleWeb,
+          padding: 0,
+          overflowX: "auto",
+        }}
+      >
         <Grid2
           sx={{ ...styledItem.parentGridSignalStyleWeb, border: 0, margin: 0 }}
         >
@@ -95,16 +100,17 @@ export function Grading() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    width: "450px",
                     padding: "12px",
-                    marginBottom: "8px",
+                    marginBottom: "10px",
+                    width: "-webkit-fill-available",
                   }}
                 >
                   <Box
                     sx={{
                       display: "flex",
                       alignItems: "center",
-                      columnGap: "10px",
+                      columnGap: "12px",
+                      overflow: "auto",
                     }}
                   >
                     <Chart Size="small" value={element.value} />
@@ -118,7 +124,10 @@ export function Grading() {
                       {element.chartDesc}
                     </Typography>
                   </Box>
-                  <Box onClick={() => DeleteGrading(index)}>
+                  <Box
+                    sx={{ cursor: "pointer" }}
+                    onClick={() => DeleteGrading(index)}
+                  >
                     <CloseRoundedIcon />
                   </Box>
                 </Box>
@@ -127,7 +136,13 @@ export function Grading() {
           </Box>
         </Grid2>
       </Grid2>
-      <Grid2 sx={{ ...styledItem.parentGridSignalStyleMob, padding: 0 }}>
+      <Grid2
+        sx={{
+          ...styledItem.parentGridSignalStyleMob,
+          padding: 0,
+          overflowX: "auto",
+        }}
+      >
         <Grid2
           sx={{ ...styledItem.parentGridSignalStyleMob, border: 0, margin: 0 }}
         >
@@ -188,6 +203,7 @@ export function Grading() {
                       display: "flex",
                       alignItems: "center",
                       columnGap: "10px",
+                      overflow: "hidden",
                     }}
                   >
                     <Chart Size="small" value={element.value} />
@@ -201,7 +217,10 @@ export function Grading() {
                       {element.chartDesc}
                     </Typography>
                   </Box>
-                  <Box onClick={() => DeleteGrading(index)}>
+                  <Box
+                    sx={{ cursor: "pointer" }}
+                    onClick={() => DeleteGrading(index)}
+                  >
                     <CloseRoundedIcon />
                   </Box>
                 </Box>

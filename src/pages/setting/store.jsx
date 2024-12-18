@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { signalsbodyReducer, signalsheadReducer } from "./slices/signalsslice";
-import { feedBackReducer } from "./slices/feedbackslice";
+import { signalsbodyReducer, signalsheadReducer } from "./slices/signalsSlice";
+import { feedBackReducer } from "./slices/feedbackSlice";
 
 const Store = configureStore({
   reducer: {
     signalsBody: signalsbodyReducer,
     signalsHead: signalsheadReducer,
-    feedBacktype: feedBackReducer,
+    feedBackType: feedBackReducer,
   },
 });
 

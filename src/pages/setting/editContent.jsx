@@ -1,7 +1,7 @@
 import { Box, Grid2, InputBase, TextField, Typography } from "@mui/material";
 import { styledItem } from "./style";
 import { useState } from "react";
-import { addSignalBody } from "./slices/signalsslice";
+import { addSignalBody } from "./slices/signalsSlice";
 import { useDispatch } from "react-redux";
 
 export function EditContent() {
