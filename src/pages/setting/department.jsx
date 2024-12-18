@@ -3,7 +3,7 @@ import { DepartmentTable } from "../../components/table";
 import { useState } from "react";
 import SearchBox from "../../components/searchBox/searchBox";
 import StyledButton from "../../components/button/button";
-import StyledDrawer from "../../components/drawer/Drawer";
+import StyledDrawer from "../../components/drawer/drawer";
 import { StyledFormControl } from "../../components/table/departmentTable.styles";
 import StyledInputLabel from "../../components/inputLabel/inputLabel";
 import StyledTextField from "../../components/textField/textField";
