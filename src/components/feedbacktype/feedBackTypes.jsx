@@ -41,13 +41,11 @@ export function FeedBackTypes(props) {
           {props.heading}
         </Typography>
         <Box sx={{ marginTop: "12px", overflowX: "auto" }}>
-          <Stack
+          <Box
             direction="row"
             alignItems="center"
             sx={{
-              display: "inline-grid",
-              gridTemplateColumns: "repeat(3,1fr)",
-              overflowX: "auto",
+              display: "inline-flex",
               columnGap: "16px",
             }}
           >
@@ -86,14 +84,13 @@ export function FeedBackTypes(props) {
                 </>
               );
             })}
-          </Stack>
+          </Box>
           <Box sx={styledItem.feedbackInfoBox}>
             <InfoOutlinedIcon fontSize="verysmall" sx={{ color: "#49C792" }} />
             <Typography
               sx={{
                 ...styledItem.dataStyle,
-                fontSize: "12px",
-                width: "389px",
+                fontSize: "14px",
               }}
             >
               {FeedbackDesc[selectedItem]}

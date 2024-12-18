@@ -13,7 +13,6 @@ export const styledItem = {
     fontFamily: "Poppins",
     textAlign: "left",
     letterSpacing: "0px",
-    whiteSpace: "nowrap",
   },
   linkStyle: {
     color: "#49C792",

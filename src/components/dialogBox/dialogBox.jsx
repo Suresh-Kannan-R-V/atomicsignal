@@ -20,9 +20,8 @@ export default function DialogBox({ color, bgcolor, border, open }) {
     border: border,
     color: color,
     borderRadius: "4px",
-    placeItems: "center",
     backgroundColor: bgcolor,
-    width: "138px",
+    lineHeight: 1.75,
   });
   function HandleDialogDeactivation(status) {
     dispatch(
@@ -40,20 +39,23 @@ export default function DialogBox({ color, bgcolor, border, open }) {
         sx={{
           display: "flex",
           flexDirection: "column",
-          placeItems: "center",
-          rowGap: "24px",
-          padding: "50px 48px",
+          alignItems: "center",
+          padding: { sm: "50px 48px", xs: "40px 30px" },
+          "@media (max-width: 325px)": {
+            padding: "40px 16px",
+          },
         }}
       >
-        <Box>
+        <Box
+          sx={{ margin: " 0px 0px 24px 0px", height: "48px", width: "48px" }}
+        >
           <AlertIconSvg />
         </Box>
-        <Box sx={{ width: "304px" }}>
+        <Box sx={{ margin: " 0px 0px 32px 0px" }}>
           <Typography
             sx={{
               textAlign: "center",
-              maxWidth: "309px",
-              height: "48px",
+              maxWidth: "304px",
               color: "#353448",
               fontSize: "16px",
               fontFamily: "Poppins",
@@ -62,13 +64,23 @@ export default function DialogBox({ color, bgcolor, border, open }) {
             Are you sure, would you like to Deactivate?
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", columnGap: "16px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "-webkit-fill-available",
+          }}
+        >
           <Button
             component="button"
             onClick={() => HandleDialogDeactivation((status = false))}
             color={"rgb(73, 199, 146)"}
             bgcolor={"transparent"}
             border={"1.5px solid "}
+            sx={{
+              minWidth: { sm: "138px", xs: "100px" },
+              "@media (min-width: 425px)": { minWidth: "138px" },
+            }}
           >
             Cancel
           </Button>
@@ -78,6 +90,10 @@ export default function DialogBox({ color, bgcolor, border, open }) {
             color={"rgb(255, 255, 255)"}
             bgcolor={"rgb(244, 79, 90)"}
             border={"1.5px solid "}
+            sx={{
+              minWidth: { sm: "138px", xs: "100px" },
+              "@media (min-width: 425px)": { minWidth: "138px" },
+            }}
           >
             Deactive
           </Button>
