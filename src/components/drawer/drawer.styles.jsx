@@ -1,11 +1,11 @@
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, styled } from "@mui/material";
 
-const DrawerBox = styled(Box)(() => ({
+const DrawerBox = styled(Box)(({ theme }) => ({
   position: "relative",
   height: "100vh",
   display: "flex",
-  width: "100vw",
+  [theme.breakpoints.down("sm")]: { width: "100vw" },
 }));
 
 const DrawerContentBox = styled(Box)(() => ({
