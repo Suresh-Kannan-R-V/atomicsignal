@@ -20,19 +20,16 @@ import StyledInputLabel from "../../components/inputLabel/InputLabel";
 import StyledTextField from "../../components/textField/TextField";
 import StyledButton from "../../components/button/button";
 import { QueryContainer } from "./signUp.styles";
-import { useDispatch, useSelector } from "react-redux";
-import { updateForgotPassword } from "../../slice/onBoard";
 
 const ForgotPassword = () => {
-  const dispatch = useDispatch();
-  const email = useSelector((state) => state.onBoard.forgotPasswordData.email);
+  const [email, setEmail] = useState("");
 
   const handleEmailChange = (e) => {
-    dispatch(updateForgotPassword({ email: e.target.value }));
+    setEmail(e.target.value);
   };
 
   const handleForgotPassword = () => {
-    // Dispatch action to submit forgot password form (e.g., API call)
+    // Handle forgot password logic here (e.g., API call)
     console.log("Requesting password reset for email:", email);
   };
 
