@@ -1,9 +1,9 @@
 import { Avatar, Divider, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import StyledChip from "../chip/Chip";
-import StyledSvgIcon from "../svgicon/SvgIcon";
+import StyledChip from "../chip/chip";
+import StyledSvgIcon from "../svgicon/svgIcon";
 
-import { LightTooltip, ToolTipContent } from "../table/MembersTable.styles";
+import { LightTooltip, ToolTipContent } from "../table/membersTable.styles";
 import {
   AddButton,
   AddDeleteButtonContainer,

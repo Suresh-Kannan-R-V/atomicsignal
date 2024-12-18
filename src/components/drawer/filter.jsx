@@ -1,8 +1,8 @@
 import { Box, useTheme } from "@mui/material";
 import React, { useState } from "react";
-import StyledInputLabel from "../inputLabel/InputLabel";
-import StyledTextField from "../textField/TextField";
-import { CatButton, stylesnew } from "./Styles";
+import StyledInputLabel from "../inputLabel/inputLabel";
+import StyledTextField from "../textField/textField";
+import { CatButton, stylesnew } from "./styles";
 import StyledDatePicker from "../datePicker/datePicker";
 
 function Filter({ activeTab }) {

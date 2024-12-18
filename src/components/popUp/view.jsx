@@ -4,7 +4,7 @@ import Slide from "@mui/material/Slide";
 import { Box, useTheme } from "@mui/material";
 import { useState, forwardRef } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { Body, Dialogue, Popuphead, stylesnew } from "./Style";
+import { Body, Dialogue, Popuphead, stylesnew } from "./style";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
