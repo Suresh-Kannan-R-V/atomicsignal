@@ -8,4 +8,5 @@ export const PATH = {
   Login: "/login",
   ForgotPassword: "/forgotpassword",
   SignUp: "/signup",
+  ResetPage: "/reset",
 };

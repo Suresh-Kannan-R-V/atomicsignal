@@ -73,7 +73,7 @@ const StyledTableHeading = styled(TableCell)(({ minWidth }) => ({
 }));
 
 const StyledTableCell = styled(TableCell)(({ minWidth }) => ({
-  fontSize: "1.07em",
+  fontSize: "1em",
   borderBottom: "none",
   paddingRight: "20px",
   cursor: "pointer",

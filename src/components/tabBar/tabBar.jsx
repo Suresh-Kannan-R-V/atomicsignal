@@ -1,11 +1,10 @@
 import { Box, createTheme, Tab, Tabs, ThemeProvider } from "@mui/material";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { Signals } from "../../pages/setting/signals";
+import Signals from "../../pages/setting/signals";
 import { Grading } from "../../pages/setting/grading";
-import Feedback from "../../pages/setting/feedback";
-import ProfileCard from "../profileCard/ProfileCard";
-import { DepartmentTable } from "../table";
+import Feedback from "../../pages/setting/feedBackType";
+import ProfileCard from "../profilecard/ProfileCard";
 import Department from "../../pages/setting/Department";
 import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
 import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
@@ -56,9 +55,7 @@ const theme = createTheme({
   },
 });
 
-export default function BasicTabs(props) {
-  const HeadDatas = props.HeadDatas;
-  const BodyDatas = props.BodyDatas;
+export default function BasicTabs() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -94,6 +91,14 @@ export default function BasicTabs(props) {
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
+            variant="scrollable"
+            sx={{
+              "& .MuiTabs-indicator": {
+                backgroundColor: "#665CD7",
+                height: "3px",
+                borderRadius: "2px 2px 0px 0px",
+              },
+            }}
           >
             <Tab label="Signals" {...a11yProps(0)} />
             <Tab label="Grading" {...a11yProps(1)} />
@@ -104,7 +109,7 @@ export default function BasicTabs(props) {
         </ThemeProvider>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Signals HeadDatas={HeadDatas} BodyDatas={BodyDatas} />
+        <Signals />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Grading />

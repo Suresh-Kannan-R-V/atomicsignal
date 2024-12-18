@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import StyledInputLabel from "../inputLabel/InputLabel";
 import StyledTextField from "../textField/TextField";
 import { CatButton, stylesnew } from "./Styles";
-import StyledDatePicker from "../datePicker/DatePicker";
+import StyledDatePicker from "../datePicker/datePicker";
 
 function Filter({ activeTab }) {
   const theme = useTheme();
@@ -38,7 +38,7 @@ function Filter({ activeTab }) {
   };
 
   return (
-    <Box sx={{ height: "100%", width: "352px", padding: "0 24px" }}>
+    <Box sx={{ height: "100%", width: "304px", padding: "0 24px" }}>
       <StyledInputLabel>{getLabel()}</StyledInputLabel>
       <StyledTextField
         sx={styles.mt}

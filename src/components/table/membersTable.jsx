@@ -41,7 +41,7 @@ import {
 import ReactSpeedometer from "react-d3-speedometer";
 import Table from "@mui/material/Table";
 import IOSSwitch from "../switch/Switch";
-import StyledButton from "../button/button";
+import StyledButton from "../button/Button";
 import { useEffect, useState } from "react";
 import Drawer from "../drawer/Drawer";
 import StyledDrawer from "../drawer/Drawer";
