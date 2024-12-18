@@ -127,7 +127,7 @@ export const signalsSliceBody = createSlice({
       if (dialog) {
         return state.map((item, index) =>
           item.id === oldItem
-            ? { ...item, status: status, active: active, dialog: dialog }
+            ? { ...item, active: active, dialog: dialog }
             : item
         );
       } else {
