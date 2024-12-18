@@ -1,14 +1,10 @@
-import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
-import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import { Box } from "@mui/material";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import packageJson from "../../../package.json";
 import ButtonNav from "../button/buttonNav";
-import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import {
   LogoImage,
   MenuIcon,
@@ -22,7 +18,6 @@ import {
   Version,
   WebName,
 } from "./navBar.style";
-import { Box } from "@mui/material";
 
 const VNavbar = () => {
   const location = useLocation();
