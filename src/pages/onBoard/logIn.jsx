@@ -19,23 +19,20 @@ import StyledInputLabel from "../../components/inputLabel/InputLabel";
 import StyledTextField from "../../components/textField/TextField";
 import StyledButton from "../../components/button/button";
 import PasswordField from "../../components/textField/passwordInput";
-import { useDispatch, useSelector } from "react-redux";
-import { updateLogIn } from "../../slice/onBoard";
 
 const LogIn = () => {
-  const dispatch = useDispatch();
-  const { email, password } = useSelector((state) => state.onBoard.loginData);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleEmailChange = (e) => {
-    dispatch(updateLogIn({ email: e.target.value }));
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
-    dispatch(updateLogIn({ password: e.target.value }));
+    setPassword(e.target.value);
   };
 
   const handleLogIn = () => {
-    // Dispatch action to submit login form (e.g., API call)
     console.log("Logging in with email:", email, "password:", password);
   };
 

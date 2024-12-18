@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Avatar, Box, Divider, Typography } from "@mui/material";
+import { Avatar, Divider, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import StyledChip from "../chip/Chip";
 import StyledSvgIcon from "../svgicon/SvgIcon";
-import LinkedCameraOutlinedIcon from "@mui/icons-material/LinkedCameraOutlined";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
+import { LightTooltip, ToolTipContent } from "../table/MembersTable.styles";
 import {
+  AddButton,
+  AddDeleteButtonContainer,
+  DeleteButton,
+  LabelWithAvatarContainer,
   ManagerAvatar,
   OthersContainer,
   ProfileAvatar,
@@ -17,14 +20,9 @@ import {
   ProfileInfoBox,
   ProfileName,
   ResetPasswordContainer,
-  UserNameAndPeriodOfServiceContainer,
-  AddDeleteButtonContainer,
-  AddButton,
-  DeleteButton,
   SettingContainer,
-  LabelWithAvatarContainer,
+  UserNameAndPeriodOfServiceContainer,
 } from "./ProfileCard.styles";
-import { LightTooltip, ToolTipContent } from "../table/MembersTable.styles";
 
 const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
   const [profileImage, setProfileImage] = useState("");
@@ -143,10 +141,10 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
       </ProfileInfoBox>
 
       {isSetting && (
-        <>
+        <SettingContainer>
           <Divider />
           <ResetPasswordContainer>Reset password</ResetPasswordContainer>
-        </>
+        </SettingContainer>
       )}
     </ProfileCardContainer>
   );
