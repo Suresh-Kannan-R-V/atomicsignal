@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import StyledInputLabel from "../inputLabel/InputLabel";
 import StyledTextField from "../textField/TextField";
 import { CatButton, stylesnew } from "./Styles";
-import StyledDatePicker from "../datePicker/DatePicker";
+import StyledDatePicker from "../datePicker/datePicker";
 
 function Filter({ activeTab }) {
   const [Signals, setSignal] = useState("Communication");
