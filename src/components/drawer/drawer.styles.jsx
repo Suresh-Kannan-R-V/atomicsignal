@@ -32,6 +32,7 @@ const DrawerContentLayout = styled(Box)({
   flexDirection: "column",
   gap: "12px",
   height: "100%",
+  width: "100%",
 });
 
 const DrawerButtonsContainer = styled(Box)({
