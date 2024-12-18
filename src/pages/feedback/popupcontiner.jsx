@@ -7,7 +7,7 @@ import {
   Profile,
   Photo,
   Profileothers,
-} from "../../components/popUp/Style";
+} from "../../components/popUp/style";
 import { Signalcolour, Flex } from "./style";
 import { FaArrowDown } from "react-icons/fa6";
 

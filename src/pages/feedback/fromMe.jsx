@@ -4,7 +4,7 @@ import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Buttonsty from "../../components/button/buttonFeed";
-import Tablesty from "../../components/table/Table";
+import Tablesty from "../../components/table/table";
 import View from "../../components/popUp/view";
 import { useTheme } from "@mui/material/styles";
 import Popupcontainer from "./popupcontiner";

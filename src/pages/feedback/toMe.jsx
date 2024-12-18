@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import photo from "../../assets/image1.jpg";
 import Buttonsty from "../../components/button/buttonFeed";
 import View from "../../components/popUp/view";
-import Tablesty from "../../components/table/Table";
+import Tablesty from "../../components/table/table";
 import Popupcontainer from "./popupcontiner";
 import { DoneIcon, Signalcolour, stylesnew } from "./style";
 import { datastore } from "../../zustand/feedBack/store";
