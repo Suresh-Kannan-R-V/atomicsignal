@@ -1,7 +1,7 @@
 import { Avatar, Divider, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import StyledChip from "../chip/chip";
-import StyledSvgIcon from "../svgicon/svgIcon";
+import StyledSvgIcon from "../svgIcon/svgIcon";
 
 import { LightTooltip, ToolTipContent } from "../table/membersTable.styles";
 import {
