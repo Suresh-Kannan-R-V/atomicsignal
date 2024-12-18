@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import { InputCard, OnBoardContainer } from "./onBoard.styles";
 import Logo from "../../assets/logo";
+
 const OnBoard = ({ children }) => {
   return (
     <OnBoardContainer>

@@ -8,7 +8,7 @@ import {
   DrawerContentLayout,
   DrawerTitle,
 } from "./Drawer.styles";
-import StyledButton from "../button/button";
+import StyledButton from "../button/Button";
 import { MSizeMWeight } from "../typography/typography";
 const StyledDrawer = styled(
   ({

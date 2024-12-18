@@ -3,7 +3,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 const SearchBox = styled((props) => (
   <TextField
     sx={{
-      width: "auto",
+      width: "20.2vw",
     }}
     slotProps={{
       input: {
@@ -22,6 +22,9 @@ const SearchBox = styled((props) => (
     padding: "0px",
     gap: "0.3rem",
     "&.Mui-focused fieldset": {
+      borderColor: theme.palette.secondary.main,
+    },
+    "&:hover fieldset": {
       borderColor: theme.palette.secondary.main,
     },
   },

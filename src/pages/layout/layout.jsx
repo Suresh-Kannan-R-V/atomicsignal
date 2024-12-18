@@ -3,20 +3,21 @@ import { Outlet } from "react-router-dom";
 import VNavBar from "../../components/navBar/navBar";
 
 const LayoutContainer = styled(Box)({
-  height: "97vh",
+  height: "100vh",
   width: "100%",
   display: "flex",
   flexDirection: "column",
 });
 
-const ContentWrapper = styled(Box)({
+const ContentWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
+  flexDirection: "column",
+  [theme.breakpoints.up("xs")]: { flexDirection: "column" },
+  [theme.breakpoints.up("sm")]: { flexDirection: "row" },
   height: "100%",
-});
+}));
 
-const SidebarLayout = styled(Box)({
-  // Style adjustments for the sidebar container
-});
+const SidebarLayout = styled(Box)({});
 
 const MainContent = styled(Grid2)({
   width: "100%",
@@ -28,9 +29,7 @@ const Layout = () => {
   return (
     <LayoutContainer>
       <ContentWrapper>
-        <SidebarLayout>
-          <VNavBar />
-        </SidebarLayout>
+        <VNavBar />
         <MainContent>
           <Outlet />
         </MainContent>

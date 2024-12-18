@@ -19,6 +19,8 @@ export const lightTheme = {
   palette: {
     background: {
       default: "#F0F0F0",
+      primary: "#FFFFFF",
+      navbgcolor: "#1b1558",
       onBoard: "#EFEEFB",
     },
     primary: {
@@ -39,7 +41,7 @@ export const lightTheme = {
     text: {
       default: "#353448",
       secondary: "#71707E",
-      subText: "#999943",
+      subText: "#9999A3",
       danger: "#F44F5A",
       label: "#484759",
       placeholder: "#C2C1C7",

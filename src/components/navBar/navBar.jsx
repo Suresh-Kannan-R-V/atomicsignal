@@ -15,6 +15,7 @@ import {
   LogoImage,
   Version,
   SidebarMenu,
+  NavBox,
 } from "./navBar.style";
 import packageJson from "../../../package.json";
 
@@ -32,7 +33,7 @@ const VNavbar = () => {
       </SidebarHeader>
 
       <SidebarMenu my={1}>
-        <Box>
+        <NavBox>
           <ButtonNav
             to="/profile"
             icon={<PersonOutlineOutlinedIcon />}
@@ -51,8 +52,8 @@ const VNavbar = () => {
             label="Feedback"
             active={location.pathname === "/feedback"}
           />
-        </Box>
-        <Box>
+        </NavBox>
+        <NavBox>
           <ButtonNav
             to="/setting"
             icon={<SettingsOutlinedIcon />}
@@ -69,7 +70,8 @@ const VNavbar = () => {
               />
             }
           />
-        </Box>
+        </NavBox>
+        <ButtonNav icon={<NotificationsOutlinedIcon />} />
       </SidebarMenu>
     </Sidebar>
   );
