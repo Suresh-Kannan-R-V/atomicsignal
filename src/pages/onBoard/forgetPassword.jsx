@@ -16,8 +16,8 @@ import {
   LoginContainer,
   LogInTitle,
 } from "./logIn.style";
-import StyledInputLabel from "../../components/inputLabel/InputLabel";
-import StyledTextField from "../../components/textField/TextField";
+import StyledInputLabel from "../../components/inputLabel/inputLabel";
+import StyledTextField from "../../components/textField/textField";
 import StyledButton from "../../components/button/button";
 import { QueryContainer } from "./signUp.styles";
 
