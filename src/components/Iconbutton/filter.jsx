@@ -6,7 +6,7 @@ function Filterstar() {
   return (
     <Filter>
       <CiFilter />
-    </Filter>
+    </Filter> //it
   );
 }
 
