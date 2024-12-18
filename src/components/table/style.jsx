@@ -43,10 +43,13 @@ export const stylesnew = (theme) => ({
       PaddingRight: "0",
     },
     "& .MuiTablePagination-actions": {
-      margin: "0px 0 0 10px",
+      margin: "0px 0 0 5px",
     },
     "&.MuiTablePagination-toolbar": {
       margin: "0px",
+    },
+    "& .MuiSelect-select": {
+      minWidth: "0px",
     },
   },
 
