@@ -10,5 +10,5 @@ export const Filter = styled(Button)(({ theme }) => ({
   fontSize: theme.typography.fontSize.large,
   alignItems: "center",
   cursor: "pointer",
-  minWidth: "45px",
+  minWidth: "45px", //it
 }));
