@@ -22,7 +22,7 @@ import {
   ResetPasswordContainer,
   SettingContainer,
   UserNameAndPeriodOfServiceContainer,
-} from "./ProfileCard.styles";
+} from "./profileCard.styles";
 
 const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
   const [profileImage, setProfileImage] = useState("");
