@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Avatar, Divider, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import StyledChip from "../chip/chip";
@@ -59,12 +60,12 @@ const ProfileCard = ({ isSetting = false, profilepage, ProfileData }) => {
       <ProfileInfoBox>
         <ProfileBox>
           <ProfileAvatar
-            alt={ProfileData.userData.name}
+            alt={ProfileData.userData?.name}
             src={profileImage || ""}
             variant="rounded"
           >
             <Typography sx={{ fontSize: "50px", color: "#484759" }}>
-              {!profileImage && ProfileData.userData.name[0]}
+              {!profileImage && ProfileData.userData?.name[0]}
             </Typography>
           </ProfileAvatar>
 
