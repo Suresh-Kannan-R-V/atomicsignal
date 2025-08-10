@@ -6,7 +6,6 @@ import ManagerIcon from "../../assets/icons/manager.svg";
 import ProfileCard from "../../components/profileCard/profileCard";
 import Chart from "./chart";
 import FeedbackCard from "./feedbackProfile";
-import PipBar from "./pipbar";
 import {
   FeedbackContainer,
   LabelContainer,
@@ -16,6 +15,7 @@ import {
   ProfileBody,
   SpeedometerContainer,
 } from "./profile.style";
+import PipBar from "./pipBar";
 
 const performanceDescriptions = {
   1: "Completely away",

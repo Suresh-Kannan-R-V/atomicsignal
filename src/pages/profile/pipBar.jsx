@@ -1,4 +1,5 @@
-import React from "react";
+import { Typography } from "@mui/material";
+import { formatDate } from "../../utils/formatedDate.js";
 import {
   Circle,
   CircleBox,
@@ -9,8 +10,6 @@ import {
   TooltipBox,
   TooltipStyle,
 } from "./profile.style";
-import { Typography } from "@mui/material";
-import { formatDate } from "../../utils/formatedDate.js";
 
 const PipBar = ({ data, performanceDescriptions }) => {
   const getColor = (value) => {
