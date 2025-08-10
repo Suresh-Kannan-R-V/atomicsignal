@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
 import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
 import ManagerIcon from "../../assets/icons/manager.svg";
+import ProfileCard from "../../components/profileCard/profileCard";
 import Chart from "./chart";
 import FeedbackCard from "./feedbackProfile";
 import PipBar from "./pipbar";
@@ -15,7 +16,6 @@ import {
   ProfileBody,
   SpeedometerContainer,
 } from "./profile.style";
-import ProfileCard from "../../components/profileCard/profileCard";
 
 const performanceDescriptions = {
   1: "Completely away",
