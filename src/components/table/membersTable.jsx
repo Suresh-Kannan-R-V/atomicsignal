@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { TableBody, TableRow, useTheme } from "@mui/material";
 import StyledInputLabel from "../inputLabel/inputLabel";
 import {

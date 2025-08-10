@@ -1,42 +1,37 @@
-import React, { useState } from "react";
-import {
-  Avatar,
-  Box,
-  Typography,
-  styled,
-  Collapse,
-  Button,
-} from "@mui/material";
-import {
-  Card,
-  CardContentWrapper,
-  Header,
-  AvatarContainer,
-  HeaderInfo,
-  HeaderDate,
-  RatingContainer,
-  RatingAvatar,
-  FeedbackContent,
-  FeedbackText,
-  Status,
-  ResponseStatusText,
-  StatusDate,
-  NotRespondedText,
-  ViewLink,
-  ResponseContainer,
-  SubmitBox,
-  InputRespondBox,
-  ResponseInput,
-  CollapseContent,
-  ResponseText,
-  FeedbackResponseText,
-  FullWord,
-  Rating,
-} from "./profile.style";
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
+import { Box, Collapse, Typography } from "@mui/material";
 import { format } from "date-fns";
+import { useState } from "react";
 import StyledButton from "../../components/button/button";
+import {
+  AvatarContainer,
+  Card,
+  CardContentWrapper,
+  CollapseContent,
+  FeedbackContent,
+  FeedbackResponseText,
+  FeedbackText,
+  FullWord,
+  Header,
+  HeaderDate,
+  HeaderInfo,
+  InputRespondBox,
+  NotRespondedText,
+  Rating,
+  RatingAvatar,
+  RatingContainer,
+  ResponseContainer,
+  ResponseInput,
+  ResponseStatusText,
+  ResponseText,
+  Status,
+  StatusDate,
+  SubmitBox,
+  ViewLink,
+} from "./profile.style";
 
 const FeedbackCard = ({ teamMembers, feedbackData, word = "Efficitive" }) => {
   const [expanded, setExpanded] = useState(false);
@@ -63,7 +58,7 @@ const FeedbackCard = ({ teamMembers, feedbackData, word = "Efficitive" }) => {
 
   return (
     <Box>
-      {feedbackData.map((feedback, index) => (
+      {feedbackData?.map((feedback, index) => (
         <Card key={index}>
           <CardContentWrapper expanded={expanded}>
             <Header>

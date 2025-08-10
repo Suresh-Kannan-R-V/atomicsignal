@@ -11,7 +11,7 @@ const OnBoardContainer = styled(Box)(({ theme }) => ({
   display: "inline-block",
 }));
 
-const InputCard = styled(Box)(({ theme }) => ({
+const InputCard = styled(Box)(() => ({
   backgroundColor: "#FFFFFF",
   height: "max-content",
   maxWidth: "352px",

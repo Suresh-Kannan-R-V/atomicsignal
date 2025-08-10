@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material";
-import { InputCard, OnBoardContainer } from "./onBoard.styles";
 import Logo from "../../assets/logo";
+import { InputCard, OnBoardContainer } from "./onBoard.styles";
+import PropTypes from "prop-types";
 
 const OnBoard = ({ children }) => {
   return (
@@ -11,6 +11,10 @@ const OnBoard = ({ children }) => {
       </InputCard>
     </OnBoardContainer>
   );
+};
+
+OnBoard.propTypes = {
+  children: PropTypes.node,
 };
 
 export default OnBoard;

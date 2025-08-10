@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import DepartmentTableComponent from "./departmentTablecomponent";
 import MembersTableComponent from "./membersTable";
 import SignalTableComponent from "./signalsTable";
@@ -69,4 +70,4 @@ const SignalTable = ({ rowData, setRowData, searchQuery, Deactivate }) => (
   />
 );
 
-export { MembersTable, DepartmentTable, SignalTable };
+export { DepartmentTable, MembersTable, SignalTable };

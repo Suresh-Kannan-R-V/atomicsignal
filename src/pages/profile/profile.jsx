@@ -1,7 +1,12 @@
 import { Box, Grid, Grid2, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
+import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
+import ManagerIcon from "../../assets/icons/manager.svg";
+import ProfileCard from "../../components/profilecard/ProfileCard";
 import Chart from "./chart";
-import PipBar from "./pipBar";
+import FeedbackCard from "./feedbackProfile";
+import PipBar from "./pipbar";
 import {
   FeedbackContainer,
   LabelContainer,
@@ -11,11 +16,6 @@ import {
   ProfileBody,
   SpeedometerContainer,
 } from "./profile.style";
-import ProfileCard from "../../components/profileCard/profileCard";
-import CollabrationIconMale from "../../assets/icons/collaborator_male.svg";
-import CollabrationIcon from "../../assets/icons/collabrating_circle.svg";
-import ManagerIcon from "../../assets/icons/manager.svg";
-import FeedbackCard from "./feedbackProfile";
 
 const performanceDescriptions = {
   1: "Completely away",
@@ -28,7 +28,7 @@ const performanceDescriptions = {
 };
 const feedbackData = [
   {
-    name: "steven",
+    name: "Steven",
     date: "2024-09-11T03:53:09.000Z",
     feedback:
       "Your way of presenting the topic was very good in the client meeting",
@@ -38,6 +38,17 @@ const feedbackData = [
     response_submitted_datetime: "2024-09-11T03:55:00.000Z",
     response_text: "Thanks! I'll try to improve further 👍",
     feedback_response: "Happy to hear it from you.",
+  },
+  {
+    name: "Emily",
+    date: "2024-09-10T09:22:15.000Z",
+    feedback: "Great job on completing the project before the deadline.",
+    rating: "Excellent",
+    performance: "Outstanding",
+    response_status: true,
+    response_submitted_datetime: "2024-09-10T09:25:45.000Z",
+    response_text: "Appreciate your recognition! 😊",
+    feedback_response: "Keep up the good work!",
   },
 ];
 
